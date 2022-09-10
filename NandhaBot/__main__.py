@@ -1,13 +1,13 @@
 import importlib
-from Mio.plugins import ALL_MODULES
-from Mio import bot, get_command, BOT_NAME, START_TIME
 import time
-from Mio.utils.readable import get_readable_time
-from Mio.plugins.start import PM_MIO_TEXT, PM_MIO_PIC, START_KEYBOARD
-from Mio.utils.misc import paginate_modules
+from NandhaBot.plugins import ALL_MODULES
+from NandhaBot import bot
+from NandhaBot.utils.misc import paginate_modules
 from pyrogram import filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, InputMediaPhoto
 import re
+
+BOT_NAME = "TrunksRobot"
 
 HELPABLE = {}
 
