@@ -8,7 +8,7 @@ async def paste(_, message):
   try:
      BASE = "https://batbin.me/"
      if not message.reply_to_message:
-          return await message.reply_text("<b> Reply to Document OR Message </b>")
+          return await message.reply_text("<b> Reply to Document</b>\n<b>OR Message </b>")
      elif message.reply_to_message.document:
         doc = await m.reply_to_message.download()
         async with aiofiles.open(doc, mode="r") as f:
@@ -27,4 +27,4 @@ async def paste(_, message):
         await message.reply_photo(photo=batbin_link,caption=batbin_link)
         
   except Exception as e:
-       await m.reply(f"**ERROR**: {e}")
+       await message.reply_text(f"**ERROR**: {e}")
