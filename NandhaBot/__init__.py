@@ -11,7 +11,7 @@ BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
 
 
 ### Client Run Code ###
-plugins = dict(root="NandhaBot/pligins")
+plugins = dict(root="NandhaBot")
 
 bot = Client(name="nandhabot", 
              api_id=API_ID, 
