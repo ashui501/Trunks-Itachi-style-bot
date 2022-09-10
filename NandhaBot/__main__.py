@@ -12,6 +12,7 @@ from NandhaBot.helpers.dbfunctions import (
 
 @bot.on_message(filters.command("start"))
 async def start(_, message):
+    try:
        user_id = message.from_user.id
        chat_id = message.chat.id
        info = await bot.get_chat(user_id) 
@@ -19,12 +20,15 @@ async def start(_, message):
            await add_user(info.id)
            user_count = len(await get_users())                                                                                     
            await message.reply_text("<b> Nani boi? </b>")
-           await bot.send_message(chat_id=chat_id, text.NEW_USERS.format(info.id,info.mention,user_count))
+           await bot.send_message(chat_id, text=text.NEW_USERS.format(info.id, info.mention, user_count))
        elif message.chat.type == ChatType.PRIVATE and (await is_user(user_id):    
             return await message.reply_text("<b> ok boi </b>")                                           
        elif not message.chat.type == ChatType.PRIVATE:                                           
            return await message.reply_text(random.choice(text.GROUP_START_TEXT)
 
+    except Exception as error:
+                 await message.reply(f"**ERROR**: {error}")
+       
 
 if __name__ == "__main__":
      bot.run()
