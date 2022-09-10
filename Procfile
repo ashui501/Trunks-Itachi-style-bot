@@ -1,1 +1,1 @@
-worker: python3 -m Mikasa
+worker: python3 -m NandhaBot
