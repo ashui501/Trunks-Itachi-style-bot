@@ -1,5 +1,6 @@
 from pyrogram import filters , Client
 from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+from aiohttp import ClientSession
 
 import os , time
 
@@ -26,3 +27,5 @@ DB_URL = "mongodb+srv://Bave999:Bave999@cluster0.1aheaa1.mongodb.net/?retryWrite
 mongo = MongoClient(DB_URL)
 mongodb = mongo.bot 
 
+##some imports 
+aiohttpsession = ClientSession()
