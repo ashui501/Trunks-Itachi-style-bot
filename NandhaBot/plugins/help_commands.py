@@ -4,7 +4,8 @@ from pyrogram import filters
 from pyrogram.types import *
 from NandhaBot import bot
 
-HELP_BUTTONS = [[InlineKeyboardButton(text="YT/DL", callback_data="youtube"),]]
+HELP_BUTTONS = [[InlineKeyboardButton(text="YOUTUBE", callback_data="youtube"),
+                InlineKeyboardButton(text="PASTE", callback_data="paste"),]]
 BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help"),]]
       
    
@@ -15,8 +16,11 @@ async def help(_, message):
       
 
 @bot.on_callback_query()
-def helpdata(_, query):
+async def helpdata(_, query):
    if query.data == "help":
-      query.message.edit_caption(text.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
+      await query.message.edit_caption(text.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
    elif query.data == "youtube":
-       query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+       await query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+   elif query.data == "paste":
+       await query.message.edit_caption(text.PASTE_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+   
