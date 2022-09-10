@@ -14,7 +14,7 @@ from pyrogram.types import *
 from NandhaBot import bot
 
 
-@bot.on_message(filters.command("ytvideo",config.COMMANDS))
+@bot.on_message(filters.command("video",config.COMMANDS))
 async def vsong(client, message):
     ydl_opts = {
         "format": "best",
@@ -73,7 +73,7 @@ ydl_opts = {
     "quite": True,
 }        
 
-@bot.on_message(filters.command("ytaudio", config.COMMANDS))
+@bot.on_message(filters.command("song", config.COMMANDS))
 def download_song(_, message):
     query = " ".join(message.command[1:])  
     print(query)
