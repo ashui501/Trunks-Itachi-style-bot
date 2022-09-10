@@ -1,7 +1,7 @@
 from pyrogram import filters , Client
 import os , time
 
-from telegraph import Telegraph
+
 StartTime = time.time()
 
 MOD_LOAD = []
