@@ -3,7 +3,9 @@ from pyrogram import filters
 from pyrogram.types import *
 
 
-@bot.on_message(filters.command("
+@bot.on_message(filters.command("start"))
+async def start(_, message):
+       await message.reply_text("<b> Nani boi? </b>")
 
 
 if __name__ == "__main__":
