@@ -7,3 +7,4 @@ motor
 youtube_search
 yt_dlp
 wget 
+aiofiles
