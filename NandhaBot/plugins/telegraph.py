@@ -2,7 +2,11 @@ from pyrogram import filters
 from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
 from NandhaBot import bot
-from telegraph import upload_file
+from telegraph import upload_file, Telegraph
+
+
+telegraph = Telegraph()
+telegraph.create_account(short_name="@TrunksRobot")
 
 @bot.on_message(filters.command("txt"))
 async def txt(_, message):
