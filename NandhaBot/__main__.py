@@ -23,8 +23,6 @@ async def start(_, message):
            await message.reply_text("<b> Nani boi? </b>")
            await bot.send_message(chat_id, text=text.NEW_USERS.format(info.id, info.mention, user_count))
        elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
-            gname  = get_chat(config.GROUP).username
-            chat_username = "@" + str(gname)
             return await message.reply_text("""<b>Happy to See you {}!</b>\n
                  <b>Read the help menu for about futures.</b>""",reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
@@ -38,4 +36,4 @@ if __name__ == "__main__":
      bot.run()
      photo_url = "http://telegra.ph/file/103f51de685933820f969.jpg"
      with bot:
-        bot.send_photo(config.GROUP,photo=photo_url,caption="<b>I'm Awake Already!</b>")
+        bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>")
