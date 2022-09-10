@@ -41,6 +41,6 @@ if __name__ == "__main__":
      photo_url = "http://telegra.ph/file/103f51de685933820f969.jpg"
      with bot:
        ok = bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>")
-       asyncio.sleep(10)
+       await asyncio.sleep(10)
        ok.delete()
    
