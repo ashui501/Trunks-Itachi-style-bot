@@ -1,7 +1,8 @@
 from pyrogram import filters , Client
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+
 import os , time
 
-StartTime = time.time()
 
 
 ### Add This Vars On Your Deploying App. ###
@@ -19,4 +20,9 @@ bot = Client(name="nandhabot",
              bot_token=BOT_TOKEN,
              plugins=plugins)
 
+###Mogondb Functions # You can use pymongo module also
+DB_URL = "mongodb+srv://Bave999:Bave999@cluster0.1aheaa1.mongodb.net/?retryWrites=true&w=majority"
+# mongo db url here
+mongo = MongoClient(DB_URL)
+mongodb = mongo.bot 
 
