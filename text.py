@@ -21,11 +21,11 @@ TOTAl USERS: {} </b>
 """
 
 PASTE_HELP = """
-Any problems to Send Your long text 
-else you want share your codes?
+Any problems to Send Your long 
+TEXT We are hereshare your codes Easily!
 
-usage:
-- /paste: reply to document else text
+- /paste: message.text 
+   or document.text only support.
 
 {}
 """
