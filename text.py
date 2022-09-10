@@ -1,6 +1,7 @@
 PM_START_TEXT = """
 """
 HELP_TEXT = """
+here the help menu commands:
 """
 
 START_IMAGE = ""
