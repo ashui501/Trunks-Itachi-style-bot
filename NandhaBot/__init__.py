@@ -19,3 +19,5 @@ bot = Client(name="nandhabot",
              bot_token=BOT_TOKEN,
              plugins=plugins)
 
+if __name__ in "__main__:
+     bot.start()
