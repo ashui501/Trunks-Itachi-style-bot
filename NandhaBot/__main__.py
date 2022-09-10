@@ -17,8 +17,8 @@ async def start(_, message):
        info = await bot.get_chat(user_id) 
        if message.chat.type == ChatType.PRIVATE and not await is_user(info.id):
            await add_user(info.id)
-           user_count = len(await get_users())                                             
-           await bot.send_message(chat_id=chat_id, text.NEW_USERS.format(info.id,info.mention,user_count))                                           :
+           user_stats = len(await get_users())                                           
+           await bot.send_message(chat_id=chat_id, text.NEW_USERS.format(info.id,info.mention,user_stats))                                           :
            await message.reply_text("<b> Nani boi? </b>")
        elif message.chat.type == ChatType.PRIVATE and (await is_user(user_id):    
             return await message.reply_text("<b> ok boi </b>")                                           
