@@ -5,4 +5,4 @@ motor
 pymongo[srv]
 youtube_search
 yt_dlp
-weget 
+wget 
