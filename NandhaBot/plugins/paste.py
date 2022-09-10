@@ -1,3 +1,5 @@
+import aiofiles
+
 from pyrogram import filters
 from pyrogram.types import *
 from NandhaBot import bot
@@ -18,7 +20,7 @@ async def paste(_, message):
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
         await message.reply_photo(photo=batbin_link,caption=batbin_link,
-                    reply_markup=InlineKeyboardMarkup[[InlineKeyboardButton(text="Link 🔗", url=batbin_link)]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Link 🔗", url=batbin_link)]]))
         
      elif message.reply_to_message.text:
         text = message.reply_to_message.text
@@ -26,7 +28,7 @@ async def paste(_, message):
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
         await message.reply_photo(photo=batbin_link,caption=batbin_link,
-                    reply_markup=InlineKeyboardMarkup[[InlineKeyboardButton(text="Link 🔗", url=batbin_link)]])
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="Link 🔗", url=batbin_link)]]))
         
   except Exception as e:
        await message.reply_text(f"**ERROR**: {e}")
