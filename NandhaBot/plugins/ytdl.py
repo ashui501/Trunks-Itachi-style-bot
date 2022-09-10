@@ -2,7 +2,7 @@ import asyncio
 import requests
 import wget
 import yt_dlp
-
+import config
 
 from youtube_search import YoutubeSearch
 from yt_dlp import YoutubeDL
@@ -13,7 +13,7 @@ from pyrogram.types import *
 from NandhaBot import bot
 
 
-@bot.on_message(filters.command("ytvideo"))
+@bot.on_message(filters.command("ytvideo",config.COMMANDS))
 async def vsong(client, message):
     ydl_opts = {
         "format": "best",
@@ -72,7 +72,7 @@ ydl_opts = {
     "quite": True,
 }        
 
-@bot.on_message(filters.command("ytaudio"))
+@bot.on_message(filters.command("ytaudio", config.COMMANDS))
 def download_song(_, message):
     query = " ".join(message.command[1:])  
     print(query)
