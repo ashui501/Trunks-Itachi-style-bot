@@ -10,6 +10,7 @@ telegraph.create_account(short_name="@TrunksRobot")
 
 @bot.on_message(filters.command("txt"))
 async def txt(_, message):
+  try:
     reply = message.reply_to_message
 
     if not reply or not reply.text:
@@ -27,25 +28,33 @@ async def txt(_, message):
         [InlineKeyboardButton('View 💫' , url=f"{page['url']}")]
     ]),disable_web_page_preview=True,
     )
+  except Exception as e:
+       await message.reply_text(f"**ERROR**: {e}")
+    
         
 
 @bot.on_message(filters.command('tm'))
 def tm(_,message):
-    reply = message.reply_to_message
-    if not reply:
+  try:
+     reply = message.reply_to_message
+     if not reply:
           return message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
-    if reply.text:
+     if reply.text:
           return message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
-    msg = message.reply_text("downloading")
-    if reply.media:
+     msg = message.reply_text("downloading")
+     if reply.media:
         path = reply.download()
         fk = upload_file(path)
         for x in fk:
            url = "https://telegra.ph" + x
-    msg.edit("uploading")
-    buttons = [[InlineKeyboardButton('View 💫' , url=f"{url}")]] 
-    if url.endswith("jpg"):
+      msg.edit("uploading")
+      buttons = [[InlineKeyboardButton('View 💫' , url=f"{url}")]] 
+      if url.endswith("jpg"):
              message.reply_photo(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
-    elif url.endswith("mp4"):
-             message.reply_animation(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
-    msg.delete()
+      elif url.endswith("mp4"):
+           message.reply_animation(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
+      msg.delete()
+  except Exception as e:
+       await message.reply_text(f"**ERROR**: {e}")
+    
+     
