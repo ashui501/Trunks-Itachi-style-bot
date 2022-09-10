@@ -2,6 +2,7 @@ pyrogram
 pymongo[srv]
 aiohttp
 tgcrypto
+telegraph
 requests
 motor
 youtube_search
