@@ -5,6 +5,8 @@ HELP_TEXT = """
 
 START_IMAGE = ""
 
+NANDHA = "Made by @NandhaBots"
+
 GROUP_START_TEXT = ( "<b>Nani Kawa Yo 〣( ºΔº )〣?</b>",
                      "<b>What's Matters   ¯\(°_o)/¯ ? </b>",
                      "<b>I Already Awake.  ( • ̀ω•́  )! </b>",
@@ -18,6 +20,15 @@ TOTAl USERS: {} </b>
 """
 
 HELP_BACK = """
+"""
+YT_HELP = """
+download any song or videos 
+using our bot fast to dl speed.
+
+/song query: audio song files.
+/video query: video song files.
+
+{}
 """
 
 ADMINS = """
