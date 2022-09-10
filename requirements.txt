@@ -1,8 +1,9 @@
 pyrogram
+pymongo[srv]
+aiohttp
 tgcrypto
 requests
 motor
-pymongo[srv]
 youtube_search
 yt_dlp
 wget 
