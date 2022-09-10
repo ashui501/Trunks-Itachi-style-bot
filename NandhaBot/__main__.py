@@ -14,9 +14,9 @@ from NandhaBot.helpers.dbfunctions import (
 async def start(_, message):
        user_id = message.from_user.id
        chat_id = message.chat.id
-       if message.chat.type == ChatType.PRIVATE and not await is_user(user_id):
-           await add_user(user_id)
-           info = await bot.get_chat(user_id) 
+       info = await bot.get_chat(user_id) 
+       if message.chat.type == ChatType.PRIVATE and not await is_user(info.id):
+           await add_user(info.id)
            user_count = len(await get_users())                                             
            await bot.send_message(chat_id, text.NEW_USERS.format(info.id,info.mention,user_count))                                           :
            await message.reply_text("<b> Nani boi? </b>")
