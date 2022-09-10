@@ -21,10 +21,10 @@ async def start(_, message):
            user_count = len(await get_users())                                                                                     
            await message.reply_text("<b> Nani boi? </b>")
            await bot.send_message(chat_id, text=text.NEW_USERS.format(info.id, info.mention, user_count))
-       elif message.chat.type == ChatType.PRIVATE and await is_user(user_id):    
+       elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):    
             return await message.reply_text("<b> ok boi </b>")                                           
        elif not message.chat.type == ChatType.PRIVATE:                                           
-           return await message.reply_text(random.choice(text.GROUP_START_TEXT)
+           return await message.reply_text(random.choice(text.GROUP_START_TEXT))
 
     except Exception as error:
                  await message.reply(f"**ERROR**: {error}")
