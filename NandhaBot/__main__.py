@@ -1,5 +1,5 @@
 import config
-import string
+import text
 import random 
 from NandhaBot import bot
 from pyrogram import filters
@@ -12,7 +12,7 @@ async def start(_, message):
        if message.chat.type == ChatType.PRIVATE:
            return await message.reply_text("<b> Nani boi? </b>")
        elif not message.chat.type == ChatType.PRIVATE:
-           return await message.reply_text(random.chioce(string.GROUP_START_TEXT))
+           return await message.reply_text(random.chioce(text.GROUP_START_TEXT))
 
 
 if __name__ == "__main__":
