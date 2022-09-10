@@ -9,7 +9,7 @@ from NandhaBot.helpers.dbfunctions import add_user, is_user, get_users
        
 
 
-@bot.on_message(filters.command("start"))
+@bot.on_message(filters.command("start",config.COMMANDS))
 async def start(_, message):
     try:
        user_id = message.from_user.id
