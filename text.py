@@ -22,7 +22,7 @@ TOTAl USERS: {} </b>
 
 PASTE_HELP = """
 Any problems to Send Your long 
-TEXT We are hereshare your codes Easily!
+TEXT We are here to share your codes Easily!
 
 - /paste: message.text 
    or document.text only support.
