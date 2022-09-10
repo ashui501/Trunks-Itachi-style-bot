@@ -19,4 +19,4 @@ def helpdata(_, query):
    if query.data == "help":
       query.message.edit_caption(text.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
    elif query.data == "youtube":
-       query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
+       query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
