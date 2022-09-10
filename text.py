@@ -9,6 +9,13 @@ GROUP_START_TEXT = ( "<b>Nani Kawa Yo 〣( ºΔº )〣?</b>",
                      "<b>What's Matters   ¯\(°_o)/¯ ? </b>",
                      "<b>I Already Awake.  ( • ̀ω•́  )! </b>",
                      "<b>Hey What Now?     ¯\_(ツ)_/¯ </b>")
+NEW_USERS = """ <b> NEW USER ARRIVED!
+
+UID: {}
+UNAME: {}
+
+TOTAl USERS: {} </b>
+"""
 
 HELP_BACK = """
 """
