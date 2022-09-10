@@ -8,7 +8,9 @@ from pyrogram.enums import *
 from NandhaBot.helpers.dbfunctions import add_user, is_user, get_users 
        
 
-
+       
+BUTTONS = [[ InlineKeyboardButton(text="SUPPORT", url=)
+            
 @bot.on_message(filters.command("start",config.COMMANDS))
 async def start(_, message):
     try:
@@ -20,8 +22,11 @@ async def start(_, message):
            user_count = len(await get_users())                                                                                     
            await message.reply_text("<b> Nani boi? </b>")
            await bot.send_message(chat_id, text=text.NEW_USERS.format(info.id, info.mention, user_count))
-       elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):    
-            return await message.reply_text("<b> ok boi </b>")                                           
+       elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
+            gname  = get_chat(config.GROUP).username
+            chat_username = "@" + str(gname)
+            return await message.reply_text("""<b>Happy to See you {}!</b>\n
+                 <b>Read the help menu for about futures.</b>""",reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
            return await message.reply_text(random.choice(text.GROUP_START_TEXT))
 
