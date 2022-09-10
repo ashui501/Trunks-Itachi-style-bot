@@ -19,7 +19,7 @@ async def start(_, message):
     try:
        user_id = message.from_user.id
        chat_id = message.chat.id
-       info = await bot.get_chat(user_id) 
+       info = await bot.get_users(user_id) 
        if message.chat.type == ChatType.PRIVATE and not await is_user(info.id):
            await add_user(info.id)
            user_count = len(await get_users())                                                                                     
