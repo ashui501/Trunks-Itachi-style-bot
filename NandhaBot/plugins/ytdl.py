@@ -3,6 +3,7 @@ import requests
 import wget
 import yt_dlp
 import config
+import os
 
 from youtube_search import YoutubeSearch
 from yt_dlp import YoutubeDL
@@ -107,7 +108,7 @@ def download_song(_, message):
         message.reply_audio(
             audio_file,
             thumb=thumb_name,
-            title=title,
+            title=f"{title}\n**Request by {message.from_user.mention}**",
             duration=dur
         )
         m.delete()
