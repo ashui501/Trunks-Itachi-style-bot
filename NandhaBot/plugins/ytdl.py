@@ -108,7 +108,8 @@ def download_song(_, message):
         message.reply_audio(
             audio_file,
             thumb=thumb_name,
-            title=f"{title}\n**Request by {message.from_user.mention}**",
+            title=title,
+            caption=f"{title}\n**Request by {message.from_user.mention}**",
             duration=dur
         )
         m.delete()
