@@ -20,6 +20,16 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
+PASTE_HELP = """
+Any problems to Send Your long text 
+else you want share your codes?
+
+usage:
+- /paste: reply to document else text
+
+{}
+"""
+
 HELP_BACK = """
 """
 YT_HELP = """
