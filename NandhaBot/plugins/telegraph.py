@@ -1,3 +1,5 @@
+import config
+
 from pyrogram import filters
 from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
@@ -9,7 +11,7 @@ from telegraph import upload_file
 telegraph = Telegraph()
 telegraph.create_account(short_name="@TrunksRobot")
 
-@bot.on_message(filters.command("txt"))
+@bot.on_message(filters.command("txt",config.COMMANDS))
 async def txt(_, message):
   try:
     reply = message.reply_to_message
@@ -34,7 +36,7 @@ async def txt(_, message):
     
         
 
-@bot.on_message(filters.command('tm'))
+@bot.on_message(filters.command('tm',config.COMMANDS))
 def tm(_,message):
   try:
      reply = message.reply_to_message
