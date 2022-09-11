@@ -9,7 +9,10 @@ from pyrogram.enums import ParseMode
 async def wikisearch(_, message):
       if len(message.command) < 2:
           return await message.reply_text("example:\n`/wiki telegram`")
-      query =  message.text.split(None, 1)[1] 
+      query = message.text.split(None, 1)[1]
+        if len(message.command) < 3
+        else message.text.split(None, 1)[1].replace(" ", "%20")
+    ) 
       msg = await message.reply_text("**Searching in Wikipedia...**")                          
       results = wikipedia.search(query)
       result = ""
