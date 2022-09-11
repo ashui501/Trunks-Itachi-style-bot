@@ -5,7 +5,7 @@ from NandhaBot import bot
 from pyrogram.enums import ParseMode
 
 @bot.on_message(filters.command("wiki",config.COMMANDS))
-async def wikipediasearch(_, message: Message):
+async def wikipediasearch(_, message):
     reply = message.reply_to_message
     if len(message.command) < 2:
           await message.reply_text("example:\n`/wiki telegram`")
