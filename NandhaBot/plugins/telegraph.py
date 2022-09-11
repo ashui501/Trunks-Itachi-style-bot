@@ -41,13 +41,13 @@ async def tm(_,message):
           return await message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
      if reply.text:
           return await message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
-     await msg = message.reply_text("downloading")
+     msg = await message.reply_text("downloading")
      if reply.media:
         path = reply.download()
         fk = upload_file(path)
         for x in fk:
            url = "https://telegra.ph" + x
-     msg.edit("uploading")
+     await msg.edit("uploading")
      buttons = [[InlineKeyboardButton('View 💫' , url=f"{url}")]] 
      if url.endswith("jpg"):
             await message.reply_photo(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
