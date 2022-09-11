@@ -1,11 +1,13 @@
 pyrogram
 pymongo[srv]
 aiohttp
+aiofiles
 tgcrypto
 telegraph
 requests
 motor
 youtube_search
 yt_dlp
+wikipedia
 wget 
-aiofiles
+
