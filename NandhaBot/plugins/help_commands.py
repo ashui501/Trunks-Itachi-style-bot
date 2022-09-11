@@ -23,4 +23,6 @@ async def helpdata(_, query):
        await query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
    elif query.data == "paste":
        await query.message.edit_caption(text.PASTE_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+   elif query.data == "telegraph":
+       await query.message.edit_caption(text.TELEGRAPH_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
    
