@@ -22,7 +22,7 @@ async def wikisearch(_, message):
             page = wikipedia.page(s)
             url = page.url
             result += f"> [{s}]({url}) \n"
-      await msg.edit_text(
+      await message.reply_text(
          "**WikiPedia Search: {}** \n\n**Search Result:** \n\n{}".format(query, result),parse_mode=ParseMode.MARKDOWN ,disable_web_page_preview=True)  
                                  
       
