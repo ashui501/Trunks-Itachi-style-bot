@@ -25,6 +25,6 @@ async def wikipediasearch(_, message):
         except BaseException:
             pass
     await message.reply_text(
-        "**WikiPedia Search: {}** \n**Result:** \n\n{}".format(query, result), disable_web_page_preview=True)
+        "**WikiPedia Search: {}** \n\n**Result:**\n{}".format(query, result), disable_web_page_preview=True)
     await msg.delete()                        
       
