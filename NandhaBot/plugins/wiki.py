@@ -4,7 +4,7 @@ from pyrogram import filters
 from NandhaBot import bot
 
 
-@bot.on_message(filters.command(["wiki",config.COMMANDS))
+@bot.on_message(filters.command("wiki",config.COMMANDS))
 async def wikisearch(_, message):
    try: 
       if len(message.command) < 2:
