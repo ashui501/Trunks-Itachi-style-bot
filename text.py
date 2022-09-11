@@ -21,10 +21,18 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
-WIKI_HELP = """
-Search Wikipedia For You 
-Querys.. Wikipedia Number
+GIT_HELP = """
+Information about github 
+user with profile photo.
 
+Example:
+- /github github username.
+
+{}
+"""
+
+WIKI_HELP = """
+Search Wikipedia For You Querys..
 
 Example:
 - `/wiki telegram`
