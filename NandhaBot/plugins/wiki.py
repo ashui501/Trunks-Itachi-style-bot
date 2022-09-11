@@ -14,16 +14,17 @@ async def wikipediasearch(_, message):
     if not query:
         await message.reply_text("Invalid Syntax see help menu to know how to use this command")
         return
+    msg = await message.reply_text("**Searching...**")
     results = wikipedia.search(query)
     result = ""
     for s in results:
         try:
             page = wikipedia.page(s)
             url = page.url
-            result += f"> [{s}]({url}) \n"
+            result += f"• [{s}]({url}) \n"
         except BaseException:
             pass
     await message.reply_text(
-        "**WikiPedia Search: {}** \n\n**Result:** \n\n{}".format(query, result), disable_web_page_preview=True)
-                                 
+        "**WikiPedia Search: {}** \n**Result:** \n\n{}".format(query, result), disable_web_page_preview=True)
+    await msg.delete()                        
       
