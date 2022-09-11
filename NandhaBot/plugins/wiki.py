@@ -2,6 +2,7 @@ import wikipedia
 import config
 from pyrogram import filters
 from NandhaBot import bot
+from pyrogram.enums import ParseMode
 
 
 @bot.on_message(filters.command("wiki",config.COMMANDS))
@@ -18,6 +19,6 @@ async def wikisearch(_, message):
             url = page.url
             result += f"> [{s}]({url}) \n"
       await msg.edit_text(
-         "**WikiPedia Search: {}** \n\n**Search Result:** \n\n{}".format(query, result), disable_web_page_preview=True)  
+         "**WikiPedia Search: {}** \n\n**Search Result:** \n\n{}".format(query, result),parse_mode=ParseMode.HTML ,disable_web_page_preview=True)  
                                  
       
