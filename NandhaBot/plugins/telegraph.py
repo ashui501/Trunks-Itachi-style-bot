@@ -35,26 +35,26 @@ async def txt(_, message):
         
 
 @bot.on_message(filters.command('tm'))
-async def tm(_,message):
+def tm(_,message):
   try:
      reply = message.reply_to_message
      if not reply:
-          return await message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
+          return message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
      if reply.text:
-          return await message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
+          return message.reply_text("Reply to a **Media** to get a permanent telegra.ph link.")
      if reply.media:
         path = reply.download()
         fk = upload_file(path)
         for x in fk:
            url = "https://telegra.ph" + x
-     await msg.edit_text("**uploading....**")
+     msg.edit_text("**uploading....**")
      buttons = [[InlineKeyboardButton('View 💫' , url=f"{url}")]] 
      if url.endswith("jpg"):
-            await message.reply_photo(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
+           message.reply_photo(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
      elif url.endswith("mp4"):
-           await message.reply_animation(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
-     await msg.delete()
+          message.reply_animation(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
+     msg.delete()
   except Exception as e:
-       await message.reply_text(f"**ERROR**: {e}")
+       message.reply_text(f"**ERROR**: {e}")
     
      
