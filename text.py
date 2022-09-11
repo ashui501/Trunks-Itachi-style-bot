@@ -21,6 +21,17 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
+WIKI_HELP = """
+Search Wikipedia For You 
+Querys.. Wikipedia Number
+
+
+Example:
+- `/wiki telegram`
+
+{}
+"""
+
 TELEGRAPH_HELP = """
 upload your media to telegraph 
 for instead view and also you
