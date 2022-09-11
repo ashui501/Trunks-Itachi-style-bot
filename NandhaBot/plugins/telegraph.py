@@ -51,9 +51,9 @@ async def tm(_,message):
      buttons = [[InlineKeyboardButton('View 💫' , url=f"{url}")]] 
      if url.endswith("jpg"):
             await message.reply_photo(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
-      elif url.endswith("mp4"):
+     elif url.endswith("mp4"):
            await message.reply_animation(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
-      await msg.delete()
+     await msg.delete()
   except Exception as e:
        await message.reply_text(f"**ERROR**: {e}")
     
