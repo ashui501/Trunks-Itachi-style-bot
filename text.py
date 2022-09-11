@@ -9,15 +9,24 @@ START_IMAGE = ""
 NANDHA = "Made by @NandhaBots"
 
 GROUP_START_TEXT = ( "<b>Nani Kawa Yo 〣( ºΔº )〣?</b>",
-                     "<b>What's Matters   ¯\(°_o)/¯ ? </b>",
+                     "<b>What's Matter   ¯\(°_o)/¯ ? </b>",
                      "<b>I Already Awake.  ( • ̀ω•́  )! </b>",
                      "<b>Hey What Now?     ¯\_(ツ)_/¯ </b>")
+
 NEW_USERS = """ <b> NEW USER ARRIVED!
 
 UID: {}
 UNAME: {}
 
 TOTAl USERS: {} </b>
+"""
+
+TELEGRAPH_HELP = """
+upload your media to telegraph 
+for instead view and also you can 
+create page for instead. 
+
+{}
 """
 
 PASTE_HELP = """
