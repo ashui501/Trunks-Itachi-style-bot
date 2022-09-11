@@ -23,8 +23,11 @@ TOTAl USERS: {} </b>
 
 TELEGRAPH_HELP = """
 upload your media to telegraph 
-for instead view and also you can 
-create page for instead. 
+for instead view and also you
+can create page.. 
+
+- /tm - upload telegraph.
+- /txt - creat telegraph page. 
 
 {}
 """
