@@ -4,8 +4,11 @@ from pyrogram import filters
 from pyrogram.types import *
 from NandhaBot import bot
 
-HELP_BUTTONS = [[InlineKeyboardButton(text="YOUTUBE", callback_data="youtube"),
-                InlineKeyboardButton(text="PASTE", callback_data="paste"),]]
+HELP_BUTTONS = [[
+  InlineKeyboardButton(text="youtube", callback_data="youtube"),
+  InlineKeyboardButton(text="paste", callback_data="paste"),
+  InlineKeyboardButton(text="telegraph", callback_data="telegraph"),]]
+
 BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help"),]]
       
    
