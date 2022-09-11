@@ -9,7 +9,7 @@ HELP_BUTTONS = [[
   InlineKeyboardButton(text="Paste", callback_data="paste"),
   InlineKeyboardButton(text="Telegraph", callback_data="telegraph"),],[
   InlineKeyboardButton(text="Wikipedia ", callback_data="wiki"),
-  InlineKeyboardButton(text="Github ", callback_data="githubi"),]]
+  InlineKeyboardButton(text="Github ", callback_data="github"),]]
 
 BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help"),]]
       
