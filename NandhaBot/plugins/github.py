@@ -30,5 +30,9 @@ async def git(_, message):
         kek = get(res['avatar_url']).content
         f.write(kek)
 
-    await msg.edit_media(media=InputMediaPhoto(photo=f"{user}.jpg", caption=data))
+    await msg.edit_media(edit_media(
+    media=InputMediaPhoto(
+      f"{user}.jpg",
+      caption=data
+    ),)
     os.remove(f"{user}.jpg")
