@@ -141,7 +141,7 @@ def dance(_, m: Message):
           url = api["results"][0]['url']
           m.reply_animation(animation=url)
 
-@bot.on_message(filters.command("baka",config.COMMANdS))
+@bot.on_message(filters.command("baka",config.COMMANDS))
 def baka(_, m: Message):
       reply = m.reply_to_message
       if reply:
