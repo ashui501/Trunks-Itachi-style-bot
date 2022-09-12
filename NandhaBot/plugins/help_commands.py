@@ -8,8 +8,9 @@ HELP_BUTTONS = [[
   InlineKeyboardButton(text="Youtube", callback_data="youtube"),
   InlineKeyboardButton(text="Paste", callback_data="paste"),
   InlineKeyboardButton(text="Telegraph", callback_data="telegraph"),],[
-  InlineKeyboardButton(text="Wikipedia ", callback_data="wiki"),
-  InlineKeyboardButton(text="Github ", callback_data="github"),]]
+  InlineKeyboardButton(text="Wiki ", callback_data="wiki"),
+  InlineKeyboardButton(text="Github ", callback_data="github"),
+  InlineKeyboardButton(text="Github ", callback_data="game"),]]
 
 BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help"),]]
       
@@ -34,4 +35,6 @@ async def helpdata(_, query):
        await query.message.edit_caption(text.WIKI_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
    elif query.data == "github":
        await query.message.edit_caption(text.GIT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+   elif query.data == "game":
+       await query.message.edit_caption(text.GAME_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
    
