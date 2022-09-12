@@ -11,7 +11,7 @@ async def git(_, message):
     if len(message.command) < 2:
         return await message.reply_text("/github name")
     photo_url = "https://telegra.ph/file/464250261a5f8a8aaa8b3.jpg"
-    msg = await message.reply_photo(photo_url,"**Result Gathering.....**")
+    msg = await message.reply_photo(photo_url,caption="**Result Gathering.....**")
     user = message.text.split(None, 1)[1]
     res = get(f'https://api.github.com/users/{user}').json()
     data = f"""**Name**: {res['name']}
