@@ -2,6 +2,7 @@ from NandhaBot import bot
 from pyrogram import filters 
 from pyrogram.types import Message 
 import requests 
+import config
 
 
 @bot.on_message(filters.command("cuddle",config.COMMANDS))
