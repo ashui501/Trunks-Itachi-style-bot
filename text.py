@@ -21,6 +21,29 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
+NEKOS_HELP = """
+Animation Reactions:-
+
+want some anime images?
+use:- neko, waifu handlers.
+
+Anime Animation:-
+cry, kill, smile, 
+highfive, slap, kick, 
+hug, pat, punch,
+sleep, wink, think, 
+feed, tickle, shoot, 
+thumbsup, smug, laugh, 
+bore, baka, dance,
+blush, facepalm, stare, 
+pout, handhold, wave, 
+cuddle, poke, shrug.
+
+please use with handlers.
+
+{}
+"""
+
 GAME_HELP = """
 Here the some game 
 module for you let's play...
