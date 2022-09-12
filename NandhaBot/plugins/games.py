@@ -1,9 +1,10 @@
 from pyrogram import filters
 from NandhaBot import bot
 import requests 
+import config
 
 
-@bot.on_message(filters.command("dare"))
+@bot.on_message(filters.command("dare",config.COMMANDS))
 async def dare(_, m):
          reply = m.reply_to_message
          if reply:
@@ -24,7 +25,7 @@ Dare**: `{text}`
                """
                await m.reply_text(dare)
 
-@bot.on_message(filters.command("truth"))
+@bot.on_message(filters.command("truth",config.COMMANDS))
 async def truth(_, m):
          reply = m.reply_to_message
          if reply:
