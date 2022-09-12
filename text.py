@@ -21,6 +21,16 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
+GAME_HELP = """
+Here the some game 
+module for you let's play...
+
+- /dare: reply or self 
+- /truth: reply or self
+
+{}
+"""
+
 GIT_HELP = """
 Information about github 
 user with profile photo.
