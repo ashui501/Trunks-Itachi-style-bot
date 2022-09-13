@@ -5,6 +5,7 @@ import sys
 import config
 
 from contextlib import redirect_stdout
+from requests import post
 from subprocess import getoutput as run
 from NandhaBot import bot
 from pyrogram.types import *
