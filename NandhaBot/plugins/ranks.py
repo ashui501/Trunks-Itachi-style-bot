@@ -92,7 +92,7 @@ def sendlogs(_, m):
 
 
 
-@bot.on_callback_query(filters.regex("sendfile"))
+@bot.on_callback_query(filters.regex(r"sendfile"))
 def sendfilecallback(_, query: CallbackQuery):
     sender = query.from_user.id
     query.message.chat.id
