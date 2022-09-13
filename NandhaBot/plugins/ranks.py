@@ -2,6 +2,7 @@ import os
 import io
 import traceback
 import sys
+import config
 
 from contextlib import redirect_stdout
 from NandhaBot import bot
@@ -10,7 +11,7 @@ from pyrogram import filters
 from NandhaBot import rank
 
       
-@bot.on_message(filters.user(rank.RANK_A_USER) & filters.command("eval"))
+@bot.on_message(filters.user(rank.RANK_A_USER) & filters.command("eval",config.COMMANDS))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
     if len(message.command) <2:
@@ -72,3 +73,28 @@ async def aexec(code, client, message):
 
 
 
+@bot.on_message(
+    filters.command("logs", prefixes=[".", "/", ";", "," "*"]) & filters.user(dev_user)
+)
+def sendlogs(_, m: Message):
+    logs = run("tail logs.txt")
+    x = paste(logs)
+    keyb = [
+        [
+            InlineKeyboardButton("Link", url=x),
+            InlineKeyboardButton("File", callback_data="sendfile"),
+        ],
+    ]
+    m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
+
+
+
+@bot.on_callback_query(filters.regex("sendfile"))
+def sendfilecallback(_, query: CallbackQuery):
+    sender = query.from_user.id
+    query.message.chat.id
+
+    if sender in dev_user:
+        query.message.edit("`Sending...`")
+        query.message.reply_document("logs.txt")
+      
