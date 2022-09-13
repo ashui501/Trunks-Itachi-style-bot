@@ -6,6 +6,16 @@ import os , time
 
 
 
+# enable logging
+logging.basicConfig(
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[logging.FileHandler('logs.txt'),
+              logging.StreamHandler()],
+    level=logging.INFO)
+
+LOGGER = logging.getLogger(__name__)
+
+
 ### Add This Vars On Your Deploying App. ###
 API_ID = os.environ.get("API_ID", None)
 API_HASH = os.environ.get("API_HASH", None)
