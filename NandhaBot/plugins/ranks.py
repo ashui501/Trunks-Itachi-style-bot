@@ -13,6 +13,8 @@ from NandhaBot import rank
 @bot.on_message(filters.user(rank.RANK_A_USER) & filters.command("eval"))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
+    if len(message.command) <2:
+        return await status_message.edit("`GIVE CODE TO RUN..`")
     cmd = message.text.split(" ", maxsplit=1)[1]
 
     reply_to_ = message
