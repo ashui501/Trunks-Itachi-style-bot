@@ -85,18 +85,15 @@ def sendlogs(_, m):
     keyb = [
         [
             InlineKeyboardButton("Link", url=x),
-            InlineKeyboardButton("File", callback_data="sendfile"),
+            InlineKeyboardButton("File", callback_data="logs"),
         ],
     ]
     m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
 
 
-
-@bot.on_callback_query(filters.regex("sendfile"))
-def sendfilecallback(_, query):
-    sender = query.from_user.id
-    query.message.chat.id
-    if sender in rank.RANK_A_USER:
-       query.message.edit("`Sending...`")
-       query.message.reply_document("logs.txt")
+@bot.on_callback_query(filters.regex("logs"))
+def logs(_, query):
+    if query.from_user.id in rank.RANK_A_USER:
+         query.message.edit("sending logs")
+         query.message.reply_document("logs.txt")
       
