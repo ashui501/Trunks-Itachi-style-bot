@@ -92,10 +92,11 @@ def sendlogs(_, m):
 
 
 
-@bot.on_callback_query(filters.user(rank.RANK_A_USER) & filters.regex("sendfile"))
-def sendfilecallback(_, query: CallbackQuery):
+@bot.on_callback_query(filters.regex("sendfile"))
+def sendfilecallback(_, query):
     sender = query.from_user.id
     query.message.chat.id
-    query.message.edit("`Sending...`")
-    query.message.reply_document("logs.txt")
+    if sender in rank.RANK_A_USER:
+       query.message.edit("`Sending...`")
+       query.message.reply_document("logs.txt")
       
