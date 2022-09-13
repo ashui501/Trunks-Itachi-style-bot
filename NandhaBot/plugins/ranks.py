@@ -9,6 +9,7 @@ from NandhaBot import bot
 from pyrogram.types import *
 from pyrogram import filters
 from NandhaBot import rank
+from NandhaBot.helpers.paste import spacebin
 
       
 @bot.on_message(filters.user(rank.RANK_A_USER) & filters.command("eval",config.COMMANDS))
@@ -74,11 +75,11 @@ async def aexec(code, client, message):
 
 
 @bot.on_message(
-    filters.command("logs", prefixes=[".", "/", ";", "," "*"]) & filters.user(dev_user)
+    filters.command("logs", config.COMMANDS) & filters.user(rank.RANK_A_USER)
 )
-def sendlogs(_, m: Message):
+def sendlogs(_, m):
     logs = run("tail logs.txt")
-    x = paste(logs)
+    x = spacebin(logs)
     keyb = [
         [
             InlineKeyboardButton("Link", url=x),
@@ -94,7 +95,7 @@ def sendfilecallback(_, query: CallbackQuery):
     sender = query.from_user.id
     query.message.chat.id
 
-    if sender in dev_user:
+    if sender in rank.RANK_A_USER:
         query.message.edit("`Sending...`")
         query.message.reply_document("logs.txt")
       
