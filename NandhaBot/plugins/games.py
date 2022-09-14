@@ -18,7 +18,7 @@ async def basket(_, message):
 async def games(_, query):                  
     if query.data == "basketball":
         await query.message.delete()
-        await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BUTTON))
+        await bot.send_dice(query.message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BUTTON))
                  
 
 #Truth OR Dare Game
