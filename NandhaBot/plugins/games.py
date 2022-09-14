@@ -1,5 +1,6 @@
 from pyrogram import filters
 from NandhaBot import bot
+from pyrogram.types import *
 import requests 
 import config
 
