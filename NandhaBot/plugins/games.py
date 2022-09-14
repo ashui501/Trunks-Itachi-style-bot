@@ -9,7 +9,7 @@ BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="basketball")]]
 async def basket(_, message):
        id = message.id
        await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id,
-                           reply_markup=InlineKeyboardMarkup(BUTTON)
+                           reply_markup=InlineKeyboardMarkup(BUTTON))
 
 
 @bot.on_callback_query()
