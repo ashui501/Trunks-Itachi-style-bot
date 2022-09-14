@@ -3,6 +3,23 @@ from NandhaBot import bot
 import requests 
 import config
 
+BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="basketball")]]
+
+@bot.on_message(filters.command("basketball"))
+async def basket(_, message):
+       id = message.id
+       await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id,
+                           reply_markup=InlineKeyboardMarkup(BUTTON)
+
+
+@bot.on_callback_query()
+async def games(_, query):                  
+    if query.data == "basketball":
+        await query.message.delete()
+        await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BUTTON)
+                 
+
+#Truth OR Dare Game
 
 @bot.on_message(filters.command("dare",config.COMMANDS))
 async def dare(_, m):
