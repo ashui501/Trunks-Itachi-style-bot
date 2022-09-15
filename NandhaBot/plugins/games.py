@@ -32,7 +32,7 @@ async def games(_, query):
         await bot.send_dice(query.message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
     elif query.data == "football" and query.from_user.id == user:
         await query.message.delete()
-        await bot.send_dice(query.message.chat.id, "⚽",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BUTTON))
+        await bot.send_dice(query.message.chat.id, "⚽",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(FOOT_BUTTON))
               
 
 #Truth OR Dare Game
