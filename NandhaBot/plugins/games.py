@@ -9,7 +9,7 @@ FOOT_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="football")]]
 DART_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="dart")]]
 
 
-@bot.on_message(filters.command(["basketball","basket",config.COMMANDS]))
+@bot.on_message(filters.command(["basketball","basket"],config.COMMANDS))
 async def basket(_, message):
        global id, user
        id = message.id
@@ -17,7 +17,7 @@ async def basket(_, message):
        await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id,
                            reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
        
-@bot.on_message(filters.command(["dart","target",config.COMMANDS]))
+@bot.on_message(filters.command(["dart","target"],config.COMMANDS))
 async def dart(_, message):
        global id, user
        id = message.id
