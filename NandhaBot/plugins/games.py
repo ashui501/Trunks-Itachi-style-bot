@@ -5,22 +5,32 @@ import requests
 import config
 
 BASKET_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="basketball")]]
+FOOT_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="football")]]
+
 
 @bot.on_message(filters.command("basketball"))
 async def basket(_, message):
-       global id, user_id
+       global id, user
        id = message.id
-       user_id = message.from_user.id
+       user = message.from_user.id
        await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id,
-                           reply_markup=InlineKeyboardMarkup(BUTTON))
+                           reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
+       
+@bot.on_message(filters.command("football"))
+async def football(_, message):
+       global id, user
+       id = message.id
+       user = message.from_user.id
+       await bot.send_dice(message.chat.id, "⚽",reply_to_message_id=message.id,
+                           reply_markup=InlineKeyboardMarkup(FOOT_BUTTON))
 
 
 @bot.on_callback_query()
 async def games(_, query):                  
-    if query.from_user.id == user_id and query.data == "basketball":
+    if query.data == "basketball" and query.from_user.id == user:
         await query.message.delete()
         await bot.send_dice(query.message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
-    elif query.from_user.id == user_id and query.data == "football":
+    elif query.data == "football" and query.from_user.id == user:
         await query.message.delete()
         await bot.send_dice(query.message.chat.id, "⚽",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BUTTON))
               
