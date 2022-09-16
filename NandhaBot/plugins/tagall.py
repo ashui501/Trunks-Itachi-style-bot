@@ -13,7 +13,7 @@ chatQueue = []
 stopProcess = False
 
 @bot.on_message(filters.command("tag",config.COMMANDS))
-async def everyone(client, message):
+async def everyone(_, message):
   global stopProcess
   try: 
     try:
@@ -83,7 +83,7 @@ async def stop(_, message):
   global stopProcess
   try:
     try:
-      sender = await app.get_chat_member(message.chat.id, message.from_user.id)
+      sender = await bot.get_chat_member(message.chat.id, message.from_user.id)
       has_permissions = sender.privileges
     except:
       has_permissions = message.sender_chat  
