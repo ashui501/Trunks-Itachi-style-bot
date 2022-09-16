@@ -18,9 +18,9 @@ LOGGER = logging.getLogger(__name__)
 
 
 ### Add This Vars On Your Deploying App. ###
-API_ID = os.environ.get("API_ID", None)
-API_HASH = os.environ.get("API_HASH", None)
-BOT_TOKEN = os.environ.get("BOT_TOKEN", None)
+API_ID = os.environ.get("API_ID", 7126006)
+API_HASH = os.environ.get("API_HASH", "f92b05be529835381859ead64a195fa2")
+BOT_TOKEN = os.environ.get("BOT_TOKEN", "5515671520:AAFcuSq058VM8QmShpweRs1p0u0U5pWHIH8")
 
 
 ### Client Run Code ###
