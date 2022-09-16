@@ -41,7 +41,7 @@ async def rollball(_, message):
        global id, user
        id = message.id
        user = message.from_user.id
-       await bot.send_dice(message.chat.id, “🎰",reply_to_message_id=message.id,
+       await bot.send_dice(message.chat.id, “🎲",reply_to_message_id=message.id,
                            reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
 
 
