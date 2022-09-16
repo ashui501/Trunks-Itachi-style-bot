@@ -6,8 +6,7 @@ tgcrypto
 telegraph
 requests
 motor
-youtube_search
-yt_dlp
+youtube_search #yt_dlp banned
 wikipedia
 wget 
 
