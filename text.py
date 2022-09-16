@@ -48,8 +48,15 @@ GAME_HELP = """
 Here the some game 
 module for you let's play...
 
+Truth OR Dare:
 - /dare: reply or self 
 - /truth: reply or self
+
+Send_Dice Games:
+- /roll - rolling 
+- /football - football
+- /basketball - basketball
+- /dart - target
 
 {}
 """
