@@ -2,6 +2,7 @@ pyrogram
 pymongo[srv]
 aiohttp
 aiofiles
+asyncio
 tgcrypto
 telegraph
 requests
