@@ -24,6 +24,8 @@ async def paste(_, message):
         
      elif message.reply_to_message.text:
         text = message.reply_to_message.text
+        if not text:
+               text = message.reply_to_message.caption
         resp = await send(f"{BASE}api/v2/paste", data=text)
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
