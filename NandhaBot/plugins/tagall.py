@@ -34,7 +34,7 @@ async def everyone(_, message):
           elif len(message.command) == 1:
             inputText = ""    
           membersList = []
-          async for member in app.get_chat_members(message.chat.id):
+          async for member in bot.get_chat_members(message.chat.id):
             if member.user.is_bot == True:
               pass
             elif member.user.is_deleted == True:
