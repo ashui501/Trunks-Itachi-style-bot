@@ -338,7 +338,7 @@ def highfive(_, m: Message):
           url = api["url"]      
           m.reply_animation(animation=url)
     
-@bot.on_message(filters.command("slap",config.COMMANDS))
+@bot.on_message(filters.regex("slap") & filters.command("slap",config.COMMANDS))
 def slap(_, m: Message):
        reply = m.reply_to_message
        if reply:
@@ -363,7 +363,7 @@ def kick(_, m: Message):
           url = api["url"]     
           m.reply_animation(animation=url)
     
-@bot.on_message(filters.command("hug",config.COMMANDS))
+@bot.on_message(filtes.regex("hug") & filters.command("hug",config.COMMANDS))
 def hug(_, m: Message):
        reply = m.reply_to_message
        if reply:
@@ -375,7 +375,7 @@ def hug(_, m: Message):
           url = api["url"]  
           m.reply_animation(animation=url)
     
-@bot.on_message(filters.command("pat",config.COMMANDS))
+@bot.on_message(filters.regex("pat") & filters.command("pat",config.COMMANDS))
 def pat(_, m: Message):
        reply = m.reply_to_message
        if reply:
