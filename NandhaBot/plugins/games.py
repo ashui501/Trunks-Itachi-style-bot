@@ -58,7 +58,7 @@ async def games(_, query):
          await bot.send_dice(query.message.chat.id, "🎯",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(DART_BUTTON))
     elif query.data == "rollball" and query.from_user.id == user:
          await query.message.delete()
-         await bot.send_dice(query.message.chat.id, "🎰",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
+         await bot.send_dice(query.message.chat.id, "🎲",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
               
 
 #Truth OR Dare Game
