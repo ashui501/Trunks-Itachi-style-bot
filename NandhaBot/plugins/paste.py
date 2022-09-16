@@ -8,6 +8,7 @@ from NandhaBot.helpers.utils.http import post as send
 @bot.on_message(filters.command("paste"))
 async def paste(_, message):
   try:
+     reply = message.reply_to_message
      BASE = "https://batbin.me/"
      if not message.reply_to_message:
           return await message.reply_text("<b> Reply to Document</b>\n<b>OR Message </b>")
@@ -22,10 +23,8 @@ async def paste(_, message):
         await message.reply_photo(photo=batbin_link,caption=batbin_link,
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="BATBIN LINK!", url=batbin_link)]]))
         
-     elif message.reply_to_message.text:
-        text = message.reply_to_message.text
-        if not text:
-               text = message.reply_to_message.caption
+     elif reply.text or reply.caption:
+        text = reply.text or reply.caption
         resp = await send(f"{BASE}api/v2/paste", data=text)
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
