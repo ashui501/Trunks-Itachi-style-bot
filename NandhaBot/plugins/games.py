@@ -9,7 +9,7 @@ import config
 BASKET_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="basketball")]]
 FOOT_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="football")]]
 DART_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="dart")]]
-ROLL_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="roll")]]
+ROLL_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="rollball")]]
 
 @bot.on_message(filters.command(["basketball","basket"],config.COMMANDS))
 async def basket(_, message):
@@ -48,17 +48,17 @@ async def rollball(_, message):
 @bot.on_callback_query()
 async def games(_, query):                  
     if query.data == "basketball" and query.from_user.id == user:
-        await query.message.delete()
-        await bot.send_dice(query.message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
+         await query.message.delete()
+         await bot.send_dice(query.message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
     elif query.data == "football" and query.from_user.id == user:
-        await query.message.delete()
-        await bot.send_dice(query.message.chat.id, "⚽",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(FOOT_BUTTON))
+         await query.message.delete()
+         await bot.send_dice(query.message.chat.id, "⚽",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(FOOT_BUTTON))
     elif query.data == "dart" and query.from_user.id == user:
-        await query.message.delete()
-        await bot.send_dice(query.message.chat.id, "🎯",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(DART_BUTTON))
-    elif query.data == "roll" and query.from_user.id == user:
-        await query.message.delete()
-        await bot.send_dice(query.message.chat.id, "🎰",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
+         await query.message.delete()
+         await bot.send_dice(query.message.chat.id, "🎯",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(DART_BUTTON))
+    elif query.data == "rollball" and query.from_user.id == user:
+         await query.message.delete()
+         await bot.send_dice(query.message.chat.id, "🎰",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
               
 
 #Truth OR Dare Game
