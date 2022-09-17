@@ -84,23 +84,16 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-
-@bot.on_message(filters.command("logs", config.COMMANDS) & filters.user(rank.RANK_A_USER))
-async def sendlogs(_, m):
-    logs = run("tail logs.txt")
+@bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANk_A_USER))
+def logs(_, message):
+    system = run("tail logs.txt")
     x = spacebin(logs)
-    keyb = [
-        [
-            InlineKeyboardButton("Link", url=x),
-            InlineKeyboardButton("File", callback_data="logs"),
-        ],
-    ]
-    await m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
+    keyb = [[InlineKeyboardButton("Link", url=x),
+             InlineKeyboardButton("File", callback_data="sendlogs")]]
+    await message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
+                             
 
-
-@bot.on_callback_query(filters.regex("logs"))
-async def logstxt(_, query):
-     if query.from_user.id in rank.RANK_A_USER:
-          await query.message.edit_text("Sending logs....")
-          await bot.send_document(message.chat.id, document="logs.txt")
-      
+@bot.on_callback_query(filters.regex("logs") & filters.user(rank.RANK_A_USER))
+def logstxt(_, query):
+       query.message.edit_text("Sending logs....")
+       query.message.reply_document("logs.txt")
