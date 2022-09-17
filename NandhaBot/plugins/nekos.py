@@ -362,8 +362,9 @@ def kick(_, m: Message):
           api = requests.get("https://api.waifu.pics/sfw/kick").json()
           url = api["url"]     
           m.reply_animation(animation=url)
-    
-@bot.on_message(filters.regex("hug") & filters.command("hug",config.COMMANDS))
+      
+@bot.on_message(filters.regex("hug"))    
+@bot.on_message(filters.command("hug",config.COMMANDS))
 def hug(_, m: Message):
        reply = m.reply_to_message
        if reply:
@@ -374,8 +375,9 @@ def hug(_, m: Message):
           api = requests.get("https://api.waifu.pics/sfw/hug").json()
           url = api["url"]  
           m.reply_animation(animation=url)
-    
-@bot.on_message(filters.regex("pat") & filters.command("pat",config.COMMANDS))
+ 
+@bot.on_message(filters.regex("pat"))
+@bot.on_message(filters.command("pat",config.COMMANDS))
 def pat(_, m: Message):
        reply = m.reply_to_message
        if reply:
