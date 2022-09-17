@@ -5,27 +5,22 @@ import requests
 import config
 
 
-## send_dice games ##
-BASKET_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="basketball")]]
-FOOT_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="football")]]
-DART_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="dart")]]
-ROLL_BUTTON = [[InlineKeyboardButton(text="🔄",callback_data="rollball")]]
 
 @bot.on_message(filters.command(["basketball","basket"],config.COMMANDS))
 async def basket(_, message):
        global id, user
        id = message.id
        user = message.from_user.id
-       await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id,
-                           reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
+       await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id)
+                           
        
 @bot.on_message(filters.command(["dart","target"],config.COMMANDS))
 async def dart(_, message):
        global id, user
        id = message.id
        user = message.from_user.id
-       await bot.send_dice(message.chat.id, "🎯",reply_to_message_id=message.id,
-                           reply_markup=InlineKeyboardMarkup(DART_BUTTON))
+       await bot.send_dice(message.chat.id, "🎯",reply_to_message_id=message.id)
+                           
        
        
 @bot.on_message(filters.command("football",config.COMMANDS))
@@ -33,33 +28,16 @@ async def football(_, message):
        global id, user
        id = message.id
        user = message.from_user.id
-       await bot.send_dice(message.chat.id, "⚽",reply_to_message_id=message.id,
-                           reply_markup=InlineKeyboardMarkup(FOOT_BUTTON))
-
+       await bot.send_dice(message.chat.id, "⚽",reply_to_message_id=message.id)
+                           
 @bot.on_message(filters.command("roll",config.COMMANDS))
 async def rollball(_, message):
        global id, user
        id = message.id
        user = message.from_user.id
-       await bot.send_dice(message.chat.id, "🎰",reply_to_message_id=message.id,
-                           reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
+       await bot.send_dice(message.chat.id, "🎰",reply_to_message_id=message.id)
+                           
 
-
-@bot.on_callback_query()
-async def games(_, query):                  
-    if query.data == "basketball" and query.from_user.id == user:
-         await query.message.delete()
-         await bot.send_dice(query.message.chat.id, "🏀",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(BASKET_BUTTON))
-    elif query.data == "football" and query.from_user.id == user:
-         await query.message.delete()
-         await bot.send_dice(query.message.chat.id, "⚽",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(FOOT_BUTTON))
-    elif query.data == "dart" and query.from_user.id == user:
-         await query.message.delete()
-         await bot.send_dice(query.message.chat.id, "🎯",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(DART_BUTTON))
-    elif query.data == "rollball" and query.from_user.id == user:
-         await query.message.delete()
-         await bot.send_dice(query.message.chat.id, "🎰",reply_to_message_id=id,reply_markup=InlineKeyboardMarkup(ROLL_BUTTON))
-              
 
 #Truth OR Dare Game
 
