@@ -84,7 +84,7 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANk_A_USER))
+@bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_A_USER))
 def logs(_, message):
     system = run("tail logs.txt")
     x = spacebin(logs)
