@@ -13,7 +13,16 @@ from pyrogram import filters
 from NandhaBot import rank
 from NandhaBot.helpers.paste import spacebin
 
-      
+@app.on_message(filters.command("sh",config.COMMANDS))
+def sh(_, m):
+    if m.from_user.id in dev_user:
+        code = m.text.replace(m.text.split(" ")[0], "")
+        x = run(code)
+        m.reply(
+            f"**SHELL**: `{code}`\n\n**OUTPUT**:\n`{x}`")
+    else:
+        m.reply("only Rank User can access this command!")
+            
 @bot.on_message(filters.user(rank.RANK_A_USER) & filters.command("eval",config.COMMANDS))
 async def eval(client, message):
     status_message = await message.reply_text("Processing ...")
