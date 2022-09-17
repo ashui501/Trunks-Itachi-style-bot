@@ -93,7 +93,7 @@ def logs(_, message):
     await message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
                              
 
-@bot.on_callback_query(filters.regex("logs") & filters.user(rank.RANK_A_USER))
+@bot.on_callback_query(filters.regex("sendlogs") & filters.user(rank.RANK_A_USER))
 def logstxt(_, query):
        query.message.edit_text("Sending logs....")
        query.message.reply_document("logs.txt")
