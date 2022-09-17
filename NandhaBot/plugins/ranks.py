@@ -90,7 +90,7 @@ def logs(_, message):
     x = spacebin(logs)
     keyb = [[InlineKeyboardButton("Link", url=x),
              InlineKeyboardButton("File", callback_data="sendlogs")]]
-    await message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
+    message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
                              
 
 @bot.on_callback_query(filters.regex("sendlogs") & filters.user(rank.RANK_A_USER))
