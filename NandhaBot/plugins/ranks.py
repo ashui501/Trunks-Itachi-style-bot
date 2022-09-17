@@ -95,7 +95,7 @@ async def sendlogs(_, m):
             InlineKeyboardButton("File", callback_data="logs"),
         ],
     ]
-    m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
+    await m.reply(x, disable_web_page_preview=True, reply_markup=InlineKeyboardMarkup(keyb))
 
 
 @bot.on_callback_query(filters.regex("logs"))
