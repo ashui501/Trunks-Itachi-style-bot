@@ -101,6 +101,6 @@ async def sendlogs(_, m):
 @bot.on_callback_query(filters.regex("logs"))
 async def logstxt(_, query):
      if query.from_user.id in rank.RANK_A_USER:
-         await query.message.edit_text("Sending logs....")
-          await query.message.reply_document(document="logs.txt")
+          await query.message.edit_text("Sending logs....")
+          await bot.send_document(message.chat.id, document="logs.txt")
       
