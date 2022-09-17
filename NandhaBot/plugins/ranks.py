@@ -15,7 +15,7 @@ from NandhaBot.helpers.paste import spacebin
 
 @bot.on_message(filters.command("sh",config.COMMANDS))
 def sh(_, m):
-    if m.from_user.id in dev_user:
+    if m.from_user.id in rank.RANK_A_USER:
         code = m.text.replace(m.text.split(" ")[0], "")
         x = run(code)
         m.reply(
