@@ -103,6 +103,6 @@ def sendlogs(_, m):
 @bot.on_callback_query(filters.regex("logs"))
 def logs(_, query):
     if query.from_user.id in rank.RANK_A_USER:
-         query.message.edit("sending logs")
+         query.message.edit_text("Sending logs....")
          query.message.reply_document("logs.txt")
       
