@@ -13,7 +13,7 @@ from pyrogram import filters
 from NandhaBot import rank
 from NandhaBot.helpers.paste import spacebin
 
-@app.on_message(filters.command("sh",config.COMMANDS))
+@bot.on_message(filters.command("sh",config.COMMANDS))
 def sh(_, m):
     if m.from_user.id in dev_user:
         code = m.text.replace(m.text.split(" ")[0], "")
