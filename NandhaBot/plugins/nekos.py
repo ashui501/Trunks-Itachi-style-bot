@@ -363,7 +363,7 @@ def kick(_, m: Message):
           url = api["url"]     
           m.reply_animation(animation=url)
     
-@bot.on_message(filtes.regex("hug") & filters.command("hug",config.COMMANDS))
+@bot.on_message(filters.regex("hug") & filters.command("hug",config.COMMANDS))
 def hug(_, m: Message):
        reply = m.reply_to_message
        if reply:
