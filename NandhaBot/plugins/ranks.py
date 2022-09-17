@@ -85,9 +85,7 @@ async def aexec(code, client, message):
 
 
 
-@bot.on_message(
-    filters.command("logs", config.COMMANDS) & filters.user(rank.RANK_A_USER)
-)
+@bot.on_message(filters.command("logs", config.COMMANDS) & filters.user(rank.RANK_A_USER))
 def sendlogs(_, m):
     logs = run("tail logs.txt")
     x = spacebin(logs)
@@ -102,7 +100,6 @@ def sendlogs(_, m):
 
 @bot.on_callback_query(filters.regex("logs"))
 def logs(_, query):
-    if query.from_user.id in rank.RANK_A_USER:
-         query.message.edit_text("Sending logs....")
-         query.message.reply_document("logs.txt")
+     query.message.edit_text("Sending logs....")
+     query.message.reply_document("logs.txt")
       
