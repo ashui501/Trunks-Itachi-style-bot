@@ -20,7 +20,7 @@ async def paste(_, message):
         resp = await send(f"{BASE}api/v2/paste", data=text)
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
-        await message.reply_photo(photo=batbin_link,caption=batbin_link,
+        await message.reply_photo(photo=batbin_link,caption=f"[click the this message to see paste]({batbin_link})",
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="BATBIN LINK!", url=batbin_link)]]))
         
      elif reply.text or reply.caption:
@@ -28,7 +28,7 @@ async def paste(_, message):
         resp = await send(f"{BASE}api/v2/paste", data=text)
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
-        await message.reply_photo(photo=batbin_link,caption=batbin_link,
+        await message.reply_photo(photo=batbin_link,caption=f"[click the this message to see paste]({batbin_link})",
                     reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="BATBIN_LINK!", url=batbin_link)]]))
         
   except Exception as e:
