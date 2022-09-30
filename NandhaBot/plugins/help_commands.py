@@ -24,20 +24,24 @@ async def help(_, message):
 
 @bot.on_callback_query()
 async def helpdata(_, query):
-   if query.data == "help":
-      await query.message.edit_caption(text.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
-   elif query.data == "youtube":
-       await query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
-   elif query.data == "paste":
-       await query.message.edit_caption(text.PASTE_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
-   elif query.data == "telegraph":
-       await query.message.edit_caption(text.TELEGRAPH_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
-   elif query.data == "wiki":
-       await query.message.edit_caption(text.WIKI_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
-   elif query.data == "github":
-       await query.message.edit_caption(text.GIT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
-   elif query.data == "game":
-       await query.message.edit_caption(text.GAME_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
-   elif query.data == "nekos":
-       await query.message.edit_caption(text.NEKOS_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+   try:
+     if query.data == "help":
+        await query.message.edit_caption(text.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
+     elif query.data == "youtube":
+        await query.message.edit_caption(text.YT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+     elif query.data == "paste":
+        await query.message.edit_caption(text.PASTE_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+     elif query.data == "telegraph":
+        await query.message.edit_caption(text.TELEGRAPH_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+     elif query.data == "wiki":
+        await query.message.edit_caption(text.WIKI_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+     elif query.data == "github":
+        await query.message.edit_caption(text.GIT_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+     elif query.data == "game":
+        await query.message.edit_caption(text.GAME_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
+     elif query.data == "nekos":
+        await query.message.edit_caption(text.NEKOS_HELP.format(text.NANDHA),reply_markup=InlineKeyboardMarkup(BACK_HELP))
    
+   except Exception as error:
+        await query.message.reply_text(str(error))
+     
