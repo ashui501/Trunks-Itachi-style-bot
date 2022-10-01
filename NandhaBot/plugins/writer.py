@@ -14,8 +14,10 @@ def writer (_, message):
      text = message.text
      user_id = message.from_user.id
      BUTTON = [[InlineKeyboardButton(text="file",callback_data="write_file"),
-                InlineKeyboardButton(text="photo",callback_data="write_photo")]]
-     message.reply_text("check what you wanted, below!",reply_markup=InlineKeyboardMarkup(BUTTON))
+                InlineKeyboardButton(text="photo",callback_data="write_photo"),]]
+     message.reply_text("check what you wanted, below!",
+     reply_markup=InlineKeyboardMarkup(BUTTON))
+
 
 
 @bot.on_callback_query(filters.regex("write_file")
