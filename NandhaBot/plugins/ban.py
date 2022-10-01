@@ -19,7 +19,7 @@ def bans(_, message):
           message.reply_text(BANNED_TEXT.format(name)
        except Exception as e:
             message.reply_text(str(e))
-    elif reply:
+    else:
          try:
            user_id = message.reply_to_message.from_user.id
            bot.ban_chat_member(chat_id, user_id)
