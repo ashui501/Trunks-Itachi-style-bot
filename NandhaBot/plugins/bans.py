@@ -70,7 +70,8 @@ def unban(_, message):
               if user_stats.privileges.can_restrict_members:
                   chat.unban_member(id_user)
               message.reply_text(UNBANNED_TEXT.format(name))
-           except Exception as e:
+              
+         except Exception as e:
                message.reply_text(str(e))
      else:
          try:
