@@ -5,6 +5,7 @@ aiofiles
 asyncio
 tgcrypto
 telegraph
+gpytranslate
 requests
 motor
 youtube_search
