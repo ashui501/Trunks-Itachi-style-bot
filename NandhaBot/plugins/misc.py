@@ -29,6 +29,6 @@ def ping(_, message):
 @bot.on_message(filters.command("msginfo",config.COMMAND))
 def messageinfo(_, message):
      if message.reply_to_message:
-        return await message.reply_text(message.reply_to_message)
+        return message.reply_text(message.reply_to_message)
      else:
-        await message.reply_text(message)
+        message.reply_text(message)
