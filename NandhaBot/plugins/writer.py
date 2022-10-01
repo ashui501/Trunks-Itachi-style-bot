@@ -41,5 +41,5 @@ def write_photo(_, query):
         url = requests.get(API).url
         query.message.reply_document(document=url)
         msg.query.message.delete()
-    else:
+     else:
         query.answer("This Message Not For You", show_alert=True)
