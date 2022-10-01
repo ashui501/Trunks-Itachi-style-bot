@@ -24,3 +24,11 @@ def ping(_, message):
       msg.edit_text(f"**PONG**: `{ping_time}`\n**UPTIME**: `{uptime}`")
    else:
         message.reply_text("Only Rank User Can Acces")
+
+
+@bot.on_message(filters.command("msginfo",config.COMMAND))
+def messageinfo(_, message):
+     if message.reply_to_message:
+        return await message.reply_text(message.reply_to_message)
+     else:
+        await message.reply_text(message)
