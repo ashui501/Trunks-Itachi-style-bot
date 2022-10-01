@@ -47,7 +47,7 @@ def encrypted(_, message)
     if not reply:
         return message.reply_text("`Reply to Message`")
     if reply:
-         encrypt = secureme.encrypt(message.reply_to_message.text)
+         encrypt = secureme.encrypt(message.reply_to_message.text or message.reply_to_message.caption)
          message.reply_text(encrypt)
 
 
