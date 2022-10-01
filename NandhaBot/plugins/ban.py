@@ -10,13 +10,17 @@ BANNED_TEXT = "Another one dust Cleared {}!"
 def bans(_, message):
     reply = message.reply_to_message
     chat = message.chat
+    admin = message.from_user.id
     if not reply:
+    
        try:
           user_id = message.text.replace("/ban", "")
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           id_user = user_info.id
-          chat.ban_member(id_user)
+          user_stats = await bot.get_chat_member(chat.id, admin)
+          if user_stats.privileges.can_restrict_members:
+              chat.ban_member(id_user)
           message.reply_text(BANNED_TEXT.format(name))
        except Exception as error: 
           
