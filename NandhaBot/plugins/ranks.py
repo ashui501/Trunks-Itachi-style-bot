@@ -96,8 +96,9 @@ def logs(_, message):
 
 @bot.on_callback_query(filters.regex("filelogs"))
 def logstxt(_, query):
-    if query.from_user.id == rank_id:
-       query.message.edit_text("Sending logs....")
-       query.message.reply_document("logs.txt")
-    else:
-         query.message.reply_text("`Only the Rank Users Can Acces`")
+    try:
+       if query.from_user.id == rank_id:
+          query.message.edit_text("Sending logs....")
+          query.message.reply_document("logs.txt")
+    except Exception as ok:
+          query.message.reply_text(str(ok))
