@@ -1,6 +1,6 @@
 import config
 
-from pyrogram.enums ChatType
+from pyrogram.enums import ChatType
 from NandhaBot import bot
 from pyrogram import filters
 from pyrogram.types import *
