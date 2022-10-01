@@ -29,6 +29,12 @@ def ping(_, message):
 @bot.on_message(filters.command("msginfo",config.COMMANDS))
 def messageinfo(_, message):
      if message.reply_to_message:
-        return message.reply_text(message.reply_to_message)
+        try:
+          message.reply_text(message.reply_to_message)
+        except Exception as e:
+           with io.BytesIO(str.encode(msg_info)) as file:
+           file.name = "msg.text"
+           await message.reply_document(
+                document=file, caption=e)
      else:
         message.reply_text(message)
