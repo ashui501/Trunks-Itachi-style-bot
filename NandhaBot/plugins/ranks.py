@@ -86,6 +86,7 @@ async def aexec(code, client, message):
 
 @bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_A_USER))
 def logs(_, message):
+    global rank_id
     rank_id = message.from_user.id
     system = run("tail logs.txt")
     x = spacebin(system)
