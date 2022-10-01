@@ -383,7 +383,9 @@ def pat(_, m: Message):
        if reply:
            api = requests.get("https://api.waifu.pics/sfw/pat").json()
            url = api["url"]
-           reply.reply_animation(url)
+           name1 = reply.from_user.first_name
+           name2 = message.from_user.first_name
+           reply.reply_animation(url,caption="{} ( ◜‿◝ )♡ pats {} ( ╹▽╹ )".format(name2, name1))
        else:
           api = requests.get("https://api.waifu.pics/sfw/pat").json()
           url = api["url"]
