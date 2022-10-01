@@ -58,6 +58,6 @@ def tm(_,message):
           message.reply_animation(url,caption=f"{url}",reply_markup=InlineKeyboardMarkup(buttons))
      msg.delete()
   except Exception as e:
-       message.reply_text(f"**ERROR**: {e}")
+       msg.edit_text(f"**ERROR**: {e}")
     
      
