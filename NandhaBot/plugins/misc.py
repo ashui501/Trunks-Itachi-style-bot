@@ -26,7 +26,7 @@ def ping(_, message):
         message.reply_text("Only Rank User Can Acces")
 
 
-@bot.on_message(filters.command("msginfo",config.COMMAND))
+@bot.on_message(filters.command("msginfo",config.COMMANDS))
 def messageinfo(_, message):
      if message.reply_to_message:
         return message.reply_text(message.reply_to_message)
