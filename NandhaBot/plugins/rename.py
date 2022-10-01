@@ -1,7 +1,7 @@
 import time
 from pyrogram import filters
 from pyrogram.types import *
-from NandhaBot.utils.progress import progress_for_pyrogram
+from NandhaBot.helpers.utils.progress import progress_for_pyrogram
 from NandhaBot import bot
 
 DOWNLOAD_START = "<b>Downloading To My server !! Pls Wait</b>"
