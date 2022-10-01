@@ -50,4 +50,13 @@ def encrypted(_, message):
          encrypt = secureme.encrypt(message.reply_to_message.text or message.reply_to_message.caption)
          message.reply_text(encrypt)
 
+@bot.on_message(filters.command(["decode","decrypt"],config.COMMANDS))
+def decrypted(_, message):
+    reply = message.reply_to_message
+    if not reply:
+        return message.reply_text("`Reply to Message`")
+    if reply:
+         decrypt = secureme.decrypt(message.reply_to_message.text or message.reply_to_message.caption)
+         message.reply_text(decrypt)
+
 
