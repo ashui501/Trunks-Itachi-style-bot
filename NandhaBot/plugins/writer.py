@@ -27,7 +27,7 @@ def write_file(_, query):
         with io.BytesIO(str.encode(str(text))) as file:
              file.name = "writer.txt"
         bot.send_document(
-           message.chat.id,
+           query.message.chat.id,
            document=file,
            reply_to_message_id=msg.id)
     else:
