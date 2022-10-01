@@ -20,7 +20,7 @@ def sh(_, m):
         x = run(code)
         msg = m.reply(
             f"**SHELL**: `{code}`\n\n**OUTPUT**:\n`{x}`")
-        if len(message.command) <2:
+        if len(m.command) <2:
            msg.edit_text("`Give A Code Run`")    
     else:
         m.reply("only Rank User can access this command!")
