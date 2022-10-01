@@ -1,6 +1,7 @@
 import config
 import time
 import io
+import secureme
 
 from NandhaBot.rank import (
 RANK_A_USER as a,
@@ -39,3 +40,14 @@ def messageinfo(_, message):
                 document=file, caption=e)
      else:
         message.reply_text(message)
+
+@bot.on_message(filters.command(["encode","encrypt"],config.COMMANDS))
+def encrypted(_, message)
+    reply = message.reply_to_message
+    if not reply:
+        return message.reply_text("`Reply to Message`")
+    if reply:
+         encrypt = secureme.encrypt(message.reply_to_message.text)
+         message.reply_text(encrypt)
+
+
