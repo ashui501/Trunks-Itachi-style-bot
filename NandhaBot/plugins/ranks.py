@@ -100,6 +100,6 @@ def logstxt(_, query):
     try:
        if query.from_user.id == rank_id:
           query.message.edit_text("Sending logs....")
-          query.message.reply_document("logs.txt")
+          return query.message.reply_document("logs.txt")
     except Exception as ok:
           query.message.reply_text(str(ok))
