@@ -20,7 +20,7 @@ def writer (_, message):
 
 
 
-@bot.on_callback_query(filters.regex("write_file")
+@bot.on_callback_query(filters.regex("write_file"))
 def write_file(_, query):
     if query.from_user.id == user_id:
         msg = query.message.reply_text("sending file...")
@@ -30,4 +30,6 @@ def write_file(_, query):
            message.chat.id,
            document=file,
            reply_to_message_id=msg.id)
+    else:
+        query.answer("This Message Not For You", show_alert=True)
                  
