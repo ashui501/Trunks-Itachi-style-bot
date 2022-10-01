@@ -21,7 +21,7 @@ async def paste(_, message):
         code = resp["message"]
         batbin_link = f"{BASE}{code}"
         await message.reply_photo(photo=batbin_link,caption=batbin_link",
-                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="BATBIN LINK!", url=batbin_link)]]))
+                    reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(text="LINK", url=batbin_link)]]))
         
      elif reply.text or reply.caption:
         text = reply.text or reply.caption
