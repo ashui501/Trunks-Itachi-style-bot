@@ -37,7 +37,7 @@ def write_photo(_, query):
      if query.from_user.id == user_id:
         msg = query.message.reply_text("Sending File...")
         write_text = text.replace("/write", "")
-        API = "https://apis.xditya.me/write?text=" + writ_text
+        API = "https://apis.xditya.me/write?text=" + write_text
         url = requests.get(API).url
         query.message.reply_document(document=url)
         msg.query.message.delete()
