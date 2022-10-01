@@ -1,5 +1,10 @@
 import config
 
+from NandhaBot.rank import (
+RANK_A_USER as a,
+RANK_B_USER as b,
+RANK_C_USER as c )
+
 from pyrogram.enums import ChatType
 from NandhaBot import bot
 from pyrogram import filters
@@ -23,7 +28,9 @@ def bans(_, message):
           name = user_info.first_name
           id_user = user_info.id
           user_stats = bot.get_chat_member(chat.id, admin)
-          if user_stats.privileges.can_restrict_members:
+          if id_user in a or b or c:
+                return message.reply_text("I never against to my rank users")
+          elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
           message.reply_text(BANNED_TEXT.format(name))
        except Exception as error: 
@@ -36,7 +43,9 @@ def bans(_, message):
            name = user_info.first_name
            id_user = user_info.id
            user_stats = bot.get_chat_member(chat.id, admin)
-           if user_stats.privileges.can_restrict_members:
+           if id_user in a or b or c:
+                return message.reply_text("I never against to my rank users")
+           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
            message.reply_text(BANNED_TEXT.format(name))
          except Exception as e:
