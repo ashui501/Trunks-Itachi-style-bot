@@ -18,7 +18,7 @@ def bans(_, message):
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           id_user = user_info.id
-          user_stats = await bot.get_chat_member(chat.id, admin)
+          user_stats = bot.get_chat_member(chat.id, admin)
           if user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
           message.reply_text(BANNED_TEXT.format(name))
@@ -31,7 +31,9 @@ def bans(_, message):
            user_info = bot.get_chat(user_id)
            name = user_info.first_name
            id_user = user_info.id
-           chat.ban_member(id_user)
+           user_stats = bot.get_chat_member(chat.id, admin)
+           if user_stats.privileges.can_restrict_members:
+              chat.ban_member(id_user)
            message.reply_text(BANNED_TEXT.format(name))
          except Exception as e:
             
