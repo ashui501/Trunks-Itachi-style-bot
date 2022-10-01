@@ -17,7 +17,7 @@ def bans(_, message):
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           chat.ban_member(user_id)
-          message.reply_text(BANNED_TEXT.format(name)
+          message.reply_text(BANNED_TEXT.format(name))
           message.reply_text(str(error))
     else:
          try:
@@ -26,5 +26,5 @@ def bans(_, message):
          except Exception as e:
             user_info = bot.get_chat(user_id)
             name = user_info.first_name
-            message.reply_text(BANNED_TEXT.format(name)
+            message.reply_text(BANNED_TEXT.format(name))
             message.reply_text(str(e))
