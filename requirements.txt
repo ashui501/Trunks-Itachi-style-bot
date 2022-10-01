@@ -8,6 +8,7 @@ telegraph
 gpytranslate
 requests
 motor
+secureme
 youtube_search
 yt_dlp
 wikipedia
