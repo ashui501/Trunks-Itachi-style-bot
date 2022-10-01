@@ -8,7 +8,9 @@ RANK_C_USER as c )
 
 from pyrogram import filters
 from pyrogram.types import *
+
 from NandhaBot import bot
+from NandhaBot.helpers.tools import get_readable_time
 
 @bot.on_message(filters.command("ping",config.COMMANDS))
 def ping(_, message):
@@ -16,7 +18,8 @@ def ping(_, message):
       start_time = time.time()
       end_time = time.time()
       ping_time = round((end_time - start_time) * 1000, 3)
+      uptime = get_readable_time((time.time() - StartTime))
       msg = message.reply_text("processing...")
-      msg.edit_text(f"**PONG**: `{ping_time}`")
+      msg.edit_text(f"**PONG**: `{ping_time}`\n**UPTIME**: `{uptime}`")
    else:
         message.reply_text("Only Rank User Can Acces")
