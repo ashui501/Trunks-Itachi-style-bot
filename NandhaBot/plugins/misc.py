@@ -42,7 +42,7 @@ def messageinfo(_, message):
         message.reply_text(message)
 
 @bot.on_message(filters.command(["encode","encrypt"],config.COMMANDS))
-def encrypted(_, message)
+def encrypted(_, message):
     reply = message.reply_to_message
     if not reply:
         return message.reply_text("`Reply to Message`")
