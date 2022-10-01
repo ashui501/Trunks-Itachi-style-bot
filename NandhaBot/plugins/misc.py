@@ -8,9 +8,10 @@ RANK_C_USER as c )
 
 from pyrogram import filters
 from pyrogram.types import *
-
 from NandhaBot import bot
 from NandhaBot.helpers.tools import get_readable_time
+
+StartTime = time.time()
 
 @bot.on_message(filters.command("ping",config.COMMANDS))
 def ping(_, message):
