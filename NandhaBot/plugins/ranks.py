@@ -89,17 +89,14 @@ def logs(_, message):
     global rank_id
     rank_id = message.from_user.id
     system = run("tail logs.txt")
-    x = spacebin(system)
-    keyb = [[InlineKeyboardButton("Link", url=x),
-             InlineKeyboardButton("File", callback_data="filelogs")]]
-    message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
+    link = spacebin(system)
+    msg= message.reply_text("`sending logs...`")
+    message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
+    msg.delete()
+    
+    
+    
+    
                              
 
-@bot.on_callback_query(filters.regex("filelogs"))
-def logstxt(_, query):
-    try:
-       if query.from_user.id == rank_id:
-          query.message.edit_text("Sending logs....")
-          return query.message.reply_document("logs.txt")
-    except Exception as ok:
-          query.message.reply_text(str(ok))
+
