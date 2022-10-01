@@ -26,7 +26,7 @@ async def start(_, message):
            user_count = len(await get_users())                                                                                     
            await message.reply_text(
                   """<b>Happy to See you {} ↖(^ω^)↗</b>\n\n<b>• Read the help menu for about my futures. /help.</b>""".format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
-           await bot.send_message(chat_id, text=text.NEW_USERS.format(info.id, info.mention, user_count))
+           await bot.send_message(config.GROUP_ID, text=text.NEW_USERS.format(info.id, info.mention, user_count))
        elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
             return await message.reply_text("""<b>Happy to See you {}</b>\n\n<b>• Read the help menu for about my futures /help.</b>""".format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
@@ -40,7 +40,6 @@ if __name__ == "__main__":
      bot.run()
      photo_url = "http://telegra.ph/file/103f51de685933820f969.jpg"
      with bot:
-       ok = bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>")
-       time.sleep(10)
-       ok.delete()
+        bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>")
+      
    
