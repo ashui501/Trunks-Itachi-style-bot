@@ -34,7 +34,7 @@ def messageinfo(_, message):
         except Exception as e:
            with io.BytesIO(str.encode(msg_info)) as file:
                file.name = "msg.text"
-               await message.reply_document(
+               message.reply_document(
                 document=file, caption=e)
      else:
         message.reply_text(message)
