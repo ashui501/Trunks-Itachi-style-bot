@@ -35,3 +35,23 @@ async def git(_, message):
       caption=data
     ),)
     os.remove(f"{user}.jpg")
+
+
+@bot.on_message(filters.command("gigdl",config.COMMANDS))
+async def githubdl(_, message):
+     if len(message.command) <2:
+         return await message.reply_text("`give me GitHub repository url`")
+     git_url = message.text.split(None, 1)[1]
+     if not "github.com" == git_url:
+            return await message reply_text("`only give github repository url`")
+     try:
+         doc = f'{git_url}/archive/main.zip'
+         await bot.send_document(
+            chat_id=message.chat.id,
+            document=doc,
+            caption=f'Succesfully Downloaded\n-› {doc}',
+               reply_to_message_id=message.id)
+
+     except Exception as e:
+          await message.reply_text(str(e))
+         
