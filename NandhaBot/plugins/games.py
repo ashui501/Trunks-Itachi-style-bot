@@ -6,37 +6,27 @@ import config
 
 
 
-@bot.on_message(filters.command(["basketball","basket"],config.COMMANDS))
-async def basket(_, message):
-       global id, user
-       id = message.id
-       user = message.from_user.id
-       await bot.send_dice(message.chat.id, "🏀",reply_to_message_id=message.id)
-                           
-       
-@bot.on_message(filters.command(["dart","target"],config.COMMANDS))
-async def dart(_, message):
-       global id, user
-       id = message.id
-       user = message.from_user.id
-       await bot.send_dice(message.chat.id, "🎯",reply_to_message_id=message.id)
-                           
-       
-       
-@bot.on_message(filters.command("football",config.COMMANDS))
-async def football(_, message):
-       global id, user
-       id = message.id
-       user = message.from_user.id
-       await bot.send_dice(message.chat.id, "⚽",reply_to_message_id=message.id)
-                           
+
+@bot.on_message(filters.command("dice",config.COMMANDS))
+async def roll_dice(bot, message):
+    await bot.send_dice(message.chat.id, "🎲")
+
+@bot.on_message(filters.command(["dart","arrow"],config.COMMANDS))                                     
+async def roll_arrow(bot, message):
+    await bot.send_dice(message.chat.id, "🎯")
+
+@bot.on_message(filters.command(["football","goal"],config.COMMANDS))
+async def roll_goal(bot, message):
+    await bot.send_dice(message.chat.id, "⚽️")
+
 @bot.on_message(filters.command("roll",config.COMMANDS))
-async def rollball(_, message):
-       global id, user
-       id = message.id
-       user = message.from_user.id
-       await bot.send_dice(message.chat.id, "🎰",reply_to_message_id=message.id)
-                           
+async def roll_luck(bot, message):
+    await bot.send_dice(message.chat.id, "🎰")
+
+@bot.on_message(filters.command(["throw","basket"],config.COMMANDS))
+async def roll_throw(bot, message):
+    await bot.send_dice(message.chat.id, "🏀")
+
 
 
 #Truth OR Dare Game
