@@ -6,7 +6,7 @@ RANK_A_USER as a,
 RANK_B_USER as b,
 RANK_C_USER as c )
 
-from pyrogram import filter
+from pyrogram import filters
 from pyrogram.types import *
 from NandhaBot import bot
 
