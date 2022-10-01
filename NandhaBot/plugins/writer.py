@@ -24,10 +24,10 @@ def writer (_, message):
 def write_file(_, query):
     if query.from_user.id == user_id:
         msg = query.message.reply_text("Sending File...")
-        with io.BytesIO(str.encode(text)) as file:
+        write_text = text.replace("/write", "")
+        with io.BytesIO(str.encode(write_text)) as file:
              file.name = "writer.txt"
-        query.message.reply_document(
-           document=file)
+             query.message.reply_document(document=file)
     else:
         query.answer("This Message Not For You", show_alert=True)
                  
