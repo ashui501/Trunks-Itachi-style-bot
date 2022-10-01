@@ -86,14 +86,18 @@ async def aexec(code, client, message):
 
 @bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_A_USER))
 def logs(_, message):
+    rank_id = message.from_user.id
     system = run("tail logs.txt")
     x = spacebin(logs)
     keyb = [[InlineKeyboardButton("Link", url=x),
-             InlineKeyboardButton("File", callback_data="sendlogs")]]
+             InlineKeyboardButton("File", callback_data="filelogs")]]
     message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
                              
 
-@bot.on_callback_query(filters.regex("sendlogs") & filters.user(rank.RANK_A_USER))
+@bot.on_callback_query(filters.regex("filelogs"))
 def logstxt(_, query):
+    if query.from_user.id == rank_id:
        query.message.edit_text("Sending logs....")
        query.message.reply_document("logs.txt")
+    else:
+         query.message.reply_text("`Only the Rank Users Can Acces`")
