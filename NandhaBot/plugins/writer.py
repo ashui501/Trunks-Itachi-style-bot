@@ -1,5 +1,5 @@
 import config
-
+import io
 
 from NandhaBot import bot
 from pyrogram.types import *
@@ -13,8 +13,8 @@ def writer (_, message):
          return message.reply_text("`Give TEXT to send as file somthing.`")
      text = message.text
      user_id = message.from_user.id
-     BUTTON = [[InlineKeyboardButton(text="file",callback_data="write_file"),
-                InlineKeyboardButton(text="photo",callback_data="write_photo"),]]
+     BUTTON = [[InlineKeyboardButton(text="FILE",callback_data="write_file"),
+                InlineKeyboardButton(text="PHOTO",callback_data="write_photo"),]]
      message.reply_text("check what you wanted, below!",
      reply_markup=InlineKeyboardMarkup(BUTTON))
 
@@ -23,7 +23,7 @@ def writer (_, message):
 @bot.on_callback_query(filters.regex("write_file"))
 def write_file(_, query):
     if query.from_user.id == user_id:
-        msg = query.message.reply_text("sending file...")
+        msg = query.message.reply_text("Sending File...")
         with io.BytesIO(str.encode(str(text))) as file:
              file.name = "writer.txt"
         bot.send_document(
