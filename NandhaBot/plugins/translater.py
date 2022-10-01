@@ -2,6 +2,7 @@ from pyrogram import filters
 from pyrogram.types import *
 
 from NandhaBot import bot
+from gpytranslate import Translator
 
 trans = Translator()
 
