@@ -28,7 +28,8 @@ def write_file(_, query):
         with io.BytesIO(str.encode(write_text)) as file:
              file.name = "writer.txt"
              query.message.reply_document(document=file)
-             msg.query.message.delete()
+             msg.delete()
+             query.message.delete()
     else:
         query.answer("This Message Not For You", show_alert=True)
                  
@@ -40,6 +41,8 @@ def write_photo(_, query):
         API = "https://apis.xditya.me/write?text=" + write_text
         url = requests.get(API).url
         query.message.reply_document(document=url)
-        msg.query.message.delete()
+        msg.delete()
+        query.message.delete()
+
      else:
         query.answer("This Message Not For You", show_alert=True)
