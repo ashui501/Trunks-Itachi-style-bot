@@ -28,6 +28,7 @@ def write_file(_, query):
         with io.BytesIO(str.encode(write_text)) as file:
              file.name = "writer.txt"
              query.message.reply_document(document=file)
+             query.message.delete()
     else:
         query.answer("This Message Not For You", show_alert=True)
                  
