@@ -33,8 +33,8 @@ def messageinfo(_, message):
           message.reply_text(message.reply_to_message)
         except Exception as e:
            with io.BytesIO(str.encode(msg_info)) as file:
-           file.name = "msg.text"
-           await message.reply_document(
+               file.name = "msg.text"
+               await message.reply_document(
                 document=file, caption=e)
      else:
         message.reply_text(message)
