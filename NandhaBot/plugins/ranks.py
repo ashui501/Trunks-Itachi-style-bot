@@ -88,7 +88,7 @@ async def aexec(code, client, message):
 def logs(_, message):
     rank_id = message.from_user.id
     system = run("tail logs.txt")
-    x = spacebin(logs)
+    x = spacebin(system)
     keyb = [[InlineKeyboardButton("Link", url=x),
              InlineKeyboardButton("File", callback_data="filelogs")]]
     message.reply_text(text=x,reply_markup=InlineKeyboardMarkup(keyb))
