@@ -18,8 +18,10 @@ def sh(_, m):
     if m.from_user.id in rank.RANK_A_USER:
         code = m.text.replace(m.text.split(" ")[0], "")
         x = run(code)
-        m.reply(
+        msg = m.reply(
             f"**SHELL**: `{code}`\n\n**OUTPUT**:\n`{x}`")
+        if len(message.command) <2:
+           msg.edit_text("`Give A Code Run`")    
     else:
         m.reply("only Rank User can access this command!")
             
