@@ -15,7 +15,7 @@ def bans(_, message):
           user_id = message.text.replace("/ban", "")
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
-          id_user = user.info.id
+          id_user = user_info.id
           chat.ban_member(id_user)
           message.reply_text(BANNED_TEXT.format(name))
        except Exception as error: 
