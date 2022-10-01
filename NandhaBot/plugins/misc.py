@@ -18,4 +18,5 @@ def ping(_, message):
       ping_time = round((end_time - start_time) * 1000, 3)
       msg = message.reply_text("processing...")
       msg.edit_text(f"**PONG**: `{ping_time}`")
-      
+    else:
+        message.reply_text("Only Rank User Can Acces")
