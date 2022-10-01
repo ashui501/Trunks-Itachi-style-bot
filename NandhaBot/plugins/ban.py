@@ -1,5 +1,6 @@
 import config
 
+from pyrogram.enums ChatType
 from NandhaBot import bot
 from pyrogram import filters
 from pyrogram.types import *
@@ -8,10 +9,13 @@ BANNED_TEXT = "Another one dust Cleared {}!"
 
 @bot.on_message(filters.command("ban",config.COMMANDS))
 def bans(_, message):
+    
     reply = message.reply_to_message
     chat = message.chat
     admin = message.from_user.id
-    if not reply:
+    if message.chat.type == ChatType.PRIVATE:
+          return message.reply_text("this command work only on groups")
+    elif not reply:
     
        try:
           user_id = message.text.replace("/ban", "")
