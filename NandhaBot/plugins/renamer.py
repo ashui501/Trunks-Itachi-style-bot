@@ -8,7 +8,7 @@ DOWNLOAD_START = "<b>Downloading To My server !! Pls Wait</b>"
 UPLOAD_START = "<b>Downloading Completed Now I'm Uploading Into TeleGram</b>"
 AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>Thank you for Using Me Support Our Channel @NandhaBots</b>"
 
-@bot.on_message(filters.command("rename"))
+@bot.on_message(filters.command("rename",config.COMMANDS))
 async def rename(_, message):
           try:
              if not message.reply_to_message and not message.reply_to_message.media:
