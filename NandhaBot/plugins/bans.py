@@ -30,7 +30,7 @@ def bans(_, message):
           user_stats = bot.get_chat_member(chat.id, admin)
           if id_user in a or b or c:
                 return message.reply_text("I never against to my rank users")
-          elif user_stats.privileges.can_restrict_members and admin in a or b:
+          elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
           message.reply_text(BANNED_TEXT.format(name))
        except Exception as error: 
@@ -45,7 +45,7 @@ def bans(_, message):
            user_stats = bot.get_chat_member(chat.id, admin)
            if id_user in a or b or c:
                 return message.reply_text("I never against to my rank users")
-           elif user_stats.privileges.can_restrict_members and admin in a or b:
+           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
            message.reply_text(BANNED_TEXT.format(name))
          except Exception as e:
