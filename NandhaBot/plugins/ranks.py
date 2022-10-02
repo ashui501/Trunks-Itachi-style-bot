@@ -94,8 +94,21 @@ def logs(_, message):
     message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
     msg.delete()
 
-    
-    
+ 
+
+RANK_USERS = (rank.RANK_A_USER+rank.RANK_B_USER)   
+@bot.on_message(filters.command("leave"))
+async def leave_chat(_, message):
+     if not message.from_user.id in RANK_USER:
+          await message.reply_text("Only Rank User Can Acces.")
+     elif len(message.command) <2:
+         return await message.reply_text("Give Me ChatID.")
+     chat_id = message.text.replace("/leave", "")
+     try:
+       await bot.leave_chat(chat_id)
+     except Exception as e:
+        return await message.reply_text(str(e))
+     
     
     
     
