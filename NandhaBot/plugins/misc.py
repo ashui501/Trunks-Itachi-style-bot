@@ -34,7 +34,7 @@ def countryinfo (_, message):
      county_name = message.text.split(None, 1)[1]
      msg = message.reply_text("processing...")
      try:
-       cuntry = CountryInfo(cuntry_name)
+       cuntry = CountryInfo(country_name)
      except Exception as e:
            msg.edit_text(str(e))
      else:
