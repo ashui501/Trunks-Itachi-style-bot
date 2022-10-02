@@ -43,7 +43,7 @@ def countryinfo (_, message):
          currencies = country.currencies()
          language = country.languages()
          borders = country.borders()
-         alt_names = county.alt_spellings()
+         alt_names = country.alt_spellings()
          user_id = bot.get_me().id
          msg.edit_text(COUNTRYINFO_TEXT.format(
           capital, currencies,language,borders,
