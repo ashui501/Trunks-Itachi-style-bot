@@ -52,6 +52,6 @@ def reaction (_, message):
     if message.reply_to_message:
          return message.reply_text(random.choice(reactions))  
     else:
-         message.reply_text(random.choice(reactions))
+         message.reply_to_message.reply_text(random.choice(reactions))
 
  
