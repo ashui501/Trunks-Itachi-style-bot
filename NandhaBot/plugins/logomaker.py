@@ -1,5 +1,6 @@
 import requests
 from NandhaBot import bot
+from pyrogram import filters
 
 @bot.on_message(filters.command("logo"))
 def logo(_, message):
