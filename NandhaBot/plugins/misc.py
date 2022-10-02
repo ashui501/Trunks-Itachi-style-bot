@@ -21,16 +21,16 @@ from countryinfo import CountryInfo
 
 api = SafoneAPI()
 @bot.on_message(filters.command("webshot",config.COMMANDS))
-def webshot (_, message):
+async def webshot (_, message):
      if len(message.command) <2:
-          return message.reply_text("Give URL Screenshots.")
+          return await message.reply_text("Give URL Screenshots.")
      text = message.text.split(None, 1)[1]
-     msg = message.reply_text("processing...")
+     msg = await message.reply_text("Generating Screenshot...")
      try:
-        screenshot = api.webshot(text)
-        message.reply_document(screenshot)
+        screenshot = await api.webshot(text)
+        await message.reply_document(screenshot)
      except Exception as e:
-         return msg.edit(str(e))
+         return await msg.edit(str(e))
      
 
 COUNTRYINFO_TEXT = """ **Countryinfo:**
