@@ -97,11 +97,10 @@ def logs(_, message):
  
 
 RANK_USERS = (rank.RANK_A_USER+rank.RANK_B_USER)   
-@bot.on_message(filters.command("leave"))
+
+@bot.on_message(filters.command("leave",config.COMMANDS) & filters.user(RANK_USERS))
 async def leave_chat(_, message):
-     if not message.from_user.id in RANK_USER:
-          await message.reply_text("Only Rank User Can Acces.")
-     elif len(message.command) <2:
+     if len(message.command) <2:
          return await message.reply_text("Give Me ChatID.")
      chat_id = message.text.replace("/leave", "")
      try:
