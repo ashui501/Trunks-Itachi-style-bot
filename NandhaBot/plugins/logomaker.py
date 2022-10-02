@@ -33,5 +33,5 @@ def sendlogoasfile(_, query):
         file = query.message.download()
         query.message.reply_document(file,caption="by @TrunksRobot")
         query.message.delete()
-      else:
+     else:
           query.answer("This Message Not For You!" show_alert=True)
