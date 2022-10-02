@@ -16,8 +16,7 @@ from NandhaBot.helpers.tools import get_readable_time
 from countyinfo import CuntryInfo
 
 
-CUNTRYINFO_TEXT = """
-**capital**: {}
+CUNTRYINFO_TEXT = """ **capital**: {}\n
 **currencies**: {}
 **language**: {}
 **borders**: {}
