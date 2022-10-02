@@ -4,7 +4,7 @@ from aiohttp import ClientSession
 import logging
 import time
 import os
-import telebot
+
 
 
 # enable logging
