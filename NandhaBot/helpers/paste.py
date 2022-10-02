@@ -8,6 +8,7 @@ def spacebin(text):
     return f"https://spaceb.in/{res.json()['payload']['id']}"
 
 def batbin(text):
-      BASE = "https://batbin.me/"
-      resp = post(f"{BASE}api/v2/paste", data=text)
-      return f"{BASE}{resp["message"]}"
+    base = "https://batbin.me/"
+    resp = post(f"{base}api/v2/paste", data=text)
+    code = resp["message"]
+    return f"{base}{code}"
