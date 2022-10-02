@@ -9,7 +9,7 @@ from pyrogram import filters
 async def short(_, message):
     if len(message.command) <2:
          return await message.reply_text("Give Some URL to Short")
-    link = message.text.replace("/short", "")
+    link = message.text.split(None, 1)[1]
     msg = await message.reply_text("processing...")
     try:
         search = pyshorteners.Shortener()
