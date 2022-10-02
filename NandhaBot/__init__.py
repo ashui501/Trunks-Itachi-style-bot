@@ -23,9 +23,6 @@ API_HASH = os.environ.get("API_HASH", "f92b05be529835381859ead64a195fa2")
 BOT_TOKEN = os.environ.get("BOT_TOKEN", "5515671520:AAFcuSq058VM8QmShpweRs1p0u0U5pWHIH8")
 
 
-### telebot clinet run code ##
-
-telebot = telebot.TeleBot(BOT_TOKEN)
 
 ### pyrogram Client Run Code ###
 plugins = dict(root="NandhaBot")
