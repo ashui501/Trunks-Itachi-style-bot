@@ -23,18 +23,18 @@ def writer (_, message):
 
 
 @bot.on_callback_query(filters.regex("write_file"))
-def write_file(_, query):
+async def write_file(_, query):
     if query.from_user.id == user_id:
-        msg = query.message.reply_text("Sending File...")
+        await msg = query.message.reply_text("Sending File...")
         write_text = text.replace("/write", "")
         with io.BytesIO(str.encode(write_text)) as file:
              file.name = "writer.txt"
-             link = batbin(write_text)
-             query.message.reply_document(document=file, caption=link)
-             msg.delete()
-             query.message.delete()
+             link = await batbin(write_text)
+             await query.message.reply_document(document=file, caption=link)
+             await msg.delete()
+             await query.message.delete()
     else:
-        query.answer("This Message Not For You", show_alert=True)
+        await query.answer("This Message Not For You", show_alert=True)
                  
 @bot.on_callback_query(filters.regex("write_photo"))
 def write_photo(_, query):
