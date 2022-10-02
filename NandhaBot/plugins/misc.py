@@ -18,7 +18,10 @@ from NandhaBot.helpers.tools import get_readable_time
 from countryinfo import CountryInfo
 
 
-
+LYRICS_TEXT = """ title: {}
+artist: {}
+lyrics: {}
+"""
 @bot.on_message(filters.command("lyrics",config.COMMANDS))
 def lyrics (_, message):
        if len(message.command) <2:
@@ -28,10 +31,10 @@ def lyrics (_, message):
           song_name = message.text.split(None,1)[1]
           API = f"https://api.sdbots.tk/lyrics?song={song_name}"
           req = requests.get(API).json()
-          title = req.title
-          artist = req.artist
-          lyrics = req.lyrics
-          msg.edit_text(title+"\n\n"+artist+"\n\n"+lyrics)
+          title = req["title"]
+          artist = req["artist"]
+          lyrics = req["lyrics"]
+          msg.edit_text(LYRICS_TEXT.format(title, artist, lyrics))
        except Exception as e:
             msg.edit(str(e))
        
