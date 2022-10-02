@@ -9,6 +9,6 @@ def spacebin(text):
 
 def batbin(text):
       BASE = "https://batbin.me/"
-      resp = await post(f"{BASE}api/v2/paste", data=text)
+      resp = post(f"{BASE}api/v2/paste", data=text)
       code = resp["message"]
       return f"{BASE}{code}"
