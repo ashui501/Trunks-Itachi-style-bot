@@ -4,7 +4,7 @@ import requests
 from NandhaBot import bot
 from pyrogram.types import *
 from pyrogram import filters
-
+from NandhaBot.helpers.paste import batbin
 
 
 
@@ -29,7 +29,8 @@ def write_file(_, query):
         write_text = text.replace("/write", "")
         with io.BytesIO(str.encode(write_text)) as file:
              file.name = "writer.txt"
-             query.message.reply_document(document=file)
+             link = batbin(write_text)
+             query.message.reply_document(document=file, caption=link)
              msg.delete()
              query.message.delete()
     else:
