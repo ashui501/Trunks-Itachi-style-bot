@@ -105,7 +105,7 @@ async def leave_chat(_, message):
      chat_id = message.text.replace("/leave", "")
      try:
        await bot.leave_chat(chat_id)
-       chat = (await get_chat(chat_id)).title
+       chat = (await bot.get_chat(chat_id)).title
        await message.reply_text(f"Successfully left from {chat}")
      except Exception as e:
         return await message.reply_text(str(e))
