@@ -28,7 +28,7 @@ def webshot (_, message):
      msg = message.reply_text("processing...")
      try:
         screenshot = api.webshot(text)
-        bot.send_document(message.chat.id, screenshot, message.id)
+        message.reply_document(screenshot)
      except Exception as e:
          return msg.edit(str(e))
      
