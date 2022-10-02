@@ -16,7 +16,7 @@ from NandhaBot.helpers.tools import get_readable_time
 from countyinfo import CuntryInfo
 
 
-CUNTRYINFO_TEXT = {
+CUNTRYINFO_TEXT = """
 **capital**: {}
 **currencies**: {}
 **language**: {}
@@ -24,7 +24,7 @@ CUNTRYINFO_TEXT = {
 **alt_names**: {}
 
 MADE BY [TRUNKS](tg://user?id={})
-}
+"""
 
 @bot.on_message(filters.command("countryinfo",config.COMMANDS))
 def cuntryinfo (_, message):
