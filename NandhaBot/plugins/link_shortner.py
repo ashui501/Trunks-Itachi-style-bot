@@ -18,7 +18,7 @@ async def get_shortlink(link):
 async def short(_, message):
     if len(message.command) <2:
          return await message.reply_text("Give Some URL to Short")
-    link = await message.text.replace("/short", "")
+    link = message.text.replace("/short", "")
     msg = await message.reply_text("processing...")
     try:
         short_link = await get_shortlink(link)
