@@ -46,10 +46,8 @@ def countryinfo (_, message):
            alt_names,user_id))
 
      except Exception as e:
-           msg.edit_text(str(e))
-     else:
-          message.reply_text("No results found.")
-         
+           msg.edit_text(f"No Results in {e}")
+     
 StartTime = time.time()
 
 @bot.on_message(filters.command("ping",config.COMMANDS))
