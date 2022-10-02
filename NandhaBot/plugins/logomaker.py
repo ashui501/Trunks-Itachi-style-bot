@@ -1,12 +1,9 @@
-import telebot
 import requests
-from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
-from NandhaBot import BOT_TOKEN
-bot = telebot.TeleBot(BOT_TOKEN)
 
 
+from NandhaBot import telebot
 
-@bot.message_handler(commands=['logo'])
+@telebot.message_handler(commands=['logo'])
 def logo(message):
     if len(message.command) <2:
          return bot.reply_to(message, "Give Name For Generate Logo.")
