@@ -18,9 +18,9 @@ from NandhaBot.helpers.tools import get_readable_time
 from countryinfo import CountryInfo
 
 
-LYRICS_TEXT = """ title: {}
-artist: {}
-lyrics: {}
+LYRICS_TEXT = """ **title**: {}
+**artist**: {}
+**lyrics**: {}
 """
 @bot.on_message(filters.command("lyrics",config.COMMANDS))
 def lyrics (_, message):
