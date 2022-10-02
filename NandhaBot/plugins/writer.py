@@ -25,7 +25,7 @@ def writer (_, message):
 @bot.on_callback_query(filters.regex("write_file"))
 async def write_file(_, query):
     if query.from_user.id == user_id:
-        await msg = query.message.reply_text("Sending File...")
+        msg = await query.message.reply_text("Sending File...")
         write_text = text.replace("/write", "")
         with io.BytesIO(str.encode(write_text)) as file:
              file.name = "writer.txt"
