@@ -6,6 +6,8 @@ from pyrogram.types import *
 from pyrogram import filters
 
 
+
+
 @bot.on_message(filters.command("write"))
 def writer (_, message):
      global text, user_id
@@ -38,9 +40,9 @@ def write_photo(_, query):
      if query.from_user.id == user_id:
         msg = query.message.reply_text("Sending File...")
         write_text = text.split(None, 1)[1]
-        API = "https://apis.xditya.me/write?text=" + write_text
+        API = f"https://api.sdbots.tk/write?text={write_text}"
         url = requests.get(API).url
-        query.message.reply_document(document=url)
+        query.message.reply_document(document=url,caption=url)
         msg.delete()
         query.message.delete()
 
