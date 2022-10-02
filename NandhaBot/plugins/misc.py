@@ -34,11 +34,8 @@ def countryinfo (_, message):
      country_name = message.text.split(None, 1)[1]
      msg = message.reply_text("processing...")
      try:
-       cuntry = CountryInfo(country_name)
-     except Exception as e:
-           msg.edit_text(str(e))
-     else:
-         country = CountryInfo(country_name)
+         cuntry = CountryInfo(country_name)
+       
          capital = country.capital()
          currencies = country.currencies()
          language = country.languages()
@@ -49,6 +46,11 @@ def countryinfo (_, message):
           capital, currencies,language,borders,
            alt_names,user_id))
 
+     except Exception as e:
+           msg.edit_text(str(e))
+     else:
+          message.reply_text("No results found.")
+         
 StartTime = time.time()
 
 @bot.on_message(filters.command("ping",config.COMMANDS))
