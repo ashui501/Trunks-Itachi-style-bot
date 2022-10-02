@@ -27,13 +27,13 @@ def logo(_, message):
   
      
 @bot.on_callback_query(filters.regex("logo_file"))
-def sendlogoasfile(_, query):
+async def sendlogoasfile(_, query):
      if query.from_user.id == user_id:
-        msg = query.message.reply_text("Sending file....")
-        file = query.message.download(file_name="logo.png")
-        query.message.reply_document(
-          document=file,caption=f"{req}\n\nby @TrunksRobot")
-        query.message.delete()
-        msg.delete()
+        msg = await query.message.reply_text("Sending file....")
+        file = await query.message.download(file_name="logo.png")
+        await query.message.reply_document(
+        document=file,caption=f"{req}\n\nby @TrunksRobot")
+        await query.message.delete()
+        await msg.delete()
      else:
          query.answer("This Message Not For You!", show_alert=True)
