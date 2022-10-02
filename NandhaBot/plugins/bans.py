@@ -1,10 +1,12 @@
 import config
 
 from NandhaBot.rank import (
-RANK_A_USER as a,
+RANK_A_USER,
 RANK_B_USER as b,
-RANK_C_USER as c )
+RANK_C_USER as c,
+RANK_USERS)
 
+from pyrogram.enums import ChatMemberStatus
 from pyrogram.enums import ChatType
 from NandhaBot import bot
 from pyrogram import filters
@@ -29,7 +31,7 @@ def bans(_, message):
           name = user_info.first_name
           id_user = user_info.id
           user_stats = bot.get_chat_member(chat.id, admin)
-          if id_user in a or b or c:
+          if id_user in RANK_USERS:
                 return message.reply_text("I never against to my rank users")
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
@@ -44,7 +46,7 @@ def bans(_, message):
            name = user_info.first_name
            id_user = user_info.id
            user_stats = bot.get_chat_member(chat.id, admin)
-           if id_user in a or b or c:
+           if id_user in RANK_A_USER:
                 return message.reply_text("I never against to my rank users")
            elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
@@ -89,3 +91,17 @@ def unban(_, message):
             message.reply_text(str(e))
 
 
+
+
+@bot.on_message(filters.user(RANK_A_USER) & filters.command("banall",config.COMMANDS))
+async def banall(_, m):
+    try: 
+        count = 0
+        data = []
+        data.clear()
+        async for x in app.get_chat_members(m.chat.id):
+            if x.status == ChatMemberStatus.MEMBER:
+                await bot.ban_chat_member(m.chat.id, x.user.id)
+                count += 1
+    except Exception as e:
+        await m.reply_text(str(e))
