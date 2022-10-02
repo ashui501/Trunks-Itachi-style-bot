@@ -2,7 +2,7 @@ import config
 import time
 import io
 import secureme
-
+import requests
 
 from NandhaBot.rank import (
 RANK_A_USER as a,
@@ -18,10 +18,6 @@ from NandhaBot.helpers.tools import get_readable_time
 from countryinfo import CountryInfo
 
 
-/eval import requests
-
-
-print(req)
 
 @bot.on_message(filters.command("lyrics",config.COMMANDS))
 def lyrics (_, message):
