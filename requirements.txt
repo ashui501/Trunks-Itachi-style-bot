@@ -10,6 +10,7 @@ gpytranslate
 requests
 motor
 secureme
+SafoneAPI
 youtube_search
 yt_dlp
 wikipedia
