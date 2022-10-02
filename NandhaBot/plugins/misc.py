@@ -34,8 +34,7 @@ def countryinfo (_, message):
      country_name = message.text.split(None, 1)[1]
      msg = message.reply_text("processing...")
      try:
-         cuntry = CountryInfo(country_name)
-       
+         country = CountryInfo(country_name)
          capital = country.capital()
          currencies = country.currencies()
          language = country.languages()
