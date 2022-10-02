@@ -20,7 +20,7 @@ def logo(_, message):
        bot.send_photo(
             message.chat.id,
             photo=req,
-            caption=f"telegraph link:[link]({req})\nby @TrunksRobot",
+            caption=f"{req}\n\nby @TrunksRobot",
             reply_to_message_id=message.id,reply_markup=baby)
     except Exception as e:
         msg.edit_text(str(e))
@@ -32,7 +32,7 @@ def sendlogoasfile(_, query):
         msg = query.message.reply_text("Sending file....")
         file = query.message.download(file_name="logo.png")
         query.message.reply_document(
-          document=file,caption=f"telegraph link:[link]({req})\nby @TrunksRobot")
+          document=file,caption=f"{req}\n\nby @TrunksRobot")
         query.message.delete()
         msg.delete()
      else:
