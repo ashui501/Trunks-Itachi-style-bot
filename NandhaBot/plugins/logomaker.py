@@ -21,7 +21,7 @@ def logo(_, message):
             message.chat.id,
             photo=req,
             file_name="logo.jpg"
-            caption=f"telegraph link:[link]({req})\nby @TrunksRobot"),
+            caption=f"telegraph link:[link]({req})\nby @TrunksRobot",
             reply_to_message_id=message.id,reply_markup=baby)
     except Exception as e:
         msg.edit_text(str(e))
