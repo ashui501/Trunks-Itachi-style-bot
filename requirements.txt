@@ -4,6 +4,7 @@ pyshorteners
 aiohttp
 aiofiles
 asyncio
+countyinfo
 tgcrypto
 telegraph
 gpytranslate
