@@ -7,8 +7,8 @@ def spacebin(text):
     res = post(url, data={"content": text, "extension": "txt"})
     return f"https://spaceb.in/{res.json()['payload']['id']}"
 
-def batbin(text):
+async def batbin(text):
     base = "https://batbin.me/"
-    resp = post(f"{base}api/v2/paste", data=text)
+    resp = await post(f"{base}api/v2/paste", data=text)
     code = resp["message"]
     return f"{base}{code}"
