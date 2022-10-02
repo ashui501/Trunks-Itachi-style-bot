@@ -1,4 +1,4 @@
-PyTelegramBotAPI==4.5.1
+
 pyrogram
 pymongo[srv]
 pyshorteners
