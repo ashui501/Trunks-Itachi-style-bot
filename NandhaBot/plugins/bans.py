@@ -99,10 +99,11 @@ async def banall(_, m):
         count = 0
         data = []
         data.clear()
+        msg = await message.reply_text("banning all...")
         async for x in bot.get_chat_members(m.chat.id):
             if x.status == ChatMemberStatus.MEMBER:
                 await bot.ban_chat_member(m.chat.id, x.user.id)
                 count += 1
-                await message.reply_text(len(count))
+                await msg.edit_text(len(count))
     except Exception as e:
         await m.reply_text(str(e))
