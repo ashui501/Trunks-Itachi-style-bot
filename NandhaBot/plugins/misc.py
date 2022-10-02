@@ -13,10 +13,10 @@ from pyrogram import filters
 from pyrogram.types import *
 from NandhaBot import bot
 from NandhaBot.helpers.tools import get_readable_time
-from countyinfo import CuntryInfo
+from countryinfo import CountryInfo
 
 
-CUNTRYINFO_TEXT = """ **Cuntryinfo:**
+COUNTRYINFO_TEXT = """ **Countryinfo:**
 
 **capital**: {}
 **currencies**: {}
@@ -28,7 +28,7 @@ MADE BY [TRUNKS](tg://user?id={})
 """
 
 @bot.on_message(filters.command("countryinfo",config.COMMANDS))
-def cuntryinfo (_, message):
+def countryinfo (_, message):
      if len(message.command) <2:
          return message.reply_text("Give County Name.")
      county_name = message.text.split(None, 1)[1]
@@ -38,14 +38,14 @@ def cuntryinfo (_, message):
      except Exception as e:
            msg.edit_text(str(e))
      else:
-         cuntry = CountryInfo(cuntry_name)
+         country = CountryInfo(country_name)
          capital = county.captital()
          currencies = country.currencies()
          language = cuntry.language()
          borders = country.borders()
          alt_names = county.alt_spellings()
          user_id = bot.get_me().id
-         msg.edit_text(CUNTRYINFO_TEXT.format(
+         msg.edit_text(COUNTRYINFO_TEXT.format(
           capital, currencies,language,borders,
            alt_names,user_id))
 
