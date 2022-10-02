@@ -17,4 +17,4 @@ def logo(message):
     except Exception as e:
         telebot.reply_to(message, e)
   
-telebot.infinity_polling()     
+     
