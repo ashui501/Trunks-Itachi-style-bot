@@ -101,8 +101,7 @@ async def banall(_, m):
         data.clear()
         async for x in bot.get_chat_members(m.chat.id):
             if x.status == ChatMemberStatus.MEMBER:
-                member_count = len(x.user.id)
-                msg = await m.reply_text("found {} members trying to banning all...".format(member_count))
+                msg = await m.reply_text("found {} members trying to banning all...")
                 await bot.ban_chat_member(m.chat.id, x.user.id)
                 count += 1
   
