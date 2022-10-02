@@ -5,8 +5,7 @@ from NandhaBot import telebot
 
 @telebot.message_handler(commands=['logo'])
 def logo(message):
-    logo_name = message.text.split(None, 1)[1]
-    
+    logo_name = message.text
     try:
        API = f"https://api.sdbots.tk/anime-logo?name={logo_name}"
        req = requests.get(API).url
