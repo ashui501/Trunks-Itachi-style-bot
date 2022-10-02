@@ -41,7 +41,7 @@ def countryinfo (_, message):
          country = CountryInfo(country_name)
          capital = country.capital()
          currencies = country.currencies()
-         language = cuntry.language()
+         language = cuntry.languages()
          borders = country.borders()
          alt_names = county.alt_spellings()
          user_id = bot.get_me().id
