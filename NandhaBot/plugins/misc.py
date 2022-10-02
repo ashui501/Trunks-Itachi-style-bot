@@ -39,7 +39,7 @@ def countryinfo (_, message):
            msg.edit_text(str(e))
      else:
          country = CountryInfo(country_name)
-         capital = county.captital()
+         capital = country.captital()
          currencies = country.currencies()
          language = cuntry.language()
          borders = country.borders()
