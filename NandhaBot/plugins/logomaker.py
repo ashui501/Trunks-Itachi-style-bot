@@ -6,7 +6,7 @@ bot = telebot.TeleBot(BOT_TOKEN)
 
 
 
-bot.message_handler(commands=['logo'])
+@bot.message_handler(commands=['logo'])
 def logo(message):
     if len(message.command) <2:
          return bot.reply_to(message, "Give Name For Generate Logo.")
