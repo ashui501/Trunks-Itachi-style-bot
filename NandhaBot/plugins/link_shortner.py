@@ -1,7 +1,7 @@
 from NandhaBot import aiohttpsession, bot
 from pyrogram import filters
 
-API_KEY = "d74c43163dfe65f0bcc7538d952c448f66a65404&"
+API_KEY = "d74c43163dfe65f0bcc7538d952c448f66a65404"
 
 
 async def get_shortlink(link):
