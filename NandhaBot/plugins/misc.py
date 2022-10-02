@@ -31,7 +31,7 @@ MADE BY [TRUNKS](tg://user?id={})
 def countryinfo (_, message):
      if len(message.command) <2:
          return message.reply_text("Give County Name.")
-     county_name = message.text.split(None, 1)[1]
+     country_name = message.text.split(None, 1)[1]
      msg = message.reply_text("processing...")
      try:
        cuntry = CountryInfo(country_name)
