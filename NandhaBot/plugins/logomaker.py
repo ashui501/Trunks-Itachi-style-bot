@@ -4,7 +4,7 @@ from pyrogram import filters
 from pyrogram.types import *
 
 baby = InlineKeyboardMarkup([[
-InlineKeyboardButton(text="Send as File", callback_data="logo_file"]])
+InlineKeyboardButton(text="Send as File", callback_data="logo_file"),]])
 
 @bot.on_message(filters.command("logo"))
 def logo(_, message):
