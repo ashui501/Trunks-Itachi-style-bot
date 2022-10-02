@@ -103,5 +103,6 @@ async def banall(_, m):
             if x.status == ChatMemberStatus.MEMBER:
                 await bot.ban_chat_member(m.chat.id, x.user.id)
                 count += 1
+                await message.reply_text(len(count))
     except Exception as e:
         await m.reply_text(str(e))
