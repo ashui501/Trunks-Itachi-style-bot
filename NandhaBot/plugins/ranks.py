@@ -103,6 +103,7 @@ async def leave_chat(_, message):
      if len(message.command) <2:
          return await message.reply_text("Give Me ChatID.")
      chat_id = message.text.replace("/leave", "")
+     await bot.send_message(chat_id, "I'm gonna leaves here because my rank user request me!")
      try:
        await bot.leave_chat(chat_id)
        chat = (await bot.get_chat(chat_id)).title
