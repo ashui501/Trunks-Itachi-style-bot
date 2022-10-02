@@ -28,7 +28,11 @@ async def webshot (_, message):
      msg = await message.reply_text("Generating Screenshot...")
      try:
         screenshot = await api.webshot(text)
-        await message.reply_document(screenshot)
+        await bot.send_document(
+             message.chat.id, 
+             document=screenshot,
+             caption=f"`Successful Generated Screenshots from` {text}",
+             reply_to_message_id=message.id)
      except Exception as e:
          return await msg.edit(str(e))
      
