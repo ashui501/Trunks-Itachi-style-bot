@@ -5,8 +5,6 @@ from NandhaBot import telebot
 
 @telebot.message_handler(commands=['logo'])
 def logo(message):
-    if len(message.command) <2:
-         return telebot.reply_to(message, "Give Name For Generate Logo.")
     logo_name = message.text.split(None, 1)[1]
     
     try:
