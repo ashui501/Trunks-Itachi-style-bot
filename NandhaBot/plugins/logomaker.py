@@ -20,4 +20,4 @@ def logo(message):
     except Exception as e:
         telebot.reply_to(message, e)
   
-bot.infinity_polling()     
+telebot.infinity_polling()     
