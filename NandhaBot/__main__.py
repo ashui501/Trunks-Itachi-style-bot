@@ -2,7 +2,7 @@ import config
 import text
 import time
 import random 
-from NandhaBot import bot
+from NandhaBot import bot, telebot
 from pyrogram import filters
 from pyrogram.types import *
 from pyrogram.enums import *
@@ -37,6 +37,7 @@ async def start(_, message):
        
 
 if __name__ == "__main__":
+     telebot.infinity_polling()
      bot.run()
      photo_url = "http://telegra.ph/file/103f51de685933820f969.jpg"
      with bot:
