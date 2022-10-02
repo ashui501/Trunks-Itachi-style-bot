@@ -8,6 +8,8 @@ from NandhaBot.rank import (
 RANK_A_USER as a,
 RANK_B_USER as b,
 RANK_C_USER as c )
+from SafoneAPI import SafoneAPI
+
 
 from pyrogram import filters
 from pyrogram.types import *
@@ -15,6 +17,21 @@ from NandhaBot import bot
 from NandhaBot.helpers.tools import get_readable_time
 from countryinfo import CountryInfo
 
+
+
+api = SafoneAPI()
+@bot.on_message(filters.command("webshot",config.COMMANDS))
+def webshot (_, message):
+     if len(message.command) <2:
+          return message.reply_text("Give URL Screenshots.")
+     text = message.text.split(None, 1)[1]
+     msg = message.reply_text("processing...")
+     try:
+        screenshot = api.webshot(text)
+        bot.send_document(message.chat.id, screenshot, message.id)
+     except Exception as e:
+         return msg.edit(str(e))
+     
 
 COUNTRYINFO_TEXT = """ **Countryinfo:**
 
