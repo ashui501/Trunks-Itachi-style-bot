@@ -18,6 +18,24 @@ from NandhaBot.helpers.tools import get_readable_time
 from countryinfo import CountryInfo
 
 
+/eval import requests
+
+
+print(req)
+
+@bot.on_message(filters.command("lyrics",config.COMMANDS))
+def lyrics (_, message):
+       if len(message.command) <2:
+            return message.reply_text("input a song name!")
+       msg = message.reply_text("lyrics searching...")
+       try:
+          song_name = message.text.split(None,1)[1]
+          API = f"https://api.sdbots.tk/lyrics?song={song_name}"
+          req = requests.get(API).json()
+          msg.edit(req)
+       except Exception as e:
+            msg.edit(str(e))
+       
 
 api = SafoneAPI()
 @bot.on_message(filters.command("webshot",config.COMMANDS))
