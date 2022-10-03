@@ -16,5 +16,6 @@ youtube_search
 yt_dlp
 wikipedia
 wget 
+lxml
 countryinfo==0.1.2
 
