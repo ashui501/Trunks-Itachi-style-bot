@@ -41,6 +41,6 @@ async def sendlogoasfile(_, query):
 
 
 
-bot.add_handler(MessageHandler(logo))
+
 
 
