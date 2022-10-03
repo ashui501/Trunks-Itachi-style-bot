@@ -1,4 +1,4 @@
-
+play_scraper
 pyrogram
 pymongo[srv]
 pyshorteners
