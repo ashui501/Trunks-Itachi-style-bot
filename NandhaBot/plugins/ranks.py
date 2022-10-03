@@ -86,7 +86,7 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_A_USER))
+@bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_USERS))
 def logs(_, message):
     system = run("tail logs.txt")
     link = spacebin(system)
@@ -96,9 +96,8 @@ def logs(_, message):
 
  
 
-RANK_USERS = (rank.RANK_A_USER+rank.RANK_B_USER)   
 
-@bot.on_message(filters.command("leave",config.COMMANDS) & filters.user(RANK_USERS))
+@bot.on_message(filters.command("leave",config.COMMANDS) & filters.user(rank.RANK_USERS))
 async def leave_chat(_, message):
      if len(message.command) <2:
          return await message.reply_text("Give Me ChatID.")
