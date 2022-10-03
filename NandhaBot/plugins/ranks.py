@@ -11,7 +11,7 @@ from NandhaBot import bot
 from pyrogram.types import *
 from pyrogram import filters
 from NandhaBot import rank
-from NandhaBot.helpers.paste import spacebin
+from NandhaBot.helpers.paste import batbin
 
 @bot.on_message(filters.command("sh",config.COMMANDS))
 def sh(_, m):
@@ -87,12 +87,12 @@ async def aexec(code, client, message):
 
 
 @bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_USERS))
-def logs(_, message):
+async def logs(_, message):
     system = run("tail logs.txt")
-    link = spacebin(system)
-    msg= message.reply_text("`sending logs...`")
-    message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
-    msg.delete()
+    link = await batbin(system)
+    msg= await message.reply_text("`sending logs...`")
+    await message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
+    await msg.delete()
 
  
 
