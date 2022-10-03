@@ -87,12 +87,12 @@ async def aexec(code, client, message):
 
 
 @bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_A_USER))
-def logs(_, message):
+async def logs(_, message):
     system = run("tail logs.txt")
-    link = spacebin(system)
-    msg= message.reply_text("`sending logs...`")
-    message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
-    msg.delete()
+    link = await spacebin(system)
+    msg= await message.reply_text("`sending logs...`")
+    await message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
+    await msg.delete()
 
  
 
