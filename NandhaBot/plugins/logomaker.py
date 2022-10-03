@@ -37,7 +37,7 @@ async def sendlogoasfile(_, query):
         await query.message.delete()
         await msg.delete()
      else:
-         query.answer("This Message Not For You!", show_alert=True)
+         await query.answer("This Message Not For You!", show_alert=True)
 
 
 
