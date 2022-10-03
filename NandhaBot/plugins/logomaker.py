@@ -6,7 +6,7 @@ from pyrogram.types import *
 baby = InlineKeyboardMarkup([[
 InlineKeyboardButton(text="Send as File", callback_data="logo_file"),]])
 
-@bot.on_message(filters.command("logo"))
+
 def logo(_, message):
     global user_id, req
     user_id = message.from_user.id
@@ -37,3 +37,10 @@ async def sendlogoasfile(_, query):
         await msg.delete()
      else:
          query.answer("This Message Not For You!", show_alert=True)
+
+
+
+
+bot.add_handler(MessageHandler(logo))
+
+
