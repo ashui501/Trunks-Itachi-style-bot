@@ -1,3 +1,4 @@
+import config
 import requests
 from NandhaBot import bot
 from pyrogram import filters
