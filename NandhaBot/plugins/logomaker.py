@@ -6,7 +6,7 @@ from pyrogram.types import *
 baby = InlineKeyboardMarkup([[
 InlineKeyboardButton(text="Send as File", callback_data="logo_file"),]])
 
-@bot.on_message(filters.command("logo,config.COMMANDS))
+@bot.on_message(filters.command("logo",config.COMMANDS))
 def logo(_, message):
     global user_id, req
     user_id = message.from_user.id
