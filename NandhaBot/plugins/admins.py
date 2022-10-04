@@ -6,7 +6,7 @@ from pyrogram import filters
 from NandhaBot import bot
 
 
-@bot.on_message(filters.command("admins",config.COMMANDS))
+@bot.on_message(filters.command(["admins","adminlist"],config.COMMANDS))
 async def admins(_, message):
       chat_id = message.chat.id
       if message.chat.type == ChatType.PRIVATE:
