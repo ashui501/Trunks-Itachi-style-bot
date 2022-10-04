@@ -17,12 +17,12 @@ async def res(client, message):
              key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
                     InlineKeyboardMarkup([[InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"),]])
              await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
-         else:
-            try:
-               await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
-               key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
-               await message.reply(f"Hello ( {member.mention} ) You are restricted to make sure you are not a robot", reply_markup=key)
-            except Exception as e:
+         elif is_bot == "False":
+              try:
+                 await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
+                 key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
+                 await message.reply(f"Hello ( {member.mention} ) You are restricted to make sure you are not a robot", reply_markup=key)
+              except Exception as e:
                 await message.reply_text(str(e))
 
 
