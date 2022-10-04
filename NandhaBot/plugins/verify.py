@@ -13,7 +13,7 @@ async def res(client, message):
      for member in message.new_chat_members:
          is_bot = (await bot.get_users(member.id)).is_bot
          if is_bot == "True":
-             await bot.await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
+             await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
              key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
                     InlineKeyboardMarkup([[InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"),]])
              await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
