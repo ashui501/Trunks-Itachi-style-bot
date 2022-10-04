@@ -1,3 +1,5 @@
+import config
+
 from pyrogram import filters
 from pyrogram import enums
 from NandhaBot import bot
