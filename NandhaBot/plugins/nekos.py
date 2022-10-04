@@ -338,12 +338,14 @@ def highfive(_, m: Message):
           url = api["url"]      
           m.reply_animation(animation=url)
     
-@bot.on_message(filters.regex("slap") & filters.command("slap",config.COMMANDS))
+@bot.on_message(filters.regex("slap"))
+@bot.on_message(filters.command("slap",config.COMMANDS))
 def slap(_, m: Message):
        reply = m.reply_to_message
        if reply:
            api = requests.get("https://api.waifu.pics/sfw/slap").json()
            url = api["url"]
+           name1 = reply.from_user.first_name
            name2 = m.from_user.first_name
            reply.reply_animation(url,caption="{} (((;ꏿ_ꏿ;))) slaps {} ಠಗಠ".format(name2, name1))
        else:
