@@ -99,6 +99,7 @@ MISC_HELP = """
 {}
 """
 
+
 TRANSLATE_HELP = """
 this module should we mostly need for 
 connection with other country, state's peopls
@@ -107,7 +108,7 @@ connection with other country, state's peopls
 - /tr {code}: translate any language to your language.
 
 list of language codes available:
-  [translation codes](https://telegra.ph/Lang-Codes-03-19-3)
+[translation codes](https://telegra.ph/Lang-Codes-03-19-3)
 
 {}
 """
