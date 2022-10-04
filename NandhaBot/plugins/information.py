@@ -24,8 +24,9 @@ def userinfo(_, message):
      chat_id = message.chat.id
      user_id = message.from_user.id
      if not message.reply_to_message and len(message.command) != 1:
-         user_id = int(message.text.split(None, 1)[1]) or user_id
+         
          try:
+            user_id = int(message.text.split(None, 1)[1])
             user_info = bot.get_chat(user_id)
             user = bot.get_users(user_id)
             id = user_info.id
