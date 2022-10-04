@@ -12,7 +12,7 @@ from NandhaBot import bot
 async def res(client, message):
      for member in message.new_chat_members:
         username = member.username
-         try:
+        try:
             if username.endswith("bot") == True:
                 await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
                 key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
