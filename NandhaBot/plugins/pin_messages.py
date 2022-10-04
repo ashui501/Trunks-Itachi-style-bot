@@ -5,10 +5,10 @@ from pyrogram import enums
 from NandhaBot import bot
 
 pinned_text = """
-chat: {}
-admin: {}
+**Chat:** {}
+**Admin:** {}
 
-pinned: **[msg]({})**
+**Pinned:** **[message]({})**
 """
 
 @bot.on_message(filters.command("pin",config.COMMANDS))
@@ -28,14 +28,14 @@ def pin(_, message):
           try:
             message_id = int(message.text.split(None,1)[1])
             msg = bot.pin_chat_message(chat_id, message_id)
-            message.reply_text(pinned_text.format(chat_title,first_name,msg.link))
+            message.reply_text(pinned_text.format(chat_title,first_name,msg.link),disable_web_page_preview=True)
           except Exception as e:
                  return message.reply_text(str(e))
 
       else:
           try:
             if user_stats.privileges.can_pin_messages and message.reply_to_message:
-               message.reply_to_message.pin()
-               message.reply_text(pinned_text.format(chat_title,first_name, message.reply_to_message.link))
+               msg = message.reply_to_message.pin()
+               message.reply_text(pinned_text.format(chat_title,first_name, msg.link), disable_web_page_preview=True)
           except Exception as e:
                 return message.reply_text(str(e))
