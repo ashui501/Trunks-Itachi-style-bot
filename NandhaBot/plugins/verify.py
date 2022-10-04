@@ -49,7 +49,7 @@ async def botum(_, query):
            await bot.restrict_chat_member(query.message.chat.id, bot_id, ChatPermissions(can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True))
            await query.message.edit("BOT UNMUTED BY ADMINS!")
      except Exception as e:
-         await message.reply_text(str(e))
+         await query.message.reply_text(str(e))
 
 @bot.on_callback_query(filters.regex("unres"))
 async def unres(_, query):
