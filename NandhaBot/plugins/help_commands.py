@@ -14,7 +14,7 @@ HELP_BACK_BUTTONS = InlineKeyboardMarkup([[
   InlineKeyboardButton(text="𝗚𝗔𝗠𝗘 𝗵𝗲𝗹𝗽", callback_data="game_help")],[
   InlineKeyboardButton(text="𝗡𝗘𝗞𝗢 𝗵𝗲𝗹𝗽", callback_data="neko_help"),]])
 
-BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help_back")]])
+BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗘𝗟𝗣 𝗠𝗘𝗡𝗨", callback_data="help_back")]])
       
    
 help_button = InlineKeyboardMarkup([[
