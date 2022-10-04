@@ -11,10 +11,10 @@ AFTER_SUCCESSFUL_UPLOAD_MSG = "<b>Thank you for Using Me Support Our Channel @Na
 
 @bot.on_message(filters.command("rename",config.COMMANDS))
 async def rename(_, message):
-          try:
-             if not message.reply_to_message and not message.reply_to_message.media:
+          if not message.reply_to_message and not message.reply_to_message.media:
                      return await message.reply("reply to media's")
-             elif len(message.command) <2:
+          try:
+             if len(message.command) <2:
                   return await message.reply("provide some text with in extinction!\n for example: `/rename movies.mkv`")
              name = message.text.split(None, 1)[1]
              if message.reply_to_message.media:
