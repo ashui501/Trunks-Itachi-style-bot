@@ -16,7 +16,7 @@ INFO_TEXT = """
 **DC ID:** {}
 **Bio:** {}
 
-**note were sends you necessary information about you not at all**!
+`note were sends you necessary information about you not at all`!
 """
 @bot.on_message(filters.command(["info","userinfo"],config.COMMANDS))
 def userinfo(_, message):
