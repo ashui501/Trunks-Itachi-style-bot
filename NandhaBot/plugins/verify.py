@@ -18,7 +18,7 @@ async def res(client, message):
                 key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
                    InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"),]])
                 await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
-          except Exception as e:
+        except Exception as e:
               await message.reply_text(str(e)) 
      else:
          for member in message.new_chat_members:
