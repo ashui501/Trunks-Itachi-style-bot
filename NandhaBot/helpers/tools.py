@@ -22,7 +22,7 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-async def admin_check(chat_id: int):
+async def admin_check(chat_id):
      admins = []
      async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
          admins.append(admin.user.id)
