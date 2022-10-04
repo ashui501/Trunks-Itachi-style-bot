@@ -25,7 +25,7 @@ async def res(client, message):
                  await message.reply_text(str(e))
 
 
-@bot.on_callback_query(filters.regex("batban"))
+@bot.on_callback_query(filters.regex("botban"))
 async def botban(_, query):
      chat = query.message.chat
      bot_id = int(query.data.split(":")[1])
@@ -37,7 +37,7 @@ async def botban(_, query):
      except Exception as e:
          await message.reply_text(str(e))
 
-@bot.on_callback_query(filters.regex("batunm"))
+@bot.on_callback_query(filters.regex("botunm"))
 async def botum(_, query):
      chat = query.message.chat
      bot_id = int(query.data.split(":")[1])
