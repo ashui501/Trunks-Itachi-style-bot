@@ -13,7 +13,7 @@ from pyrogram import filters
 from pyrogram.types import *
 
 BANNED_TEXT = "Another one dust Cleared!\n it's that {}!"
-UNBANNED_TEXT = "{} fine can join again."
+UNBANNED_TEXT = "{} fine can join again!"
 
 @bot.on_message(filters.command("ban",config.COMMANDS))
 def bans(_, message):
@@ -26,7 +26,7 @@ def bans(_, message):
     elif not reply:
     
        try:
-          user_id = message.text.replace("/ban", "")
+          user_id = message.text.split(None, 1)[1]
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           id_user = user_info.id
@@ -65,7 +65,7 @@ def unban(_, message):
          return message.reply_text("this command work on groups.")
      elif not reply:
          try:
-              user_id = message.text.replace("/unban", "")
+              user_id = message.text.split(None, 1)[1]
               user_info = bot.get_chat(user_id)
               name = user_info.first_name
               id_user = user_info.id
