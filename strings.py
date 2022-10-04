@@ -101,8 +101,9 @@ MISC_HELP = """
 
 
 TRANSLATE_HELP = """
-this module should we mostly need for 
-connection with other country, state's peopls
+this module should we mostly 
+need for connection with other 
+country or state's peopls.
 
 - /tr: translate any language to english.
 - /tr {code}: translate any language to your language.
