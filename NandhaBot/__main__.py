@@ -1,5 +1,5 @@
 import config
-import text
+import strings
 import time
 import random 
 from NandhaBot import bot
@@ -30,7 +30,7 @@ async def start(_, message):
        elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
             return await message.reply_text("""<b>Happy to See you {}</b>\n\n<b>• Read the help menu for about my futures /help.</b>""".format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
-           return await message.reply_text(random.choice(text.GROUP_START_TEXT))
+           return await message.reply_text(random.choice(strings.GROUP_START_TEXT))
 
     except Exception as error:
                  await message.reply(f"**ERROR**: {error}")
