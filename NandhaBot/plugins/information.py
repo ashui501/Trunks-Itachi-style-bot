@@ -53,3 +53,18 @@ id,name, username, mention, dc_id, bio))
 id,name, username, mention, dc_id, bio))
          except Exception as e:
               message.reply_text(str(e))
+     elif message.reply_to_message:
+          user_id = message.reply_to_message.from_user.id
+          try:
+            user_info = bot.get_chat(user_id)
+            user = bot.get_users(user_id)
+            id = user_info.id
+            dc_id = user.dc_id
+            name = user_info.first_name
+            username = user_info.username
+            mention = user.mention
+            bio = user_info.bio
+            message.reply_text(INFO_TEXT.format(
+id,name, username, mention, dc_id, bio))
+         except Exception as e:
+              message.reply_text(str(e))
