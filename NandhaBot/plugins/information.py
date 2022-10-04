@@ -8,15 +8,15 @@ from NandhaBot import bot
 INFO_TEXT = """
 **here the user information:**
 
-his/her ID: {}
-his/her name: {}
-his/her username: @{}
-his/her mention: {}
+**ID:** {}
+**Name:** {}
+**Username:** @{}
+**Mention:** {}
 
-his/her DC ID: {}
-his/her bio: {}
+**DC ID:** {}
+**Bio:** {}
 
-
+**note were sends you necessary information about you not at all**!
 """
 @bot.on_message(filters.command(["info","userinfo"],config.COMMANDS))
 def userinfo(_, message):
