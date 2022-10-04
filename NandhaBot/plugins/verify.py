@@ -16,10 +16,14 @@ async def res(client, message):
          await message.reply(f"Hello ( {member.mention} ) You are restricted to make sure you are not a robot", reply_markup=key)
          
 @bot.on_callback_query(filters.regex("unres"))
-async def unres(_, q: CallbackQuery):
-   user_id = int(q.data.split(":")[1])
-   if not q.from_user.id == user_id:
-     await q.answer("This message is not for you", show_alert=True)
+async def unres(_, query):
+   user_id = int(query.data.split(":")[1])
+   if not query.from_user.id == user_id:
+     await query.answer("This message is not for you!", show_alert=True)
    else:
-     await q.edit_message_text("Verified successfully You can chat in the group now")
-     await bot.restrict_chat_member(q.message.chat.id, user_id, ChatPermissions(can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True))
+     try:
+       name = (await bot.get_users(user_id)).first_name
+       await query.edit_message_text(f"Verified successfully {name} can chat in the group now!")
+       await bot.restrict_chat_member(query.message.chat.id, user_id, ChatPermissions(can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True))
+     except Exception as e:
+          query.message.edit_message_text(str(e))
