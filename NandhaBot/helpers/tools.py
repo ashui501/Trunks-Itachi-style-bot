@@ -20,3 +20,10 @@ def get_readable_time(seconds: int) -> str:
     time_list.reverse()
     ping_time += ":".join(time_list)
     return ping_time
+
+
+async admin_check(chat_id):
+     admins = []
+     async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
+     admins.append(admin.user.id)
+     return admins
