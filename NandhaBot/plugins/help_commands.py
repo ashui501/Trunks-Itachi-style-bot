@@ -38,6 +38,6 @@ def help(_, message):
 @bot.on_callback_query(filters.regex("help_back"))
 def helpdatas(_, query):
         def help(_, message):
-     message.reply_text(strings.HELP_TEXT,reply_markup=help_button)
+     query.message.edit(strings.HELP_TEXT,reply_markup=HELP_BACK_BUTTONS)
 
 
