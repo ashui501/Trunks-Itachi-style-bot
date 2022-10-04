@@ -14,10 +14,9 @@ pinned: **[msg]({})**
 @bot.on_message(filters.command("pin",config.COMMANDS))
 def pin(_, message):
       chat = message.chat
-      chat_title = chat.title
-      chat_id = chat.id
-      user = message.from_user
-      user_id = user.id
+      chat_title = message.chat.title
+      chat_id = message.chat.id
+      user_id = message.from_user.id
       first_name = message.from_user.first_name
       user_stats = bot.get_chat_member(chat_id, user_id)
       if message.chat.type == enums.ChatType.PRIVATE:
