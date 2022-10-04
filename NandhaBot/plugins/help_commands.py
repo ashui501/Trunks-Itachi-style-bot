@@ -25,4 +25,4 @@ def help(_, message):
 @bot.on_callback_query()
 def helpdatas(_, query):
      query.data == "paste":
-        query.message.edit(strings.HELP_PASTE)
+        query.message.edit(strings.PASTE_HELP)
