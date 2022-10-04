@@ -39,7 +39,7 @@ id,name, username, mention, dc_id, bio))
          except Exception as e:
               message.reply_text(str(e))
     
-     else:
+     elif not message.reply_to_message and len(message.command) == 1:
          try:
             user_info = bot.get_chat(user_id)
             user = bot.get_users(user_id)
