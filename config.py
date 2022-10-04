@@ -1,4 +1,5 @@
-
+USERNAME = "TrunksRobot"
+ID = 5515671520
 COMMANDS = [".","?","/","!","$","#","~",]
 GROUP_ID = -1001717881477
 GROUP_URL = "t.me/nandhasupport"
