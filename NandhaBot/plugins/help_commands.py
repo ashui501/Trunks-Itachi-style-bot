@@ -1,6 +1,6 @@
 
 import config 
-import text
+import strings
 from pyrogram import filters
 from pyrogram.types import *
 from NandhaBot import bot
