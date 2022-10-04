@@ -22,12 +22,12 @@ INFO_TEXT = """
 def userinfo(_, message):
     
      chat_id = message.chat.id
-     user = message.from_user
      user_id = message.from_user.id
      if not message.reply_to_message:
          user_id = int(message.text.split(None, 1)[1])
          try:
             user_info = bot.get_chat(user_id)
+            user = bot.get_users(user_id)
             id = user_info.id
             dc_id = user.dc_id
             name = user_info.first_name
