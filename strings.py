@@ -72,6 +72,9 @@ module for you let's play...
 MISC_HELP = """
 **here some random helps full things**:
 
+- /short: link shorteners.
+- /rename: rename files.
+- /webshot: generator screenshots.
 - /paste: paste your codes on batbin.me!
 - /wiki: search your results on wikipedia!
 - /github: get information about github user!
