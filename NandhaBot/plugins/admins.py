@@ -1,6 +1,6 @@
 import config
 
-from program import enums
+from pyrogram import enums
 from pyrogram.enums import ChatType
 from pyrogram import filters
 from NandhaBot import bot
