@@ -14,7 +14,8 @@ HELP_BACK_BUTTONS = InlineKeyboardMarkup([[
   InlineKeyboardButton(text="𝗚𝗔𝗠𝗘 𝗵𝗲𝗹𝗽", callback_data="game_help")],[
   InlineKeyboardButton(text="𝗡𝗘𝗞𝗢 𝗵𝗲𝗹𝗽", callback_data="neko_help")],[
 InlineKeyboardButton(text="𝗥𝗔𝗡𝗞𝗨𝗦𝗘𝗥 𝗵𝗲𝗹𝗽", callback_data="rank_help")],[
-InlineKeyboardButton(text="𝗧𝗥𝗔𝗡𝗦𝗟𝗔𝗧𝗘 𝗵𝗲𝗹𝗽", callback_data="translate_help")]])
+InlineKeyboardButton(text="𝗧𝗥𝗔𝗡𝗦𝗟𝗔𝗧𝗘 𝗵𝗲𝗹𝗽", callback_data="translate_help")],[
+InlineKeyboardButton(text="𝗠𝗘𝗡𝗧𝗜𝗢𝗡𝗔𝗟𝗟 𝗵𝗲𝗹𝗽", callback_data="tagall_help")]])
 
 BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="𝗕𝗔𝗖𝗞 𝗧𝗢 𝗛𝗘𝗟𝗣 𝗠𝗘𝗡𝗨", callback_data="help_back")]])
       
@@ -62,6 +63,10 @@ def rankhelp(_, query):
 @bot.on_callback_query(filters.regex("translate_help"))
 def translatehelp(_, query):
       query.message.edit(strings.TRANSLATE_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
+
+@bot.on_callback_query(filters.regex("tagall_help"))
+def tagallhelp(_, query):
+      query.message.edit(strings.TAGALL_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
 
 
 
