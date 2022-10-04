@@ -5,7 +5,6 @@ PM_START_TEXT = """Happy to See you {}
 
 START_IMAGE = ""
 
-NANDHA = "Made by @NandhaBots"
 
 GROUP_START_TEXT = ( "<b>Nani Kawa Yo? 〣( ºΔº )〣</b>",
                      "<b>What's Matter?   ¯\(°_o)/¯ </b>",
@@ -24,6 +23,7 @@ TOTAl USERS: {} </b>
 
 HELP_TEXT = "here the help menu commands:"
 
+NANDHA = "Made by @NandhaBots"
 
 NEKOS_HELP = """
 Animation Reactions:-
@@ -66,55 +66,19 @@ module for you let's play...
 {}
 """
 
-GIT_HELP = """
-Information about github 
-user with profile photo.
+MISC_HELP = """
+**here some random helps full things**:
 
-Example:
-- /github github username.
-- /gitdl download github repos.
+- /paste: paste your codes on batbin.me!
+- /wiki: search your results on wikipedia!
+- /github: get information about github user!
+- /gitdl: download github repository!
+- /song: download youTube song.
+- /video: download youTube video.
 
-{}
-"""
-
-WIKI_HELP = """
-Search Wikipedia For You Querys..
-
-Example:
-- `/wiki telegram`
-
-{}
-"""
-
-TELEGRAPH_HELP = """
-upload your media to telegraph 
-for instead view and also you
-can create page.. 
-
-- /tm - upload telegraph.
-- /txt - creat telegraph page. 
-
-{}
-"""
-
-PASTE_HELP = """
-Any problems to Send Your long 
-TEXT We are here to share your codes Easily!
-
-api: batbin.me
-
-- /paste: message.text 
-   or document.text only support.
-
-{}
-"""
-
-YT_HELP = """
-download any song or videos 
-using our bot fast to dl speed.
-
-/song query: audio song files.
-/video query: video song files.
+(Instead views)
+- /tm: upload medias on telegraph!
+- /txt: upload text message on telegraph!
 
 {}
 """
