@@ -12,7 +12,7 @@ async def admins(_, message):
       if message.chat.type == ChatType.PRIVATE:
            await message.reply_text("This command work on group only!")
       else:
-        admin_list = []
+        admin_list = "here the total admins:\n"
         async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-             admin_list.append(admin.user.first_name)
-        await message.reply_text(str(admin_list))
+                   admin_list += f"{admin.user.mention}"
+        await message.reply_text(admin_list)
