@@ -37,7 +37,7 @@ def pin(_, message):
       else:
           try:
             if user_stats.privileges.can_pin_messages and message.reply_to_message:
-               msg = message.reply_to_message.pin()
-               message.reply_text(pinned_text.format(chat_title,first_name, msg.link), disable_web_page_preview=True)
+               message.reply_to_message.pin()
+               message.reply_text(pinned_text.format(chat_title,first_name, message.reply_to_message.link), disable_web_page_preview=True)
           except Exception as e:
                 return message.reply_text(str(e))
