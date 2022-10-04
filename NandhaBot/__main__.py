@@ -24,11 +24,10 @@ async def start(_, message):
        if message.chat.type == ChatType.PRIVATE and not await is_user(info.id):
            await add_user(info.id)
            user_count = len(await get_users())                                                                                     
-           await message.reply_text(
-                  """<b>Happy to See you {} ↖(^ω^)↗</b>\n\n<b>• Read the help menu for about my futures. /help.</b>""".format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
+           await message.reply_text(strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
            await bot.send_message(config.GROUP_ID, text=text.NEW_USERS.format(info.id, info.mention, user_count))
        elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
-            return await message.reply_text("""<b>Happy to See you {}</b>\n\n<b>• Read the help menu for about my futures /help.</b>""".format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
+            return await message.reply_text(strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
            return await message.reply_text(random.choice(strings.GROUP_START_TEXT))
 
