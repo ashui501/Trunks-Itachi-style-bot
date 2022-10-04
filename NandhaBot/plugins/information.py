@@ -27,13 +27,13 @@ def userinfo(_, message):
      if not message.reply_to_message:
          user_id = int(message.text.split(None, 1)[1])
          try:
-            user = bot.get_chat(user_id)
-            id = user.id
-            dc_id = user.dc_id
-            name = user.first_name
-            username = user.username
+            user_info = bot.get_chat(user_id)
+            id = user_info.id
+            dc_id = user_info.dc_id
+            name = user_info.first_name
+            username = user_,info.username
             mention = user.mention
-            bio = user.bio
+            bio = user_info.bio
             message.reply_text(INFO_TEXT.format(
 id,name, username, mention, dc_id, bio))
          except Exception as e:
