@@ -2,6 +2,7 @@
 import config 
 import strings
 from pyrogram import filters
+from pyrogram import enums
 from pyrogram.types import *
 from NandhaBot import bot
 
