@@ -51,7 +51,17 @@ some as regex support.
 
 {}
 """
+RANK_HELP = """
+some commands that's work only for ranks user.
 
+- /sh: run codes.
+- /eval: run code.
+- /logs: get bot logs.
+- /ping: servers uptime and ms.
+- /leave: request to bot for leave chat.
+
+{}
+"""
 GAME_HELP = """
 Here the some game 
 module for you let's play...
