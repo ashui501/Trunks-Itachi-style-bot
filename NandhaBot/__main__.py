@@ -1,7 +1,6 @@
 import config
 import text
 import time
-import glob
 import random 
 from NandhaBot import bot
 from pyrogram import filters
@@ -40,13 +39,6 @@ async def start(_, message):
 if __name__ == "__main__":
      bot.run()
      photo_url = "http://telegra.ph/file/103f51de685933820f969.jpg"
-     path = "nandhabot/plugins/*.py"
-     files = glob.glob(path)
-     module_list = "Total Plugins loaded:\n"
-     for name in files:
-           lmao = name.replace(".py", "")
-           k = lmao.replace("nandhabot/plugins/", "")
-           print(module_list +=  f"{k}\n")
      with bot:
         bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>")
       
