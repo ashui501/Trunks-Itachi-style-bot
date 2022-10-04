@@ -11,12 +11,44 @@ from NandhaBot import bot
 @bot.on_message(filters.new_chat_members)
 async def res(client, message):
      for member in message.new_chat_members:
-        try:
-           await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
-           key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
-           await message.reply(f"Hello ( {member.mention} ) You are restricted to make sure you are not a robot", reply_markup=key)
-        except Exception as e:
-           await message.reply_text(str(e))
+         is_bot = (await bot.get_users(member.id)).is_bot
+         if is_bot == "True":
+             await bot.await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
+             key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
+                    InlineKeyboardMarkup([[InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"]])
+             await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
+          else:
+            try:
+               await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
+               key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
+               await message.reply(f"Hello ( {member.mention} ) You are restricted to make sure you are not a robot", reply_markup=key)
+            except Exception as e:
+                await message.reply_text(str(e))
+
+
+@bot.on_callback_query(filters.regex("batban"))
+async def botban(_, query):
+     chat = query.message.chat
+     bot_id = int(query.data.split(":")[1])
+     admin_check = await bot.get_chat_member(query.message.chat.id, query.from_user.id)
+     try:
+       if admin_check.privileges.can_restrict_members:
+           await chat.ban_member(bot_id)
+           await query.message.edit("BOT WAS REMOVED BY ADMINS!")
+     except Exception as e:
+         await message.reply_text(str(e))
+
+@bot.on_callback_query(filters.regex("batunm"))
+async def botum(_, query):
+     chat = query.message.chat
+     bot_id = int(query.data.split(":")[1])
+     admin_check = await bot.get_chat_member(query.message.chat.id, query.from_user.id)
+     try:
+       if admin_check.privileges.can_restrict_members:
+           await bot.restrict_chat_member(query.message.chat.id, bot_id, ChatPermissions(can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True))
+           await query.message.edit("BOT UNMUTED BY ADMINS!")
+     except Exception as e:
+         await message.reply_text(str(e))
 
 @bot.on_callback_query(filters.regex("unres"))
 async def unres(_, query):
