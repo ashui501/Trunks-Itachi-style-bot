@@ -101,12 +101,13 @@ async def logs(_, message):
 async def leave_chat(_, message):
      if len(message.command) <2:
          return await message.reply_text("Give Me ChatID.")
-     chat_id = message.text.replace("/leave", "")
+     chat_id = message.text.split(None,1)[1]
      await bot.send_message(chat_id, "I'm gonna leaves here because my rank user request me!")
      try:
-       await bot.leave_chat(chat_id)
-       chat = (await bot.get_chat(chat_id)).title
-       await message.reply_text(f"Successfully left from {chat}")
+       chat = (await bot.get_chat(chat_id))
+       await bot.leave_chat(chat.id)
+       
+       await message.reply_text(f"Successfully left from {chat.title}")
      except Exception as e:
         return await message.reply_text(str(e))
      
