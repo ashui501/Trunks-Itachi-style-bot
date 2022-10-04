@@ -9,8 +9,8 @@ from NandhaBot import bot
 
 #buttons
 
-HELP_BACK_BUTTONS = [[
-  InlineKeyboardButton(text="Misc help", callback_data="misc_help")]]
+HELP_BACK_BUTTONS = InlineKeyboardMarkup([[
+  InlineKeyboardButton(text="Misc help", callback_data="misc_help")]])
 
 BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help")]])
       
