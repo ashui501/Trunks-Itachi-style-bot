@@ -14,5 +14,5 @@ async def admins(_, message):
       else:
         admin_list = []
         async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-             admin_list.append(admin.first_name)
+             admin_list.append(admin.user.first_name)
         await message.reply_text(str(admin_list))
