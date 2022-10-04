@@ -1,3 +1,5 @@
+"credits to @NandhaxD"
+
 import config
 
 from pyrogram import filters
