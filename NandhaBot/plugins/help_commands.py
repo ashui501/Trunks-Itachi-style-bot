@@ -41,4 +41,4 @@ def helpbacks(_, query):
 
 @bot.on_callback_query(filters.regex("misc_help"))
 def mischelp(_, query):
-      query.message.edit(strings.MISC_HELP.format(NANDHA))
+      query.message.edit(strings.MISC_HELP.format(config.NANDHA))
