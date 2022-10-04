@@ -11,8 +11,8 @@ from NandhaBot import bot
 @bot.on_message(filters.new_chat_members)
 async def res(client, message):
      for member in message.new_chat_members:
-         bot_username = member.username
-         if bot_username.endswith("bot") == True:
+         username = member.username
+         if username.endswith("bot") == True:
              await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
              key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
                    InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"),]])
