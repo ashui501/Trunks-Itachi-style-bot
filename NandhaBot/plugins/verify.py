@@ -16,7 +16,7 @@ async def res(client, message):
            key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
            await message.reply(f"Hello ( {member.mention} ) You are restricted to make sure you are not a robot", reply_markup=key)
         except Exception as e:
-           message.reply_text(str(e))
+           await message.reply_text(str(e))
 
 @bot.on_callback_query(filters.regex("unres"))
 async def unres(_, query):
@@ -29,4 +29,4 @@ async def unres(_, query):
        await query.edit_message_text(f"Verified successfully {name} can chat in the group now!")
        await bot.restrict_chat_member(query.message.chat.id, user_id, ChatPermissions(can_send_messages=True, can_send_media_messages=True, can_send_other_messages=True))
      except Exception as e:
-          query.message.edit_message_text(str(e))
+          await query.message.edit_message_text(str(e))
