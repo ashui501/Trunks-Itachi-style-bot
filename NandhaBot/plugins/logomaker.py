@@ -23,7 +23,7 @@ def logo(_, message):
             photo=req,
             caption=f"{req}\n\nby @TrunksRobot",
             reply_to_message_id=message.id,reply_markup=baby)
-       mag.delete()
+       msg.delete()
     except Exception as e:
         msg.edit_text(str(e))
   
