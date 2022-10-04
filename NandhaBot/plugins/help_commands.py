@@ -8,7 +8,7 @@ from NandhaBot import bot
 HELP_BUTTONS = [[
   InlineKeyboardButton(text="Misc help", callback_data="misc_help")]]
 
-BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help"),]]
+BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help")]])
       
    
 
@@ -18,4 +18,4 @@ def help(_, message):
       
 @bot.on_callback_query(filters.regex("misc_help"))
 def helpdatas(_, query):
-        query.message.edit(strings.MISC_HELP.format(strings.NANDHA))
+        query.message.edit(strings.MISC_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
