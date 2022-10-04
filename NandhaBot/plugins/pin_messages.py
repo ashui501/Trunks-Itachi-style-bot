@@ -29,8 +29,9 @@ def pin(_, message):
          
           try:
             message_id = int(message.text.split(None,1)[1])
-            msg = bot.pin_chat_message(chat_id, message_id)
-            message.reply_text(pinned_text.format(chat_title,first_name,msg.link),disable_web_page_preview=True)
+            bot.pin_chat_message(chat_id, message_id)
+            msg_link = f"t.me/{chat.username}/{message_id}"
+            message.reply_text(pinned_text.format(chat_title,first_name,msg_link),disable_web_page_preview=True)
           except Exception as e:
                  return message.reply_text(str(e))
 
