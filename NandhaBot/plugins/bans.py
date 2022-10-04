@@ -36,8 +36,9 @@ def bans(_, message):
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
           message.reply_text(BANNED_TEXT.format(name))
+       except USER_ADMIN_INVALID:
+          message.reply_text("your actually trying to ban another part of admin!")
        except Exception as error: 
-          
           message.reply_text(str(error))
     else:
          try:
