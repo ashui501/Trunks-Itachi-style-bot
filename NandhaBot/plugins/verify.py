@@ -20,8 +20,8 @@ async def res(client, message):
                 await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
         except Exception as e:
               await message.reply_text(str(e)) 
-     else:
-         for member in message.new_chat_members:
+        
+        else:
             try:
                 await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
                 key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
