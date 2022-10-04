@@ -66,5 +66,5 @@ id,name, username, mention, dc_id, bio))
             bio = user_info.bio
             message.reply_text(INFO_TEXT.format(
 id,name, username, mention, dc_id, bio))
-         except Exception as e:
+          except Exception as e:
               message.reply_text(str(e))
