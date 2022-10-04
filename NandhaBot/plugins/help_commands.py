@@ -13,7 +13,7 @@ HELP_BACK_BUTTONS = InlineKeyboardMarkup([[
   InlineKeyboardButton(text="Misc help", callback_data="misc_help")],[
   InlineKeyboardButton(text="Game help", callback_data="game_help")]])
 
-BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help")]])
+BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help_back")]])
       
    
 help_button = InlineKeyboardMarkup([[
@@ -42,10 +42,10 @@ def helpbacks(_, query):
 
 @bot.on_callback_query(filters.regex("misc_help"))
 def mischelp(_, query):
-      query.message.edit(strings.MISC_HELP.format(strings.NANDHA))
+      query.message.edit(strings.MISC_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
 
 @bot.on_callback_query(filters.regex("game_help"))
 def gamehelp(_, query):
-      query.message.edit(strings.GAME_HELP.format(strings.NANDHA))
+      query.message.edit(strings.GAME_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
 
 
