@@ -22,7 +22,7 @@ BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help
 def help(_, message):
      message.reply_text(strings.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
       
-@bot.on_callback_query()
+@bot.on_callback_query(filters.regex("misc")
 def helpdatas(_, query):
      if query.data == "paste":
         query.message.edit(strings.PASTE_HELP)
