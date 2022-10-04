@@ -344,11 +344,12 @@ def slap(_, m: Message):
        if reply:
            api = requests.get("https://api.waifu.pics/sfw/slap").json()
            url = api["url"]
-           reply.reply_animation(url)
+           name2 = m.from_user.first_name
+           reply.reply_animation(url,caption="{} (((;ꏿ_ꏿ;))) slaps {} ಠಗಠ".format(name2, name1))
        else:
            api = requests.get("https://api.waifu.pics/sfw/slap").json()
            url = api["url"]
-           m.reply_animation(url)      
+           m.reply_animation(url,caption=f"slaps you with my all strength {message.from_user.first_name} ಠ‿ಠ")      
          
     
 @bot.on_message(filters.command("kick",config.COMMANDS))
@@ -370,11 +371,13 @@ def hug(_, m: Message):
        if reply:
            api = requests.get("https://api.waifu.pics/sfw/hug").json()
            url = api["url"]
-           reply.reply_animation(url)
+           name1 = reply.from_user.first_name
+           name2 = m.from_user.first_name
+           reply.reply_animation(url,caption="{} ( ◜‿◝ )♡ hugs {} ( ╹▽╹ )".format(name2, name1))
        else:
           api = requests.get("https://api.waifu.pics/sfw/hug").json()
           url = api["url"]  
-          m.reply_animation(animation=url)
+          m.reply_animation(animation=url,caption=f"HUGS YOU ALL LOVES (ﾉ*0*)ﾉ {message.from_user.first_name}")
  
 @bot.on_message(filters.regex("pat"))
 @bot.on_message(filters.command("pat",config.COMMANDS))
@@ -389,7 +392,7 @@ def pat(_, m: Message):
        else:
           api = requests.get("https://api.waifu.pics/sfw/pat").json()
           url = api["url"]
-          m.reply_animation(animation=url)
+          m.reply_animation(animation=url,caption=f"PATS YOU ALL LOVES (ﾉ*0*)ﾉ {message.from_user.first_name}")
     
 @bot.on_message(filters.command("waifu",config.COMMANDS))
 def waifu(_, m: Message):
