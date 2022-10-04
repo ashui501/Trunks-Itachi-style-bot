@@ -16,7 +16,7 @@ BACK_HELP = InlineKeyboardMarkup([[InlineKeyboardButton(text="BACK TO HELP MENU"
       
    
 help_button = InlineKeyboardMarkup([[
-InlineKeyboardButton("OPEN IN DM",url="https://t.me/trunksRobot?start"),
+InlineKeyboardButton("OPEN IN DM",url=f"https://t.me/{config.USERNAME}?start"),
 InlineKeyboardButton("OPEN IN GROUP",callback_data="help_back")]])
 
 
