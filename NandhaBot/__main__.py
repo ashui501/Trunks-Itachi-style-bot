@@ -1,6 +1,7 @@
 import config
 import text
 import time
+import glob
 import random 
 from NandhaBot import bot
 from pyrogram import filters
@@ -45,7 +46,7 @@ if __name__ == "__main__":
      for name in files:
            lmao = name.replace(".py", "")
            k = lmao.replace("nandhabot/plugins/", "")
-           print(module_list +=  f"{k}\n")
+              print(module_list +=  f"{k}\n")
      with bot:
         bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>")
       
