@@ -7,6 +7,7 @@ from NandhaBot import bot
 
 @bot.on_message(filters.command("admins",config.COMMANDS))
 async def admins(_, message):
+      chat_id = message.chat.id
       if message.chat.type == ChatType.PRIVATE:
            await message.reply_text("This command work on group only!")
       else:
