@@ -99,6 +99,15 @@ MISC_HELP = """
 {}
 """
 
+TAGALL_HELP = """
+mention chat all members
+note: bots and delete account are not tagging.
+
+- /tagall: reply to message.
+- /tagall (msg)
+
+{}
+"""
 
 TRANSLATE_HELP = """
 translate to your language
