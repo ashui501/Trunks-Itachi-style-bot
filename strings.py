@@ -101,7 +101,17 @@ MISC_HELP = """
 
 
 TRANSLATE_HELP = """
-Test
+translate to your language
+this well very important to
+connection with other country,
+state's peoples
+
+- /tr: translate to English
+- /tr (code): translate your language.
+
+[language codes!](https://telegra.ph/Lang-Codes-03-19-3)
+
+{}
 """
 
 
