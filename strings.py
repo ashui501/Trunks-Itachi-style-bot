@@ -5,7 +5,10 @@ PM_START_TEXT = """Happy to See you {}
 
 START_IMAGE = ""
 
-
+HELP_GROUP_TEXT = """
+Click the button below 
+to get help manu in your pm.
+"""
 GROUP_START_TEXT = ( "<b>Nani Kawa Yo? 〣( ºΔº )〣</b>",
                      "<b>What's Matter?   ¯\(°_o)/¯ </b>",
                      "<b>I Already Awake!  ( • ̀ω•́  )! </b>",
