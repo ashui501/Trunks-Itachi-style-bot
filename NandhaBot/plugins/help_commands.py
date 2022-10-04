@@ -51,6 +51,6 @@ def gamehelp(_, query):
 
 @bot.on_callback_query(filters.regex("neko_help"))
 def nekohelp(_, query):
-      query.message.edit(strings.NEKO_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
+      query.message.edit(strings.NEKOS_HELP.format(strings.NANDHA),reply_markup=BACK_HELP)
 
 
