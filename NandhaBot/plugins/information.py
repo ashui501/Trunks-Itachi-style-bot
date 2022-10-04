@@ -31,7 +31,7 @@ def userinfo(_, message):
             id = user_info.id
             dc_id = user_info.dc_id
             name = user_info.first_name
-            username = user_,info.username
+            username = user_info.username
             mention = user.mention
             bio = user_info.bio
             message.reply_text(INFO_TEXT.format(
