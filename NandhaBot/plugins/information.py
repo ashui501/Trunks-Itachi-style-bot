@@ -29,7 +29,7 @@ def userinfo(_, message):
          try:
             user_info = bot.get_chat(user_id)
             id = user_info.id
-            dc_id = user_info.dc_id
+            dc_id = user.dc_id
             name = user_info.first_name
             username = user_info.username
             mention = user.mention
