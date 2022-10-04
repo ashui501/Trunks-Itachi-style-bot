@@ -26,9 +26,9 @@ def pin(_, message):
       if user_stats.privileges.can_pin_messages and not message.reply_to_message:
          
           try:
-            message_id = message.text.split(None,1)[1]
+            message_id = int(message.text.split(None,1)[1])
             msg = bot.pin_chat_message(chat_id, message_id)
-            message.reply_text(pinned_text.format(chat_title,user_name,msg.link))
+            message.reply_text(pinned_text.format(chat_title,first_name,msg.link))
           except Exception as e:
                  return message.reply_text(str(e))
 
@@ -36,6 +36,6 @@ def pin(_, message):
           try:
             if user_stats.privileges.can_pin_messages and message.reply_to_message:
                message.reply_to_message.pin()
-               message.reply_text(pinned_text.format(chat_title,user_name, message.reply_to_message.link))
+               message.reply_text(pinned_text.format(chat_title,first_name, message.reply_to_message.link))
           except Exception as e:
                 return message.reply_text(str(e))
