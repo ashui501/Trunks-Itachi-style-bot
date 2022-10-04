@@ -11,7 +11,7 @@ admin: {}
 pinned: **[msg]({})**
 """
 
-@bot.on_message(filters.commands("pin",config.COMMANDS))
+@bot.on_message(filters.command("pin",config.COMMANDS))
 def pin(_, message):
       chat = message.chat
       chat_title = chat.title
