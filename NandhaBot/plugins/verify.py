@@ -15,7 +15,7 @@ async def res(client, message):
          if is_bot == "True":
              await bot.await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
              key = InlineKeyboardMarkup([[InlineKeyboardButton("BAN", callback_data=f"botban:{member.id}"),
-                    InlineKeyboardMarkup([[InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"]])
+                    InlineKeyboardMarkup([[InlineKeyboardButton("UNMUTE", callback_data=f"botunm:{member.id}"),]])
              await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
          else:
             try:
