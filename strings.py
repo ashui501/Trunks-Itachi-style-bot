@@ -70,10 +70,11 @@ module for you let's play...
 - /dare: reply or self 
 - /truth: reply or self
 
-**send_dice games:**
+**senddice games:**
 - /roll - rolling 
-- /football - football
-- /basketball - basketball
+- /dice - dice
+- /goal - football
+- /throw - basketball
 - /dart - target
 
 {}
