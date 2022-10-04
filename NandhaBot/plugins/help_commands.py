@@ -19,6 +19,10 @@ BACK_HELP = [[InlineKeyboardButton(text="BACK TO HELP MENU", callback_data="help
    
 
 @bot.on_message(filters.command("help",config.COMMANDS))
-async def help(_, message):
-     await message.reply_text(text.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
+def help(_, message):
+     message.reply_text(strings.HELP_TEXT,reply_markup=InlineKeyboardMarkup(HELP_BUTTONS))
       
+@bot.on_callback_query()
+def helpdatas(_, query):
+     query.data == "paste":
+        query.message.edit(strings.HELP_PASTE)
