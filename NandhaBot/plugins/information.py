@@ -8,7 +8,7 @@ from NandhaBot import bot
 INFO_TEXT = """
 **here the user information:**
 
-**ID:** {}
+**ID:** `{}`
 **Name:** {}
 **Username:** @{}
 **Mention:** {}
