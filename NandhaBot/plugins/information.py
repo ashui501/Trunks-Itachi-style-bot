@@ -18,6 +18,25 @@ INFO_TEXT = """
 
 `note were sends you necessary information about user not at all`!
 """
+
+def userstatus(user_id):
+  user = bot.get_users(user_id)
+  x = user.status
+  if x == enums.UserStatus.RECENTLY:
+       return "User was seen recently."
+  elif x == enums.UserStatus.LAST_WEEK:
+        return "User was seen last week."
+  elif x == enums.UserStatus.LONG_AGO:
+        return "User was seen long ago."
+  elif x == enums.UserStatus.OFFLINE:
+        return "User is offline."
+  elif x == enums.UserStatus.ONLINE:
+       return "User is online."
+  else:
+      return "somthin wrong happen"
+
+
+
 @bot.on_message(filters.command(["info","userinfo"],config.COMMANDS))
 def userinfo(_, message):
     
