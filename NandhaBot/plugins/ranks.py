@@ -25,10 +25,10 @@ it's {}
 async def addrank(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
-      if not message.from_user.id in (await RANK_USERS()):
-           await message.reply_text("my rank user can add another rank user!")
       msg = await message.reply_text("processing adding..")
-      if not reply:
+      if not message.from_user.id in (await RANK_USERS()):
+           await msg.edit_text("my rank user can add another rank user!")
+      elif not reply:
          try:
            user_id_text = int(message.text.split(" ")[1])
            user = await bot.get_users(user_id_text)
@@ -37,7 +37,7 @@ async def addrank(_, message):
          except Exception as e:
              await message.reply_text(str(e))
          
-      elif reply:
+      else:
             try:
               user_id = reply.from_user.id
               user = await bot.get_users(user_id)
