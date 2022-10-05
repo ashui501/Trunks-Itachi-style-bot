@@ -3,7 +3,7 @@ from NandhaBot import mongodb
 ranksdb = mongodb.ranksdb
 
 
-async def get_rankusers(user_id: int):
+async def get_rankusers() -> list:
     rank_users = await ranksdb.find_one({"user_id": "user_id"})
     if not rank_users:
         return []
