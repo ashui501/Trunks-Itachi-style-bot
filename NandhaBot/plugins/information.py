@@ -58,8 +58,9 @@ def userinfo(_, message):
             username = user_info.username
             mention = user.mention
             bio = user_info.bio
-            message.reply_text(INFO_TEXT.format(
-id,name, username, mention, status,dc_id, bio))
+            photo = bot.download_media(user_info.photo.big_file_id)
+            bot.send_photo(photo, caption=INFO_TEXT.format(
+id,name, username, mention, status,dc_id, bio),reply_to_message_id=message.id)
          except Exception as e:
               message.reply_text(str(e))
     
@@ -74,8 +75,9 @@ id,name, username, mention, status,dc_id, bio))
             username = user_info.username
             mention = user.mention
             bio = user_info.bio
-            message.reply_text(INFO_TEXT.format(
-id,name, username, mention,status, dc_id, bio))
+            photo = bot.download_media(user_info.photo.big_file_id)
+            bot.send_photo(photo, caption=INFO_TEXT.format(
+id,name, username, mention,status, dc_id, bio),reply_to_message_id=message.id)
          except Exception as e:
               message.reply_text(str(e))
      elif message.reply_to_message:
@@ -90,7 +92,8 @@ id,name, username, mention,status, dc_id, bio))
             username = user_info.username
             mention = user.mention
             bio = user_info.bio
-            message.reply_text(INFO_TEXT.format(
-id,name, username, mention,status, dc_id, bio))
+            photo = bot.download_media(message.reply_to_message.from_user.photo.big_file_id)
+            bot.send_photo(photo,caption=INFO_TEXT.format(
+id,name, username, mention,status, dc_id, bio),reply_to_message_id=message.id)
           except Exception as e:
               message.reply_text(str(e))
