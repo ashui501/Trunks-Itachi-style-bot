@@ -20,6 +20,10 @@ RANK_ADDED_TEXT = """
 new rank user arrived on bot
 it's {}
 """
+RANK_REMOVED_TEXT = """
+the rank user remove on bot
+it's {}
+"""
 
 @bot.on_message(filters.command("addrank"))
 async def addrank(_, message):
@@ -49,6 +53,37 @@ async def addrank(_, message):
               else:
                  await add_rank(user.id)
                  await msg.edit_text(RANK_ADDED_TEXT.format(user.mention))
+            except Exception as e:
+                  await msg.edit_text(str(e))
+
+@bot.on_message(filters.command("removerank"))
+async def removerank(_, message):
+      reply = message.reply_to_message
+      chat_id = message.chat.id
+      msg = await message.reply_text("processing adding..")
+      if not message.from_user.id in (await RANK_USERS()):
+           await msg.edit_text("my rank user can remove another rank user!")
+      elif not reply:
+         try:
+           user_id_text = int(message.text.split(" ")[1])
+           user = await bot.get_users(user_id_text)
+           if not user.id in (await RANK_USERS()):
+               await msg.edit("`your trying remove someone that person is not a rank user`")
+           else:
+              await remove_rank(user.id)
+              await msg.edit_text(RANK_REMOVED_TEXT.format(user.mention))
+         except Exception as e:
+             await msg.edit_text(str(e))
+         
+      else:
+            try:
+              user_id = reply.from_user.id
+              user = await bot.get_users(user_id)
+              if not user.id in (await RANK_USERS()):
+                   await msg.edit("`your trying remove someone that person is not a rank user`")
+              else:
+                 await remove_rank(user.id)
+                 await msg.edit_text(RANK_REMOVED_TEXT.format(user.mention))
             except Exception as e:
                   await msg.edit_text(str(e))
 
