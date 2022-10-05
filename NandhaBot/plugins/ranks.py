@@ -24,7 +24,7 @@ it's {}
 async def addrank(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
-      if not message.from_user.id in (rank.RANK_USERS):
+      if not message.from_user.id in rank.RANK_USERS:
            await message.reply_text("my rank user can add another rank user!")
       msg = await message.reply_text("processing adding..")
       if not reply:
