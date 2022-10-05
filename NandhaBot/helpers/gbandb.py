@@ -3,6 +3,7 @@ import config
 from NandhaBot import mongodb
 collection = mongodb["GBAN"]
 
+from pyrogram import filters
 from NandhaBot import bot
 
 async def gban_user(chat):
