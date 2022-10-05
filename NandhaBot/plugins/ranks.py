@@ -60,7 +60,7 @@ async def addrank(_, message):
 async def removerank(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
-      msg = await message.reply_text("processing adding..")
+      msg = await message.reply_text("processing removeing..")
       if not message.from_user.id in (await RANK_USERS()):
            await msg.edit_text("my rank user can remove another rank user!")
       elif not reply:
