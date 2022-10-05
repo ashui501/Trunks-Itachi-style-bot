@@ -61,7 +61,7 @@ async def userinfo(_, message):
             username = user_info.username
             mention = user.mention
             bio = user_info.bio
-            photo = bot.download_media(user.photo.big_file_id)
+            photo = await bot.download_media(user.photo.big_file_id)
             await bot.send_photo(chat_id,photo=photo, caption=INFO_TEXT.format(
 id,name, username, mention, status, rank,dc_id, bio),reply_to_message_id=message.id)
          except Exception as e:
