@@ -85,7 +85,7 @@ async def gbans(_, message):
               try:
                  await gban_user(user_id)
                  await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
-                 await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(reply.from_user.first_name), reply_to_message_id=message.id)
+                 await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(reply.from_user.mention), reply_to_message_id=message.id)
               except Exception as e:
                   await msg.edit(str(e))
        elif not reply and len(message.command) == 2:
@@ -103,6 +103,6 @@ async def gbans(_, message):
                   try:
                      await gban_user(user.id)
                      await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
-                     await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(user.first_name), reply_to_message_id=message.id)
+                     await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(user.mention), reply_to_message_id=message.id)
                   except Exception as e:
                       await msg.edit(str(e))
