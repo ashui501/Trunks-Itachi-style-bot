@@ -13,6 +13,7 @@ from pyrogram import filters
 from pyrogram.types import *
 
 BANNED_TEXT = "Another one dust Cleared!\n it's that {}!"
+REASON_BANNED_TEXT = "Another one dust Cleared!\n it's that {}!\n\ reason: `{}`"
 UNBANNED_TEXT = "{} fine can join again!"
 
 @bot.on_message(filters.command("ban",config.COMMANDS))
@@ -52,8 +53,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-          BANNED_TEXT += "\n\n**reason**: {}".format(reason)
-          message.reply_text(BANNED_TEXT.format(name))
+          message.reply_text(REASON_BANNED_TEXT.format(name< reason))
        
          except Exception as error: 
              message.reply_text(str(error))  
