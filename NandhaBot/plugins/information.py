@@ -20,7 +20,6 @@ INFO_TEXT = """
 """
 
 async def userstatus(user_id):
-  try: 
     x = await bot.get_users(user_id)
     if x == enums.UserStatus.RECENTLY:
        return "User was seen recently."
@@ -32,7 +31,7 @@ async def userstatus(user_id):
         return "User is offline."
     elif x == enums.UserStatus.ONLINE:
        return "User is online."
-  except:
+    else:
         return "something went wrong"
       
 
