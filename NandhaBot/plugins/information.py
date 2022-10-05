@@ -13,8 +13,9 @@ INFO_TEXT = """
 **Username:** @{}
 **Mention:** {}
 
-**UserStatus:**\n`{}`
+**UserStatus:**\n`{}`\n
 **RankUser**: {}
+
 **Dc:** {}
 **Bio:** {}
 
@@ -23,7 +24,7 @@ INFO_TEXT = """
 
 async def userstatus(user_id):
    try:
-      user = bot.get_users(user_id)
+      user = await bot.get_users(user_id)
       x = user.status
       if x == enums.UserStatus.RECENTLY:
          return "User was seen recently."
