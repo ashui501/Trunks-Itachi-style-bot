@@ -23,10 +23,10 @@ def bans(_, message):
     admin = message.from_user.id
     if message.chat.type == ChatType.PRIVATE:
           return message.reply_text("this command work only on groups")
-    elif not reply:
+    elif not reply and len(message.commamd) != 1:
     
        try:
-          user_id = message.text.split(None, 1)[1]
+          user_id = str(message.text.split(None, 1)[1])
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           id_user = user_info.id
@@ -39,7 +39,24 @@ def bans(_, message):
        
        except Exception as error: 
           message.reply_text(str(error))
-    else:
+    elif not reply and len(message.command) != 2:
+         try:
+          user_id = str(message.command[1])
+          reason = message.command[2]
+          user_info = bot.get_chat(user_id)
+          name = user_info.first_name
+          id_user = user_info.id
+          user_stats = bot.get_chat_member(chat.id, admin)
+          if id_user in RANK_USERS:
+                return message.reply_text("I never against to my rank users")
+          elif user_stats.privileges.can_restrict_members:
+              chat.ban_member(id_user)
+          text = (BANNED_TEXT+"\n\n"+reason)
+          message.reply_text(text.format(name))
+       
+       except Exception as error: 
+          message.reply_text(str(error))  
+    elif reply:
          try:
            user_id = message.reply_to_message.from_user.id
            user_info = bot.get_chat(user_id)
