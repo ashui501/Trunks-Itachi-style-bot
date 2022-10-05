@@ -1,6 +1,6 @@
 from NandhaBot import mongodb
 
-ranksdb = mongodb.ranksdb
+ranksdb = mongodb.rankuserdb
 
 
 async def get_rankusers() -> list:
