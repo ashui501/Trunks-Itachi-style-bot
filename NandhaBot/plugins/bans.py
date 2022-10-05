@@ -53,7 +53,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-          message.reply_text(REASON_BANNED_TEXT.format(name< reason))
+              message.reply_text(REASON_BANNED_TEXT.format(name,reason))
        
          except Exception as error: 
              message.reply_text(str(error))  
