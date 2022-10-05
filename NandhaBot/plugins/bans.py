@@ -53,7 +53,7 @@ def bans(_, message):
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
           BANNED_TEXT += f"\n\n{reason}"
-          message.reply_text(text.format(name))
+          message.reply_text(BANNED_TEXT.format(name))
        
          except Exception as error: 
              message.reply_text(str(error))  
