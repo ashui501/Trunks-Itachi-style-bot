@@ -31,9 +31,7 @@ async def userstatus(user_id):
         return "User is offline."
     elif x == enums.UserStatus.ONLINE:
        return "User is online."
-    else:
-        return "something went wrong"
-      
+    
 
 
 
