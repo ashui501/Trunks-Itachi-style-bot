@@ -44,7 +44,7 @@ def bans(_, message):
 
          try:
           user_id = str(message.text.split(" ")[1])
-          reason = str(message.text.split(" ")[2])
+          reason = str(message.text.split(None, 2)[2])
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           id_user = user_info.id
