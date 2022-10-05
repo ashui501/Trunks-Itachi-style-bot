@@ -4,6 +4,7 @@ from NandhaBot import mongodb
 collection = mongodb.GBAN
 
 from pyrogram import filters
+from pyrogram.types import *
 from NandhaBot import bot
 from NandhaBot.rank import RANK_USERS
 
