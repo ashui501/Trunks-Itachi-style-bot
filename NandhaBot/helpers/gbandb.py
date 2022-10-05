@@ -24,9 +24,9 @@ async def ungban_user(chat):
     await collection.update_one({"_id": "Gban"}, {"$pull": {"users": chat}})
 
 @bot.on_message(filters.groups)
-def gbans(_, message):
+async def gbans(_, message):
    chat = message.chat
    chat_id = message.chat.id
    if message.from_user.id in (await get_gbaned_users()):
-       chat.ban_member(message.from_user.id)
-       bot.send_message(config.GROUP_ID, "gbanned user {} banned from {}".format(message.from_user.first_name, message.chat.title))
+       await chat.ban_member(message.from_user.id)
+       await bot.send_message(config.GROUP_ID, "gbanned user {} banned from {}".format(message.from_user.first_name, message.chat.title))
