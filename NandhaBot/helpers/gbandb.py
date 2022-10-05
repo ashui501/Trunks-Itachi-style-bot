@@ -100,3 +100,5 @@ async def gbans(_, message):
                      await gban_user(user.id)
                      await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
                      await bot.send_message(config.GROUP_ID, text=ADD_GBANNED_TEXT = "`the rank user gbanned {}`".format(user.first_name), reply_to_message_id=message.id)
+                  except Exception as e:
+                      await msg.edit(str(e))
