@@ -101,6 +101,7 @@ async def rankuser(_, message):
               for rankuser in (await get_rankusers()):
                    mention = (await bot.get_users(rankuser)).mention
                    RANK_USER_TEXT += f"• {mention}"
+                   await msg.edit(RANK_USER_TEXT)
            except Exception as e:
                   await msg.edit(str(e))
               
