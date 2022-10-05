@@ -11,7 +11,7 @@ async def get_rankusers() -> list:
 
 async def add_rank(user_id: int):
       rank_users = await get_rankusers()
-      ranks_users.append(user_id)
+      rank_users.append(user_id)
       await ranksdb.update_one(
         {"user_id": "user_id"}, {"$set": {"rank_users": rank_users}}, upsert=True)
       return True  
