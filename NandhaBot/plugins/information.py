@@ -19,8 +19,8 @@ INFO_TEXT = """
 `note were sends you necessary information about user not at all`!
 """
 
-def userstatus(user_id):
-  user = bot.get_users(user_id)
+async def userstatus(user_id):
+  user = await bot.get_users(user_id)
   x = user.status
   if x == enums.UserStatus.RECENTLY:
        return "User was seen recently."
