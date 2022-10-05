@@ -59,11 +59,11 @@ async def ungban_btn(_, query):
          try:
            await ungban_user(user_id)
            user = await bot.get_users(user_id)
-           query.message.edit(UNGBAN_TEXT.format(user.first_name))
+           await query.message.edit(UNGBAN_TEXT.format(user.first_name))
          except Exception as e:
-             query.message.edit(str(e))
+             await query.message.edit(str(e))
       else:
-          query.answer("only rank user can acces!", show_alret=True)
+          await query.answer("only rank user can acces!", show_alret=True)
  
 
 
