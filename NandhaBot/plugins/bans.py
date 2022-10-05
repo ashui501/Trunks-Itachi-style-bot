@@ -39,7 +39,7 @@ def bans(_, message):
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
               
-              message.reply_animation(BAN_IMG,REASON_BANNED_TEXT.format(name, reason))
+              message.reply_animation(BAN_IMG, caption=REASON_BANNED_TEXT.format(name, reason))
        
          except Exception as error: 
              message.reply_text(str(error))
@@ -55,7 +55,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-              message.reply_animation(BAN_IMG,BANNE_TEXT.format(name))
+              message.reply_animation(BAN_IMG,caption=BANNED_TEXT.format(name))
        
        except Exception as error: 
           message.reply_text(str(error))
@@ -71,7 +71,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
            elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-              message.reply_animation(BAN_IMG, BANNED_TEXT.format(name))
+              message.reply_animation(BAN_IMG, caption=BANNED_TEXT.format(name))
          except Exception as e:
             
             message.reply_text(str(e))
