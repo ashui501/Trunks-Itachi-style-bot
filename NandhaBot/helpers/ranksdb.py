@@ -20,6 +20,5 @@ async def remove_rank(user_id: int):
        rank_users = await get_rankusers()
        rank_users.remove(user_id)
        await ranksdb.update_one(
-        {"user_id": "user_id"}, {"$set": {"rank_users": rank_users}}, upsert=True
-    )
-    return True
+        {"user_id": "user_id"}, {"$set": {"rank_users": rank_users}}, upsert=True)
+       return True
