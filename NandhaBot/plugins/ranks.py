@@ -11,6 +11,7 @@ from NandhaBot import bot
 from pyrogram.types import *
 from pyrogram import filters
 from NandhaBot import rank
+from NandhaBot.rank import RANK_USERS
 from NandhaBot.helpers.paste import batbin
 from NandhaBot.helpers.ranksdb import (
 get_rankusers, add_rank , remove_rank)
@@ -24,7 +25,7 @@ it's {}
 async def addrank(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
-      if not message.from_user.id in rank.RANK_USERS:
+      if not message.from_user.id in (await RANK_USERS):
            await message.reply_text("my rank user can add another rank user!")
       msg = await message.reply_text("processing adding..")
       if not reply:
