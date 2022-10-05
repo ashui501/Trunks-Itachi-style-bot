@@ -54,8 +54,8 @@ def bans(_, message):
           text = (BANNED_TEXT+"\n\n"+reason)
           message.reply_text(text.format(name))
        
-       except Exception as error: 
-          message.reply_text(str(error))  
+         except Exception as error: 
+             message.reply_text(str(error))  
     elif reply:
          try:
            user_id = message.reply_to_message.from_user.id
