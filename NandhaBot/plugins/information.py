@@ -6,22 +6,22 @@ from NandhaBot import bot
 
 
 INFO_TEXT = """
-**here the user information:**
+𝗨𝗦𝗘𝗥𝗦𝗧𝗔𝗧𝗨𝗦:
 
 **ID:** `{}`
 **Name:** {}
 **Username:** @{}
 **Mention:** {}
-
+**UserStatus:** {}
 **DC ID:** {}
 **Bio:** {}
 
 `note were sends you necessary information about user not at all`!
 """
 
-async def userstatus(user_id):
+def userstatus(user_id):
    try:
-      user = await bot.get_users(user_id)
+      user = bot.get_users(user_id)
       x = user.status
       if x == enums.UserStatus.RECENTLY:
          return "User was seen recently."
@@ -50,6 +50,7 @@ def userinfo(_, message):
             user_id = str(message.text.split(None, 1)[1])
             user_info = bot.get_chat(user_id)
             user = bot.get_users(user_id)
+            status = userstatus(user.id)
             id = user_info.id
             dc_id = user.dc_id
             name = user_info.first_name
@@ -57,7 +58,7 @@ def userinfo(_, message):
             mention = user.mention
             bio = user_info.bio
             message.reply_text(INFO_TEXT.format(
-id,name, username, mention, dc_id, bio))
+id,name, username, mention, status,dc_id, bio))
          except Exception as e:
               message.reply_text(str(e))
     
@@ -65,6 +66,7 @@ id,name, username, mention, dc_id, bio))
          try:
             user_info = bot.get_chat(user_id)
             user = bot.get_users(user_id)
+            status = userstatus(user.id)
             id = user_info.id
             dc_id = user.dc_id
             name = user_info.first_name
@@ -72,7 +74,7 @@ id,name, username, mention, dc_id, bio))
             mention = user.mention
             bio = user_info.bio
             message.reply_text(INFO_TEXT.format(
-id,name, username, mention, dc_id, bio))
+id,name, username, mention,status, dc_id, bio))
          except Exception as e:
               message.reply_text(str(e))
      elif message.reply_to_message:
@@ -80,6 +82,7 @@ id,name, username, mention, dc_id, bio))
           try:
             user_info = bot.get_chat(user_id)
             user = bot.get_users(user_id)
+            status = userstatus(user.id)
             id = user_info.id
             dc_id = user.dc_id
             name = user_info.first_name
@@ -87,6 +90,6 @@ id,name, username, mention, dc_id, bio))
             mention = user.mention
             bio = user_info.bio
             message.reply_text(INFO_TEXT.format(
-id,name, username, mention, dc_id, bio))
+id,name, username, mention,status, dc_id, bio))
           except Exception as e:
               message.reply_text(str(e))
