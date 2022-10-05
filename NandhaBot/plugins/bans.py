@@ -41,6 +41,7 @@ def bans(_, message):
           message.reply_text(str(error))
     elif not reply and len(message.command) != 2:
          try:
+          message.reply_text("yeah working on len 2")
           user_id = str(message.text.split(" ")[1])
           reason = str(message.reply_to_message.text.split(" ")[2])
           user_info = bot.get_chat(user_id)
