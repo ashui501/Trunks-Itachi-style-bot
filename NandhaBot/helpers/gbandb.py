@@ -66,4 +66,37 @@ async def ungban_btn(_, query):
           await query.answer("only rank user can acces!", show_alret=True)
  
 
-
+@bot.on_message(filters.command("gban"))
+async def gbans(_, message):
+       reply = message.reply_to_message
+       user_id = message.from_user.id
+       chat_id = message.chat.id
+       chat_title = message.chat.title
+       msg = await message.reply_text("gbanning a user...")
+       if not user_id in (await RANK_USERS()):
+          await msg.edit("`rank user required.`")
+       elif reply:
+           user_id = message.reply_to_message.from_user.id
+           if user_id in (await RANK_USERS()):
+               await msg.edit("`This user already gbanned`.")
+           else:
+              try:
+                 await gban_user(user_id)
+                 await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
+                 await bot.send_message(config.GROUP_ID, text=ADD_GBANNED_TEXT = "`the rank user gbanned {}`".format(reply.from_user.first_name), reply_to_message_id=message.id)
+              except Exception as e:
+                  await msg.edit(str(e))
+       elif not reply and len(message.command) == 2:
+              user_id = int(message.text.split(None,1)[1])
+              try:
+                 user = await bot.get_users(user_id)
+              except:
+                  await msg.edit("use userID only.")
+              user = await bot.get_users(user_id)
+              if user.id in (await RANK_USERS()):
+                    await msg.edit("This user already gabnned.")
+              else:
+                  try:
+                     await gban_user(user.id)
+                     await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
+                     await bot.send_message(config.GROUP_ID, text=ADD_GBANNED_TEXT = "`the rank user gbanned {}`".format(user.first_name), reply_to_message_id=message.id)
