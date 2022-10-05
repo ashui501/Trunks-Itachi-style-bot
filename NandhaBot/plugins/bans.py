@@ -42,7 +42,7 @@ def bans(_, message):
     elif not reply and len(message.command) != 2:
          try:
           user_id = str(message.text.split(None, 1)[1])
-          reason = str(message.command[2])
+          message.reply_to_message.text.split(" ")[2]
           user_info = bot.get_chat(user_id)
           name = user_info.first_name
           id_user = user_info.id
