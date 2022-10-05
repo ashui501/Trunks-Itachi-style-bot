@@ -1,4 +1,5 @@
 import config
+import media
 import strings
 import time
 import random 
@@ -24,12 +25,12 @@ async def start(_, message):
        if message.chat.type == ChatType.PRIVATE and not await is_user(info.id):
            await add_user(info.id)
            user_count = len(await get_users())                                                                                     
-           await message.reply_text(strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
-           await bot.send_message(config.GROUP_ID, text=text.NEW_USERS.format(info.id, info.mention, user_count))
+           await message.reply_photo(photo=media.random.choice(TRUNKS), caption=strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
+           await bot.send_photo(config.GROUP_ID,photo=media.random.choice(TRUNKS),caption=text.NEW_USERS.format(info.id, info.mention, user_count))
        elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
-            return await message.reply_text(strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
+            return await message.reply_photo(photo=media.random.choice(TRUNKS), caption=strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
-           return await message.reply_text(random.choice(strings.GROUP_START_TEXT))
+           return await message.reply_photo(photo=media.random.choice(TRUNKS),caption=random.choice(strings.GROUP_START_TEXT))
 
     except Exception as error:
                  await message.reply(f"**ERROR**: {error}")
