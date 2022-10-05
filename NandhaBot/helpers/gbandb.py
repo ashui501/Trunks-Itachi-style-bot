@@ -29,4 +29,4 @@ def gbans(_, message):
    chat_id = message.chat.id
    if message.from_user.id in (await get_gbaned_users()):
        chat.ban_member(message.from_user.id)
-       bot.send_message(config.GROUP_ID, f"gbanned user {} banned from {}".format(message.from_user.first_name, message.chat.title))
+       bot.send_message(config.GROUP_ID, "gbanned user {} banned from {}".format(message.from_user.first_name, message.chat.title))
