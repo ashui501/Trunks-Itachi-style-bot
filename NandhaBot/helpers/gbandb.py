@@ -1,3 +1,5 @@
+import config
+
 from NandhaBot import mongodb
 collection = mongodb["GBAN"]
 
@@ -21,7 +23,7 @@ async def get_gbaned_users():
 async def ungban_user(chat):
     await collection.update_one({"_id": "Gban"}, {"$pull": {"users": chat}})
 
-@bot.on_message(filters.group)
+@bot.on_message(filters.groups)
 def gbans(_, message):
    chat = message.chat
    chat_id = message.chat.id
