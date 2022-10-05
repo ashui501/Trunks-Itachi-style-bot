@@ -32,7 +32,7 @@ async def addrank(_, message):
          try:
            user_id_text = int(message.text.split(" ")[1])
            user = await bot.get_users(user_id_text)
-           if user.id in (await RANK_USERS):
+           if user.id in (await RANK_USERS()):
                await msg.edit("`your trying add someone that person already a rank user`")
            else:
               await add_rank(user.id)
@@ -44,7 +44,7 @@ async def addrank(_, message):
             try:
               user_id = reply.from_user.id
               user = await bot.get_users(user_id)
-              if user.id in (await RANK_USERS):
+              if user.id in (await RANK_USERS()):
                    await msg.edit("`your trying add someone that person already a rank user`")
               else:
                  await add_rank(user.id)
