@@ -12,6 +12,7 @@ from NandhaBot import bot
 from pyrogram import filters
 from pyrogram.types import *
 
+BAN_IMG = "https://telegra.ph/file/23b1b5eb455ad536cac94.mp4"
 BANNED_TEXT = "Another one dumps banned!\n it's that {}!"
 REASON_BANNED_TEXT = "Another one dumps banned!\n it's that {}!\n\n**Reason:** {}"
 UNBANNED_TEXT = "{} fine can join again!"
@@ -38,7 +39,7 @@ def bans(_, message):
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
               
-              message.reply_text(REASON_BANNED_TEXT.format(name, reason))
+              message.reply_animation(BAN_IMG,REASON_BANNED_TEXT.format(name, reason))
        
          except Exception as error: 
              message.reply_text(str(error))
@@ -54,7 +55,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-          message.reply_text(BANNED_TEXT.format(name))
+          message.reply_animation(BAN_IMG,BANNE_TEXT.format(name))
        
        except Exception as error: 
           message.reply_text(str(error))
@@ -70,7 +71,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
            elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-           message.reply_text(BANNED_TEXT.format(name))
+              message.reply_animation(BAN_IMG, BANNED_TEXT.format(name))
          except Exception as e:
             
             message.reply_text(str(e))
