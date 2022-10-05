@@ -23,7 +23,7 @@ def bans(_, message):
     admin = message.from_user.id
     if message.chat.type == ChatType.PRIVATE:
           return message.reply_text("this command work only on groups")
-    elif not reply and len(message.command) != 1:
+    elif not reply and len(message.command) == 1:
     
        try:
           user_id = str(message.text.split(None, 1)[1])
@@ -39,7 +39,7 @@ def bans(_, message):
        
        except Exception as error: 
           message.reply_text(str(error))
-    elif not reply and len(message.command) != 2:
+    elif not reply and len(message.command) == 2:
          try:
           message.reply_text("yeah working on len 2")
           user_id = str(message.text.split(" ")[1])
