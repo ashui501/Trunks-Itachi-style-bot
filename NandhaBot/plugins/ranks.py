@@ -88,7 +88,22 @@ async def removerank(_, message):
                   await msg.edit_text(str(e))
 
 
-
+@bot.on_message(filters.command("rankusers"))
+async def rankuser(_, message):
+       chat_id = message.chat.id
+       user_id = message.from_user.id
+       msg = await message.reply_text("`getting rankusers list!`")
+       if not user_id in (await RANK_USERS()):
+            await message.reply_text("`sorry you can't collect rankusers list.`")
+       elif user_id in (await RANK_USERS()):
+           RANK_USER_TEXT = "𝗥𝗔𝗡𝗞𝗨𝗦𝗘𝗥 𝗟𝗜𝗦𝗧:\n\n"
+           try:
+              for rankuser in (await get_rankusers()):
+                   mention = (await bot.get_users(rankuser)).mention
+                   RANK_USER_TEXT += f"• {mention}"
+           except Exception as e:
+                  await msg.edit(str(e))
+              
 @bot.on_message(filters.command("sh",config.COMMANDS))
 def sh(_, m):
     if m.from_user.id in rank.RANK_A_USER:
