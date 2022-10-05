@@ -50,7 +50,7 @@ async def userinfo(_, message):
      if not message.reply_to_message and len(message.command) == 2:
          
          try:
-            user_id = str(message.text.split(None, 1)[1])
+            user_id = message.text.split(None, 1)[1]
             user_info = await bot.get_chat(user_id)
             user = await bot.get_users(user_id)
             rank = user.id in (await RANK())
