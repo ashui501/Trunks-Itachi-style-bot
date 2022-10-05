@@ -48,7 +48,7 @@ async def gbans(_, message):
    if message.from_user.id in (await get_gbaned_users()):
        await chat.ban_member(message.from_user.id)
        await bot.send_message(config.LOG_CHANNEL_ID, text=GBAN_TEXT.format(name,chat.title), 
-          reply_markup=button =InlineKeyboardMarkup([[InlineKeyboardButton("𝗨𝗡𝗚𝗕𝗔𝗡",callback_data=f"ungban:{user_id}")]])
+          reply_markup=button =InlineKeyboardMarkup([[InlineKeyboardButton("𝗨𝗡𝗚𝗕𝗔𝗡",callback_data=f"ungban:{user_id}")]]))
 
 @bot.on_callback_query(filters.regex("ungban"))
 async def ungban_btn(_, query):
