@@ -47,7 +47,7 @@ async def userinfo(_, message):
     
      chat_id = message.chat.id
      user_id = message.from_user.id
-     if not message.reply_to_message and len(message.command) == 1:
+     if not message.reply_to_message and len(message.command) == 2:
          
          try:
             user_id = str(message.text.split(None, 1)[1])
@@ -67,7 +67,7 @@ id,name, username, mention, status, rank,dc_id, bio),reply_to_message_id=message
          except Exception as e:
               await message.reply_text(str(e))
     
-     elif not message.reply_to_message and len(message.command) == 2:
+     elif not message.reply_to_message:
          try:
             user_info = await bot.get_chat(user_id)
             user = await bot.get_users(user_id)
