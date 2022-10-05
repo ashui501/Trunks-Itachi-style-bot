@@ -24,7 +24,7 @@ async def get_gbaned_users():
 async def ungban_user(chat):
     await collection.update_one({"_id": "Gban"}, {"$pull": {"users": chat}})
 
-@bot.on_message(filters.group=20)
+@bot.on_message(group=20)
 async def gbans(_, message):
    chat = message.chat
    chat_id = message.chat.id
