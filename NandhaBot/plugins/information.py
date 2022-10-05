@@ -12,8 +12,9 @@ INFO_TEXT = """
 **Name:** {}
 **Username:** @{}
 **Mention:** {}
-**UserStatus:** {}
-**DC ID:** {}
+
+**UserStatus:**\n`{}`
+\n**Dc:** {}
 **Bio:** {}
 
 `note were sends you necessary information about user not at all`!
