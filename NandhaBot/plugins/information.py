@@ -20,8 +20,11 @@ INFO_TEXT = """
 """
 
 async def userstatus(user_id):
-  user = await bot.get_users(user_id)
-  x = user.status
+  try: 
+     await bot.get_users(user_id)
+  except:
+        return "something went wrong"
+  x = await bot.get_users(user_id)
   if x == enums.UserStatus.RECENTLY:
        return "User was seen recently."
   elif x == enums.UserStatus.LAST_WEEK:
