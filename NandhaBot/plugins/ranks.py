@@ -23,7 +23,7 @@ it's {}
 @bot.on_message(filters.command("addrank"))
 async def addrank(_, message):
       reply = message.reply_to_message
-      user_id = message.from_user.id
+      user_id = reply.from_user.id
       chat_id = message.chat.id
       msg = await message.reply_text("processing adding..")
       if not reply:
