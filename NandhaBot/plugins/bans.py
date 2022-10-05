@@ -13,7 +13,7 @@ from pyrogram import filters
 from pyrogram.types import *
 
 BANNED_TEXT = "Another one dust Cleared!\n it's that {}!"
-REASON_BANNED_TEXT = "Another one dust Cleared!\n it's that {}!\n\ reason: `{}`"
+REASON_BANNED_TEXT = "Another one dust Cleared!\n it's that {}!\n\nreason: `{}`"
 UNBANNED_TEXT = "{} fine can join again!"
 
 @bot.on_message(filters.command("ban",config.COMMANDS))
