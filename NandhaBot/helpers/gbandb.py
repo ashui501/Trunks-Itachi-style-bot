@@ -45,6 +45,7 @@ by rank users`
 async def gbans(_, message):
    chat = message.chat
    chat_id = message.chat.id
+   user_id = message.from_user.id
    name = message.from_user.first_name
    if message.from_user.id in (await get_gbaned_users()):
        await chat.ban_member(message.from_user.id)
