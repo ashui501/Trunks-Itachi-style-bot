@@ -23,9 +23,8 @@ it's {}
 @bot.on_message(filters.command("addrank"))
 async def addrank(_, message):
       reply = message.reply_to_message
-      user_id = reply.from_user.id
       chat_id = message.chat.id
-      if not message.from_user.id in (await rank.RANK_USERS):
+      if not message.from_user.id in (rank.RANK_USERS):
            await message.reply_text("my rank user can add another rank user!")
       msg = await message.reply_text("processing adding..")
       if not reply:
@@ -39,6 +38,7 @@ async def addrank(_, message):
          
       elif reply:
             try:
+              user_id = reply.from_user.id
               user = await bot.get_users(user_id)
               await add_rank(user.id)
               await msg.edit_text(RANK_ADDED_TEXT.format(user.mention))
