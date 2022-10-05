@@ -78,7 +78,9 @@ async def gbans(_, message):
        elif reply:
            user_id = message.reply_to_message.from_user.id
            if user_id in (await RANK_USERS()):
-               await msg.edit("`This user already gbanned`.")
+               await msg.edit("`This person is my rank user`.")
+           elif user_id in (await get_gbaned_users()):
+                await msg.edit("This user already 𝗚𝗕𝗔𝗡𝗡𝗘𝗗.")
            else:
               try:
                  await gban_user(user_id)
@@ -94,7 +96,9 @@ async def gbans(_, message):
                   await msg.edit("use userID only.")
               user = await bot.get_users(user_id)
               if user.id in (await RANK_USERS()):
-                    await msg.edit("This user already gabnned.")
+                    await msg.edit("This person is my rankuser.")
+              elif user.id in (await get_gbaned_users()):
+                    await msg.edit("This user already 𝗚𝗕𝗔𝗡𝗡𝗘𝗗.")
               else:
                   try:
                      await gban_user(user.id)
