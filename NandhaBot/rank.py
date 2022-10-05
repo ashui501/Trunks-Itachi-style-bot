@@ -2,7 +2,7 @@
 
 from NandhaBot.helpers.ranksdb import get_rankusers
 
-RANK_USERS = str(await get_rankusers())
+RANK_USERS = str(get_rankusers())
 
 RANK_A_USER = [1491497760,5696053228]
 RANK_B_USER = []
