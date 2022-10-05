@@ -29,7 +29,7 @@ async def addrank(_, message):
       if not reply:
          try:
            user_id_text = int(message.text.split(" ")[1])
-           user = (await bot.get_users(user_id_text)
+           user = await bot.get_users(user_id_text)
            await add_rank(user.id)
            await msg.edit_text(RANK_ADDED_TEXT.format(user.mention))
          except Exception as e:
@@ -37,7 +37,7 @@ async def addrank(_, message):
          
       elif reply:
             try:
-              user = (await bot.get_users(user_id))
+              user = await bot.get_users(user_id)
               await add_rank(user.id)
               await msg.edit_text(RANK_ADDED_TEXT.format(user.mention))
             except Exception as e:
