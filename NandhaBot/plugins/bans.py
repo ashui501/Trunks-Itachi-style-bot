@@ -55,7 +55,7 @@ def bans(_, message):
                 return message.reply_text("I never against to my rank users")
           elif user_stats.privileges.can_restrict_members:
               chat.ban_member(id_user)
-          message.reply_animation(BAN_IMG,BANNE_TEXT.format(name))
+              message.reply_animation(BAN_IMG,BANNE_TEXT.format(name))
        
        except Exception as error: 
           message.reply_text(str(error))
