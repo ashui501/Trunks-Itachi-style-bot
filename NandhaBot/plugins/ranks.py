@@ -12,6 +12,38 @@ from pyrogram.types import *
 from pyrogram import filters
 from NandhaBot import rank
 from NandhaBot.helpers.paste import batbin
+from NandhaBot.helpers.ranksdb import (
+get_rankusers, add_rank , remove_rank)
+
+RANK_ADDED_TEXT = """
+new rank user arrived on bot
+it's {}
+"""
+
+@bot.on_message(filters.command("addrank"))
+async def addrank(_, message):
+      reply = message.reply_to_message
+      user_id = message.from_user.id
+      chat_id = message.chat.id
+      msg = await message.reply_text("processing adding..")
+      if not reply:
+         try:
+           user_id_text = int(message.text.split(" ")[1])
+           user = (await bot.get_users(user_id_text).id
+           await add_rank(user.id)
+           await msg.edit_text(RANK_ADDED_TEXT.format(user.mention))
+         except Exception as e:
+             await message.reply_text(str(e))
+         
+      elif reply:
+            try:
+              user = (await bot.get_users(user_id)).id
+              await add_rank(user.id)
+              await msg.edit_text(RANK_ADDED_TEXT.format(user.mention))
+            except Exception as e:
+                  await message.reply_text(str(e))
+
+
 
 @bot.on_message(filters.command("sh",config.COMMANDS))
 def sh(_, m):
