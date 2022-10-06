@@ -78,26 +78,41 @@ async def purge(_, message):
       chat_id = message.chat.id
       user_id = message.from_user.id
       reply = message.reply_to_message
+      
       msg = await message.reply_text("purge processing....")
-      if message.chat.type == enums.ChatType.PRIVATE:
+      if not reply:
+             await msg.edit("reply to message")
+      elif message.chat.type == enums.ChatType.PRIVATE:
          try:
             reply_message_id = reply.id
             messages = []
             for message_ids in range(reply_message_id, message.id +1):
                  messages.append(message_ids)
            
-            if len(messages) <250:
-                 await bot.delete_messages(
+            await bot.delete_messages(
                         chat_id=chat_id, 
-                        message_ids=messages,
-                        revoke=True)
-                 await msg.edit(f"Successfully purged:` {len(messages)}`")
-            else:
-                await msg.edit("Maximum 250 messages can delete.")
+                        message_ids=messages)
+            await msg.edit(f"Successfully Purged:` {len(messages)}`")
+            
          except Exception as e:
              await msg.edit(str(e))
 
 
+      elif reply:
+            reply_message_id = reply.id
+            message_id = message.id
+            messages = []
+            admin_check = await bot.get_chat_member(chat_id, user_id)
+            try:
+               if admin_check.privileges.can_delete_messages:
+                     for message_ids in range(reply_message_id, message_id +1)
+                         messages.append(message_ids)
+                     await bot.delete_messages(
+                        chat_id=chat_id, 
+                        message_ids=messages)
+                     await msg.edit(f"Successfully Purged:` {len(messages)}`")
+            except Exception as e:
+             await msg.edit(str(e))
 
 
 
