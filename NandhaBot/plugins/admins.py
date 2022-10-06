@@ -105,7 +105,7 @@ async def purge(_, message):
             admin_check = await bot.get_chat_member(chat_id, user_id)
             try:
                if admin_check.privileges.can_delete_messages:
-                     for message_ids in range(reply_message_id, message_id +1)
+                     for message_ids in range(reply_message_id, message_id +1):
                          messages.append(message_ids)
                      await bot.delete_messages(
                         chat_id=chat_id, 
