@@ -19,7 +19,7 @@ async def admins(_, message):
         async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
                
                if admin.user.is_bot:
-                   admin_list += f"⊗ {admin.user.mention}"
+                   admin_list += f"⊗ {admin.user.mention}\n"
                else:
                   admin_list += f"✮ {admin.user.mention}\n"
         await message.reply_text(admin_list)
