@@ -71,9 +71,9 @@ async def bans(_, message):
                    reply_to_message_id=message.id)
            except Exception as e:
                await msg.edit(str(e))
-      elif reply and len(message.command) >2:
+      elif reply and len(message.command) >1:
            user = reply.from_user
-           reason = message.text.split(None, 2)[2]
+           reason = message.text.split(None, 1)[1]
            admin_check = await bot.get_chat_member(chat_id, user.id)
            try:
               if user.id in (await RANK_USERS()):
