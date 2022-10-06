@@ -44,9 +44,9 @@ async def setchatphoto(_, message):
                 await message.chat.set_photo(photo=photo)
                 await message.reply_text("Successfully New Profile Photo insert!\nby {}".format(message.from_user.mention))
              else:
-                await msg.edit("`sorry you don't have rights to change group photo.`")
+                await msg.edit("`somthing wrong happened try Another photo!`")
      
-          except Exception as e:
-              await msg.edit(str(e))
+          except:
+              await msg.edit("`the user most need change info admin rights to change group photo!`")
                 
 
