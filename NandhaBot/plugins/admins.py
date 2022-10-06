@@ -12,6 +12,7 @@ from NandhaBot import bot
 async def admins(_, message):
       chat_id = message.chat.id
       admin_list = f"𝗔𝗗𝗠𝗜𝗡𝗦 in {message.chat.title}\n\n"
+      bot_list = "𝗕𝗢𝗧𝗦:\n\n"
 
       if message.chat.type == ChatType.PRIVATE:
            await message.reply_text("This command work on group only!")
@@ -21,5 +22,5 @@ async def admins(_, message):
                if admin.user.is_bot:
                    admin_list += f"⊗ {admin.user.mention}\n"
                else:
-                  admin_list += f"✮ {admin.user.mention}\n"
-        await message.reply_text(admin_list)
+                  bot_list += f"✮ {admin.user.mention}\n"
+        await message.reply_text(admin_list+"\n\n"+bot_list)
