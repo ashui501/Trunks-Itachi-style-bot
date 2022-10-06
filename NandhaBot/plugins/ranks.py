@@ -178,30 +178,33 @@ async def aexec(code, client, message):
     return await locals()["__aexec"](client, message)
 
 
-@bot.on_message(filters.command("logs",config.COMMANDS) & filters.user(rank.RANK_USERS))
+@bot.on_message(filters.command("logs",config.COMMANDS))
 async def logs(_, message):
-    system = run("tail logs.txt")
-    link = await batbin(system)
-    msg= await message.reply_text("`sending logs...`")
-    await message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
-    await msg.delete()
+    if message.from_user.id in (await RANK_USERS()):
+        system = run("tail logs.txt")
+        link = await batbin(system)
+        msg= await message.reply_text("`sending logs...`")
+        await message.reply_document(document="logs.txt",caption=f"here the [paste]({link})")
+        await msg.delete()
 
  
 
 
-@bot.on_message(filters.command("leave",config.COMMANDS) & filters.user(rank.RANK_USERS))
+@bot.on_message(filters.command("leave",config.COMMANDS))
 async def leave_chat(_, message):
      if len(message.command) <2:
          return await message.reply_text("Give Me ChatID.")
-     chat_id = message.text.split(None,1)[1]
-     await bot.send_message(chat_id, "I'm gonna leaves here because my rank user request me!")
-     try:
-       chat = (await bot.get_chat(chat_id))
-       await bot.leave_chat(chat.id)
+     
+     elif message.from_user.id in (await RANK_USERS()):
+       chat_id = message.text.split(None,1)[1]
+       await bot.send_message(chat_id, "I'm gonna leaves here because my rank user request me!")
+       try:
+         chat = (await bot.get_chat(chat_id))
+         await bot.leave_chat(chat.id)
        
-       await message.reply_text(f"Successfully left from {chat.title}")
-     except Exception as e:
-        return await message.reply_text(str(e))
+         await message.reply_text(f"Successfully left from {chat.title}")
+       except Exception as e:
+          return await message.reply_text(str(e))
      
     
     
