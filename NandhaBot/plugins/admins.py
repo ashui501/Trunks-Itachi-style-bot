@@ -87,9 +87,13 @@ async def purge(_, message):
                  messages.append(message_ids)
            
             if len(messages) <100:
-                 await bot.delete_messages(chat_id, messages)
+                 await bot.delete_messages(
+                        chat_id=hat_id, 
+                        message_ids=messages,
+                        revoke=True)
                  await msg.edit(f"Successfully purged:` {len(messages)}`")
-                 
+            else:
+                await msg.edit("Maximum 100 messages can delete.")
          except Exception as e:
              await msg.edit(str(e))
 
