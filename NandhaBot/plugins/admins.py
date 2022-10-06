@@ -11,8 +11,8 @@ from NandhaBot import bot
 @bot.on_message(filters.command(["admins","adminlist"],config.COMMANDS))
 async def admins(_, message):
       chat_id = message.chat.id
-      admin_list = f"𝗔𝗗𝗠𝗜𝗡𝗦 in {message.chat.title}\n\n"
-      bot_list = "\n𝗕𝗢𝗧𝗦:\n"
+      admin_list = f"🔱 𝗔𝗗𝗠𝗜𝗡𝗦 in {message.chat.title}\n\n"
+      bot_list = "\n🤖 𝗕𝗢𝗧𝗦:\n"
 
       if message.chat.type == ChatType.PRIVATE:
            await message.reply_text("This command work on group only!")
