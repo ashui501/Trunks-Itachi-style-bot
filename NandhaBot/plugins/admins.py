@@ -78,7 +78,6 @@ async def purge(_, message):
       chat_id = message.chat.id
       user_id = message.from_user.id
       reply = message.reply_to_message
-      admin_check = await bot.get_chat_member(chat_id, user_id)
       msg = await message.reply_text("purge processing....")
       if message.chat.type == enums.ChatTyps.PRIVATE:
          try:
