@@ -38,7 +38,7 @@ async def setchatphoto(_, message):
       elif reply:
           try:
              if admin_check.privileges.can_change_info:
-                photo = reply.download()
+                photo = await reply.download()
                 await message.chat.set_photo(photo)
                 await message.reply_text("Successfully New Profile Photo insert!\nby {}".format(message.from_user.mention))
              else:
