@@ -79,7 +79,7 @@ async def purge(_, message):
       user_id = message.from_user.id
       reply = message.reply_to_message
       msg = await message.reply_text("purge processing....")
-      if message.chat.type == enums.ChatTyps.PRIVATE:
+      if message.chat.type == enums.ChatType.PRIVATE:
          try:
             reply_message_id = reply.id
             messages = []
