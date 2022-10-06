@@ -26,7 +26,7 @@ async def admins(_, message):
         await message.reply_text(admin_list+bot_list)
 
 
-@bot.on_message(filters.command(["removephoto","deletephoto",]))
+@bot.on_message(filters.command(["removephoto","deletephoto",],config.COMMANDS))
 async def deletechatphoto(_, message):
       
       chat_id = message.chat.id
@@ -73,7 +73,7 @@ async def setchatphoto(_, message):
 
 
 
-@bot.on_message(filters.command("purge"))
+@bot.on_message(filters.command(["purge","deletes"]),config.COMMANDS)
 async def purge(_, message):
       chat_id = message.chat.id
       user_id = message.from_user.id
@@ -115,7 +115,24 @@ async def purge(_, message):
                   await msg.edit("`you most need delete admin rights to purge messages!`")
             
 
+@bot.on_message(filters.command(["setgrouptitle","setchattitle"],config.COMMANDS))
+async def setgrouptitle(_, message):
+    reply = message.reply_to_message
+    chat_id = message.chat_id
+    user_id = message.from_user.id
+    msg = await message.reply_text("processing...")
+       try:
+         title = message.text.split(None, 1)[1]
+         admin_check = await bot.get_chat_member(chat_id, user_id)
+         if admin_check.privileges.can_change_info:
+             await message.chat.set_title(title)
+             await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
+         else:
+             title = message.reply_to_message.text
+             if admin_check.privileges.can_change_info:
+                 await message.chat.set_title(title)
+                 await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
 
 
-
-
+       except Exception as e:
+              await msg.edit(str(e))
