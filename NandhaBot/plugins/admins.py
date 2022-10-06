@@ -14,7 +14,7 @@ async def admins(_, message):
       else:
         admin_list = f"**total admins in {message.chat.title}**:\n"
         async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-               if admin.is_bot == True:
+               if admin.user.is_bot == True:
                    pass
                else:
                   admin_list += f"✮ {admin.user.mention}\n"
