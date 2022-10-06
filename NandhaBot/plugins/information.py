@@ -2,7 +2,7 @@ import config
 
 from pyrogram import filters
 from pyrogram import enums
-from NandhaBot import bot, user
+from NandhaBot import bot
 from NandhaBot.rank import RANK_USERS as RANK
 
 INFO_TEXT = """
