@@ -26,6 +26,26 @@ async def admins(_, message):
         await message.reply_text(admin_list+bot_list)
 
 
+@bot.on_message(filters.command(["removephoto","deletephoto",]))
+async def deletechatphoto(_, message):
+      
+      chat_id = message.chat.id
+      user_id = message.from_user.id
+      msg = await message.reply_text("processing....")
+      admin_check = await bot.get_chat_member(chat_id, user_id)
+      if message.chat.type == enums.ChatType.PRIVATE:
+           await msg.edit("`This command work on groups!`") 
+      try:
+         if admin_check.privileges.can_change_info:
+             await bot.delete_chat_photo(chat_id)
+             await msg.edit("Successfully Removed Profile Photo from group!\nby {}".format(message.from_user.mention))    
+      except:
+          await msg.edit("`the user most need change info admin rights to remove group photo!`")
+
+
+
+
+
 @bot.on_message(filters.command("setphoto"))
 async def setchatphoto(_, message):
       reply = message.reply_to_message
@@ -42,11 +62,17 @@ async def setchatphoto(_, message):
              if admin_check.privileges.can_change_info:
                 photo = await reply.download()
                 await message.chat.set_photo(photo=photo)
-                await message.reply_text("Successfully New Profile Photo insert!\nby {}".format(message.from_user.mention))
+                await msg.edit_text("Successfully New Profile Photo insert!\nby {}".format(message.from_user.mention))
              else:
                 await msg.edit("`somthing wrong happened try Another photo!`")
      
           except:
               await msg.edit("`the user most need change info admin rights to change group photo!`")
+
+
+
+
+
+
                 
 
