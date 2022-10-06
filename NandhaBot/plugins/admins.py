@@ -24,3 +24,27 @@ async def admins(_, message):
                else:
                   admin_list += f"✮ {admin.user.mention}\n"
         await message.reply_text(admin_list+bot_list)
+
+
+@bot.on_message(filters.command("setphoto"))
+async def setchatphoto(_, message):
+      reply = message.reply_to_message
+      chat_id = message.chat.id
+      user_id = message.from_user.id
+      msg = await message.reply_text("processing....")
+      admin_check = await bot.get_chat_member(chat_id, user_id)
+      if not reply:
+           await msg.edit("`reply to a photo or document.`")
+      elif reply:
+          try:
+             if admin_check.privileges.can_change_info:
+                photo = reply.download()
+                await message.chat.set_photo(photo)
+                await message.reply_text("Successfully New Profile Photo insert!\nby {}".format(message.from_user.mention))
+             else:
+                await msg.edit("`sorry you don't have rights to change group photo.`")
+     
+          except Exception as e:
+              await msg.edit(str(e))
+                
+
