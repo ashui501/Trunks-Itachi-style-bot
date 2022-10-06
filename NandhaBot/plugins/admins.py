@@ -98,7 +98,7 @@ async def purge(_, message):
              await msg.edit(str(e))
 
 
-      elif reply:
+      else:
             reply_message_id = reply.id
             message_id = message.id
             messages = []
