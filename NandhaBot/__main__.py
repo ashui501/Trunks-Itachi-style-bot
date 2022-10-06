@@ -3,7 +3,7 @@ import media
 import strings
 import time
 import random 
-from NandhaBot import bot, user
+from NandhaBot import bot
 from pyrogram import filters
 from pyrogram.types import *
 from pyrogram.enums import *
@@ -42,6 +42,4 @@ if __name__ == "__main__":
      with bot:
         bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>",
           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝗚𝗥𝗢𝗨𝗣!",url=config.GROUP_URL)]]))
-     with user:
-          user.send_message(config.GROUP_ID, "`I'm running.....`")
-   
+     
