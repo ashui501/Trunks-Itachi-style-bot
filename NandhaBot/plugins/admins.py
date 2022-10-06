@@ -111,7 +111,7 @@ async def purge(_, message):
                         chat_id=chat_id, 
                         message_ids=messages)
                      await msg.edit(f"Successfully Purged:` {len(messages)}`")
-            except AttributeError as error:
+            except AttributeError:
                   await msg.edit("`you most need delete admin rights to purge messages!`")
             
 
