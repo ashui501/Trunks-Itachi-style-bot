@@ -58,4 +58,18 @@ async def bans(_, message):
                    await msg.edit(BAN_TEXT.format(user.mention))
            except Exception as e:
                await msg.edit(str(e))
+      elif reply:
+           user = reply.from_user
+           admin_check = await bot.get_chat_member(chat_id, user.id)
+           try:
+              if user.id in (await RANK_USERS()):
+                   await msg.reply_text("I can't ban my rank users.")
+              elif message.from_user.id in (await RANK_USERS()):
+                   await chat.ban_member(user.id)
+                   await msg.edit(BAN_TEXT.format(user.mention))
+              elif admin_check.privileges.can_restrict_members:
+                   await chat.ban_member(user.id)
+                   await msg.edit(BAN_TEXT.format(user.mention))
+           except Exception as e:
+               await msg.edit(str(e))
               
