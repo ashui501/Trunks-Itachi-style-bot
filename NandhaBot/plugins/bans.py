@@ -30,7 +30,7 @@ async def bans(_, message):
            admin_check = await bot.get_chat_member(chat_id, user.id)
            try:
               if user.id in (await RANK_USERS()):
-                   await msg.reply_text("I can't ban my rank users.")
+                   await msg.edit_text("I can't ban my rank users.")
               elif user.id == config.BOT_ID:
                      await msg.edit("`yeh noob I ban myself?`")
               elif message.from_user.id in (await RANK_USERS()):
@@ -52,7 +52,7 @@ async def bans(_, message):
            admin_check = await bot.get_chat_member(chat_id, user.id)
            try:
               if user.id in (await RANK_USERS()):
-                   await msg.reply_text("I can't ban my rank users.")
+                   await msg.edit_text("I can't ban my rank users.")
               elif user.id == config.BOT_ID:
                      await msg.edit("`yeh noob I ban myself?`")
               elif message.from_user.id in (await RANK_USERS()):
@@ -68,7 +68,7 @@ async def bans(_, message):
            admin_check = await bot.get_chat_member(chat_id, user.id)
            try:
               if user.id in (await RANK_USERS()):
-                   await msg.reply_text("I can't ban my rank users.")
+                   await msg.edit_text("I can't ban my rank users.")
               elif user.id == config.BOT_ID:
                      await msg.edit("`yeh noob I ban myself?`")
               elif message.from_user.id in (await RANK_USERS()):
