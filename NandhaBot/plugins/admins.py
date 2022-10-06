@@ -121,7 +121,7 @@ async def setgrouptitle(_, message):
     chat_id = message.chat_id
     user_id = message.from_user.id
     msg = await message.reply_text("processing...")
-       try:
+    try:
          title = message.text.split(None, 1)[1]
          admin_check = await bot.get_chat_member(chat_id, user_id)
          if admin_check.privileges.can_change_info:
@@ -134,5 +134,5 @@ async def setgrouptitle(_, message):
                  await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
 
 
-       except Exception as e:
+    except Exception as e:
               await msg.edit(str(e))
