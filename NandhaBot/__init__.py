@@ -32,9 +32,9 @@ plugins = dict(root="NandhaBot")
 user = Client(name="NandhaxD",
               api_id=int(API_ID),
               api_hash=str(API_HASH),
-              bot_token=str(BOT_TOKEN),
-              session_string=str(SESSION),
-              plugins=plugins)
+              session_string=str(SESSION))
+
+user.start()
 
 bot = Client(name=str(config.USERNAME), 
              api_id=API_ID, 
