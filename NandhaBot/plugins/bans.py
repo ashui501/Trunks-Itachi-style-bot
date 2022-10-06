@@ -7,7 +7,7 @@ from pyrogram import filters
 from NandhaBot import bot
 from NandhaBot.rank import RANK_USERS
 
-BAN_TEXT = "Another Bitch Banned,!\n\n reason: {}"
+BAN_TEXT = "Another Bitch 𝗕𝗔𝗡𝗡𝗘𝗗!\n\n 𝗨𝗦𝗘𝗥: {}\n𝗥𝗘𝗔𝗦𝗢𝗡: `{}`"
 
 @bot.on_message(filters.command("ban"))
 async def bans(_, message):
@@ -32,10 +32,10 @@ async def bans(_, message):
                    await msg.reply_text("I can't ban my rank users.")
               elif message.from_user.id in (await RANK_USERS()):
                    await chat.ban_member(user.id)
-                   await msg.edit(BAN_TEXT)
+                   await msg.edit(BAN_TEXT.format(user.first_name, reason))
               elif admin_check.privileges.can_restrict_members:
                    await chat.ban_member(user.id)
-                   await msg.edit(BAN_TEXT)
+                   await msg.edit(BAN_TEXT.format(user.first_name, reason))
 
            except Exception as e:
                await msg.edit(str(e))
