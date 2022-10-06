@@ -38,7 +38,9 @@ async def bans(_, message):
                    await msg.edit(REASON_BAN_TEXT.format(user.mention, reason))
               elif admin_check.privileges.can_restrict_members:
                    await chat.ban_member(user.id)
-                   await msg.edit(REASON_BAN_TEXT.format(user.mention, reason))
+                   await msg.delete()
+                   await bot.send_animation(animation=url,caption=REASON_BAN_TEXT.format(user.mention, reason),
+                   reply_to_message_id=message.id)
            except Exception as e:
                await msg.edit(str(e))
 
@@ -60,7 +62,9 @@ async def bans(_, message):
                    await msg.edit(BAN_TEXT.format(user.mention))
               elif admin_check.privileges.can_restrict_members:
                    await chat.ban_member(user.id)
-                   await msg.edit(BAN_TEXT.format(user.mention))
+                   await msg.delete()
+                   await bot.send_animation(animation=url,caption=REASON_BAN_TEXT.format(user.mention, reason),
+                   reply_to_message_id=message.id)
            except Exception as e:
                await msg.edit(str(e))
       elif reply:
@@ -76,7 +80,9 @@ async def bans(_, message):
                    await msg.edit(BAN_TEXT.format(user.mention))
               elif admin_check.privileges.can_restrict_members:
                    await chat.ban_member(user.id)
-                   await msg.edit(BAN_TEXT.format(user.mention))
+                   await msg.delete()
+                   await bot.send_animation(animation=url,caption=REASON_BAN_TEXT.format(user.mention, reason),
+                   reply_to_message_id=message.id)
            except Exception as e:
                await msg.edit(str(e))
               
