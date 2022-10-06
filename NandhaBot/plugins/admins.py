@@ -6,16 +6,20 @@ from pyrogram import filters
 from NandhaBot import bot
 
 
+
+
 @bot.on_message(filters.command(["admins","adminlist"],config.COMMANDS))
 async def admins(_, message):
       chat_id = message.chat.id
+      admin_list = f"𝗔𝗗𝗠𝗜𝗡𝗦 in {message.chat.title}\n\n"
+
       if message.chat.type == ChatType.PRIVATE:
            await message.reply_text("This command work on group only!")
       else:
-        admin_list = f"**total admins in {message.chat.title}**:\n"
         async for admin in bot.get_chat_members(chat_id, filter=enums.ChatMembersFilter.ADMINISTRATORS):
-               if admin.user.is_bot == True:
-                   pass
+               
+               if admin.user.is_bot:
+                   admin_list += f"⊗ {admin.user.mention}"
                else:
                   admin_list += f"✮ {admin.user.mention}\n"
         await message.reply_text(admin_list)
