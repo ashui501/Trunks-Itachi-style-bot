@@ -33,13 +33,15 @@ async def setchatphoto(_, message):
       user_id = message.from_user.id
       msg = await message.reply_text("processing....")
       admin_check = await bot.get_chat_member(chat_id, user_id)
-      if not reply:
+      if message.chat.type == enums.ChatType.PRIVATE:
+           await msg.edit("`This command work on groups!`") 
+      elif not reply:
            await msg.edit("`reply to a photo or document.`")
       elif reply:
           try:
              if admin_check.privileges.can_change_info:
                 photo = await reply.download()
-                await message.chat.set_photo(photo)
+                await message.chat.set_photo(photo=photo)
                 await message.reply_text("Successfully New Profile Photo insert!\nby {}".format(message.from_user.mention))
              else:
                 await msg.edit("`sorry you don't have rights to change group photo.`")
