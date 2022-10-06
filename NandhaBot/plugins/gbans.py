@@ -5,7 +5,7 @@ from pyrogram.types import *
 from NandhaBot import bot
 from NandhaBot.rank import RANK_USERS
 from NandhaBot.helpers.gbandb import (
-ungban_user, gban_user, get_gbaned_user)
+ungban_user, gban_user, get_gbaned_users)
 
 GBAN_TEXT = """
 𝗚𝗕𝗔𝗡𝗡𝗘𝗗 𝗨𝗦𝗘𝗥!
