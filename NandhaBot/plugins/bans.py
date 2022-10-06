@@ -13,12 +13,13 @@ BAN_TEXT = "Another Bitch Banned,!\n\n reason: {}"
 async def bans(_, message):
       reply= message.reply_to_message
       chat_id = message.chat.id
+      chat = message.chat
       user_id = message.from_user.id
       api = requests.get("https://api.waifu.pics/sfw/kick").json()
       url = api["url"]
       msg = await message.reply_text("trying to ban...")
       if reply or not reply and len(message.command) >2:
-           user_id = message.text.split(" ")[1]
+           user_id = message.command[1]
            reason = message.text.split(None, 2)[2]
            try:
              user = await bot.get_users(user_id)
@@ -30,10 +31,10 @@ async def bans(_, message):
               if user.id in (await RANK_USERS()):
                    await msg.reply_text("I can't ban my rank users.")
               elif message.from_user.id in (await RANK_USER()):
-                   await bot.ban_chat_member(chat_id, user.id)
+                   await chat.ban_member(user.id)
                    await msg.edit(BAN_TEXT)
               elif admire_check.privileges.can_restrict_members:
-                   await bot.ban_chat_member(chat_id, user.id)
+                   await chat.ban_member(user.id)
                    await msg.edit(BAN_TEXT)
 
            except Exception as e:
