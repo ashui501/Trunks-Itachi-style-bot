@@ -30,7 +30,7 @@ async def bans(_, message):
            try:
               if user.id in (await RANK_USERS()):
                    await msg.reply_text("I can't ban my rank users.")
-              elif message.from_user.id in (await RANK_USER()):
+              elif message.from_user.id in (await RANK_USERS()):
                    await chat.ban_member(user.id)
                    await msg.edit(BAN_TEXT)
               elif admire_check.privileges.can_restrict_members:
