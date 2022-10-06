@@ -1,4 +1,5 @@
 import requests
+import config
 
 from pyrogram.types import *
 from pyrogram import enums
@@ -18,7 +19,7 @@ async def bans(_, message):
       api = requests.get("https://api.waifu.pics/sfw/kick").json()
       url = api["url"]
       msg = await message.reply_text("trying to ban...")
-      if reply or not reply and len(message.command) >2:
+      if not reply and len(message.command) >2:
            user_id = message.command[1]
            reason = message.text.split(None, 2)[2]
            try:
@@ -30,6 +31,8 @@ async def bans(_, message):
            try:
               if user.id in (await RANK_USERS()):
                    await msg.reply_text("I can't ban my rank users.")
+              elif user.id == config.BOT_ID:
+                     await msg.edit("`yeh noob I ban myself?`")
               elif message.from_user.id in (await RANK_USERS()):
                    await chat.ban_member(user.id)
                    await msg.edit(REASON_BAN_TEXT.format(user.mention, reason))
@@ -39,7 +42,7 @@ async def bans(_, message):
            except Exception as e:
                await msg.edit(str(e))
 
-      elif reply or not reply and len(message.command) == 2:
+      elif not reply and len(message.command) == 2:
            user_id = message.command[1]
            try:
              user = await bot.get_users(user_id)
@@ -50,6 +53,8 @@ async def bans(_, message):
            try:
               if user.id in (await RANK_USERS()):
                    await msg.reply_text("I can't ban my rank users.")
+              elif user.id == config.BOT_ID:
+                     await msg.edit("`yeh noob I ban myself?`")
               elif message.from_user.id in (await RANK_USERS()):
                    await chat.ban_member(user.id)
                    await msg.edit(BAN_TEXT.format(user.mention))
@@ -64,6 +69,8 @@ async def bans(_, message):
            try:
               if user.id in (await RANK_USERS()):
                    await msg.reply_text("I can't ban my rank users.")
+              elif user.id == config.BOT_ID:
+                     await msg.edit("`yeh noob I ban myself?`")
               elif message.from_user.id in (await RANK_USERS()):
                    await chat.ban_member(user.id)
                    await msg.edit(BAN_TEXT.format(user.mention))
