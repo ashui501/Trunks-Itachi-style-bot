@@ -7,8 +7,8 @@ from pyrogram import filters
 from NandhaBot import bot
 from NandhaBot.rank import RANK_USERS
 
-BAN_TEXT = "Another Bitch 𝗕𝗔𝗡𝗡𝗘𝗗!\n\n 𝗨𝗦𝗘𝗥: {}\n𝗥𝗘𝗔𝗦𝗢𝗡: `{}`"
-
+REASON_BAN_TEXT = "Another Bitch 𝗕𝗔𝗡𝗡𝗘𝗗!\n\n𝗨𝗦𝗘𝗥: {}\n𝗥𝗘𝗔𝗦𝗢𝗡: `{}`"
+BAN_TEXT = "Another Bitch 𝗕𝗔𝗡𝗡𝗘𝗗!\n\n𝗨𝗦𝗘𝗥: {}"
 @bot.on_message(filters.command("ban"))
 async def bans(_, message):
       reply= message.reply_to_message
@@ -32,11 +32,30 @@ async def bans(_, message):
                    await msg.reply_text("I can't ban my rank users.")
               elif message.from_user.id in (await RANK_USERS()):
                    await chat.ban_member(user.id)
-                   await msg.edit(BAN_TEXT.format(user.first_name, reason))
+                   await msg.edit(REASON_BAN_TEXT.format(user.mention, reason))
               elif admin_check.privileges.can_restrict_members:
                    await chat.ban_member(user.id)
-                   await msg.edit(BAN_TEXT.format(user.first_name, reason))
+                   await msg.edit(REASON_BAN_TEXT.format(user.mention, reason))
+           except Exception as e:
+               await msg.edit(str(e))
 
+      elif reply or not reply and len(message.command) == 2:
+           user_id = message.command[1]
+           try:
+             user = await bot.get_users(user_id)
+           except Exception as e:
+                await msg.edit(str(e))
+           user = await bot.get_users(user_id)
+           admin_check = await bot.get_chat_member(chat_id, user.id)
+           try:
+              if user.id in (await RANK_USERS()):
+                   await msg.reply_text("I can't ban my rank users.")
+              elif message.from_user.id in (await RANK_USERS()):
+                   await chat.ban_member(user.id)
+                   await msg.edit(BAN_TEXT.format(user.mention))
+              elif admin_check.privileges.can_restrict_members:
+                   await chat.ban_member(user.id)
+                   await msg.edit(BAN_TEXT.format(user.mention))
            except Exception as e:
                await msg.edit(str(e))
               
