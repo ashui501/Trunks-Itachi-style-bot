@@ -34,7 +34,7 @@ user = Client(name="NandhaxD",
               api_hash=str(API_HASH),
               session_string=str(SESSION))
 
-user.start()
+
 
 bot = Client(name=str(config.USERNAME), 
              api_id=API_ID, 
