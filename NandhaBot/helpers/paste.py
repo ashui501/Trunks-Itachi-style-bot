@@ -2,9 +2,9 @@ from requests import post
 from NandhaBot.helpers.utils.http import post
 
 
-def spacebin(text):
+async def spacebin(text):
     url = "https://spaceb.in/api/v1/documents/"
-    res = post(url, data={"content": text, "extension": "txt"})
+    res = await post(url, data={"content": text, "extension": "txt"})
     return f"https://spaceb.in/{res.json()['payload']['id']}"
 
 async def batbin(text):
