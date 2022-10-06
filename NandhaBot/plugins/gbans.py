@@ -27,10 +27,13 @@ async def gbans(_, message):
    chat_id = message.chat.id
    user_id = message.from_user.id
    name = message.from_user.first_name
-   if message.from_user.id in (await get_gbaned_users()):
-       await chat.ban_member(message.from_user.id)
-       await bot.send_message(config.LOG_CHANNEL_ID, text=GBAN_TEXT.format(name,chat.title), 
+   try:
+     if message.from_user.id in (await get_gbaned_users()):
+         await chat.ban_member(message.from_user.id)
+         await bot.send_message(config.LOG_CHANNEL_ID, text=GBAN_TEXT.format(name,chat.title), 
           reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝗨𝗡𝗚𝗕𝗔𝗡",callback_data=f"ungban:{user_id}")]]))
+      except:
+            await message.reply_text(str(e))
 
 @bot.on_callback_query(filters.regex("ungban"))
 async def ungban_btn(_, query):
@@ -65,7 +68,7 @@ async def gbans(_, message):
               try:
                  await gban_user(user_id)
                  await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
-                 await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(reply.from_user.mention), reply_to_message_id=message.id)
+                 await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(reply.from_user.mention))
               except Exception as e:
                   await msg.edit(str(e))
        elif not reply and len(message.command) == 2:
@@ -83,6 +86,6 @@ async def gbans(_, message):
                   try:
                      await gban_user(user.id)
                      await msg.edit("Successfully 𝗚𝗕𝗔𝗡𝗡𝗘𝗗!")
-                     await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(user.mention), reply_to_message_id=message.id)
+                     await bot.send_message(config.GROUP_ID, text="`the rank user gbanned {}`".format(user.mention))
                   except Exception as e:
                       await msg.edit(str(e))
