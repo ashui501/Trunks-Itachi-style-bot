@@ -38,7 +38,6 @@ async def start(_, message):
 
 if __name__ == "__main__":
      bot.run()
-     user.run()
      photo_url = "http://telegra.ph/file/103f51de685933820f969.jpg"
      with bot:
         bot.send_photo(config.GROUP_ID,photo=photo_url,caption="<b>I'm Awake Already!</b>",
