@@ -16,3 +16,7 @@ async def add_chats(chat_id: int):
            return chatsdb.insert_one({"chat_id": chat_id})
 
 
+async def is_chats(chat_id: int):
+     if chat_id in (await get_chats()):
+          return True
+     return False
