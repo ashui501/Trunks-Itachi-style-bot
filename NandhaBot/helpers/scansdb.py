@@ -4,9 +4,16 @@ scandb = pymongodb.SCANSDBS
 
 
 
-async def add_scan_user_details(user_id: str, reason):
-          scan_reason_list = { "user_id": user_id, "reason": reason}
-          x = scandb.insert_one(scan_reason_list)
-          id = x.inserted_id
-          return id
+
+async def add_details(user_id: int, reason: str):
+          scan_reason_list = {"user_id": user_id, "reason": reason}
+          return scandb.insert_one(scan_reason_list)
+
+async def get_details(user_id: int)
+         list = []
+         for details in scandb.find_one():
+              list.append(details[user_id])
+         return list
+
+          
         
