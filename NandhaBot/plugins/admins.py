@@ -123,18 +123,23 @@ async def setgrouptitle(_, message):
     msg = await message.reply_text("processing...")
     if message.chat.type == enums.ChatType.PRIVATE:
           await msg.edit("This command work on groups!")
-    try:
-         title = message.text.split(None, 1)[1]
-         admin_check = await bot.get_chat_member(chat_id, user_id)
-         if admin_check.privileges.can_change_info:
-             await message.chat.set_title(title)
-             await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
-         else:
-             title = message.reply_to_message.text
-             if admin_check.privileges.can_change_info:
-                 await message.chat.set_title(title)
-                 await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
+    elif len(message.command) >2:
+         try:
+            title = message.text.split(None, 1)[1]
+            admin_check = await bot.get_chat_member(chat_id, user_id)
+            if admin_check.privileges.can_change_info:
+               await message.chat.set_title(title)
+               await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
+         except Exception as e:
+               await msg.edit(str(e))
+    elif reply:
+          try:
+            title = message.reply_to_message.text
+            if admin_check.privileges.can_change_info:
+               await message.chat.set_title(title)
+               await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
+          except Exception as e:
+                await msg.edit(str(e))
 
 
-    except Exception as e:
-              await msg.edit(str(e))
+    
