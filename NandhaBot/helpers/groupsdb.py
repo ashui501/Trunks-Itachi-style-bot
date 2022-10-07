@@ -15,7 +15,7 @@ async def get_chats() -> list:
     return chats_list
 
 async def add_chats(chat_id: int):
-    is_already_in_chatdb = is_chats(chat_id)
+    is_already_in_chatdb = await is_chats(chat_id)
     if is_already_in_chatdb:
         return
     return chatsdb.insert_one({"chat_id": chat_id})
