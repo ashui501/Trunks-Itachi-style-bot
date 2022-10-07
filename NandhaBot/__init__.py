@@ -1,7 +1,8 @@
 import config
 
 from pyrogram import filters , Client
-from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
+from motor.motor_asyncio import AsyncIOMotorClient
+from pymongo import MongoClient
 from aiohttp import ClientSession
 import logging
 import time
@@ -34,11 +35,16 @@ bot = Client(name=str(config.USERNAME),
              bot_token=BOT_TOKEN,
              plugins=plugins)
 
-###Mogondb Functions # You can use pymongo module also
+
 DB_URL = "mongodb+srv://Bave999:Bave999@cluster0.1aheaa1.mongodb.net/?retryWrites=true&w=majority"
-# mongo db url here
-mongo = MongoClient(DB_URL)
+
+# mongodb from motor #
+mongo = AsyncIOMotorClient(DB_URL)
 mongodb = mongo.bot 
+
+# mongodb from pymongo #
+pymongo = MongoClient(DB_URL)
+pymongodb = pymongo.bot
 
 ##some imports 
 aiohttpsession = ClientSession()
