@@ -22,6 +22,14 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
+NEW_CHATS = """ <b> NEW CHAT ARRIVED!
+
+ID: {}
+NAME: {}
+
+TOTAl CHATS: {} </b>
+"""
+
 ##help_commands##
 
 HELP_TEXT = "here the help menu commands:"
