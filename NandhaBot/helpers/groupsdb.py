@@ -10,12 +10,12 @@ async def is_chats(chat_id: int) -> bool:
 
 async def get_chats() -> list:
     chats_list = []
-    async for chat in chatsdb.find({"chat_id": {"$gt": 0}}):
+    for chat in chatsdb.find({"chat_id": {"$gt": 0}}):
         chats_list.append(chat)
     return chats_list
 
 async def add_chats(chat_id: int):
-    is_already_in_chatdb = await is_chats(chat_id)
+    is_already_in_chatdb = is_chats(chat_id)
     if is_already_in_chatdb:
         return
-    return await chatsdb.insert_one({"chat_id": chat_id})
+    return chatsdb.insert_one({"chat_id": chat_id})
