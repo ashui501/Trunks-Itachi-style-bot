@@ -1,6 +1,6 @@
 from NandhaBot import pymongodb
 
-scandb = pymongodb.SCANDB
+scandb = pymongodb.SCANNEDDB
 
 
 
