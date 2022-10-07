@@ -10,3 +10,8 @@ async def add_scan_user_details(user_id, reason, proof):
                      "proof": proof}
           return details.insert_one({user_id: details})
 
+async def get_scan_user_details(user_id):
+         user_details = []
+         for scan_user in scandb.find()
+              return user_details.append(scan_user[user_id])
+         return user_details
