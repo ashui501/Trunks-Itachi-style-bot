@@ -12,5 +12,7 @@ async def add_scan_user_details(user_id: str, reason, proof):
 
 
 async def get_scan_user_details(user_id: str):
-    user = scandb.find_one({"user_id":  user_id})
-    return user[user_id]
+    users_list = []
+    async for user in usersdb.find({user_id: {"$gt": 0}}):
+        users_list.append(user)
+    return users_list
