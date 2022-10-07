@@ -133,7 +133,7 @@ async def setgrouptitle(_, message):
           except AttributeError:
                 await msg.edit("`The user most need group change admin rights to change group title.`")   
     elif len(message.command) >1:
-         try:
+        try:
             title = message.text.split(None, 1)[1]
             admin_check = await bot.get_chat_member(chat_id, user_id)
             if admin_check.privileges.can_change_info:
@@ -142,3 +142,7 @@ async def setgrouptitle(_, message):
          except AttributeError:
                await msg.edit("`The user most need group change admin rights to change group title.`")
           
+
+    else:
+       await msg.edit("`you need reply to text or give some text to change group title`")
+
