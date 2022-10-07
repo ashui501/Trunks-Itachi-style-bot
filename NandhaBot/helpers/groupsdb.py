@@ -3,7 +3,7 @@ from NandhaBot import pymongodb
 chatsdb = pymongodb.GROUPSDB
 
 async def is_chats(chat_id: int) -> bool:
-    chat = await chatsdb.find_one({"chat_id": chat_id})
+    chat = chatsdb.find_one({"chat_id": chat_id})
     if not chat:
         return False
     return True
