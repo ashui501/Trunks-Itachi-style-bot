@@ -132,7 +132,7 @@ async def setgrouptitle(_, message):
                await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
          except Exception as e:
                await msg.edit("`The user most need group change admin rights to change group title.`")
-    elif reply:
+    else:
           try:
             title = message.reply_to_message.text
             if admin_check.privileges.can_change_info:
