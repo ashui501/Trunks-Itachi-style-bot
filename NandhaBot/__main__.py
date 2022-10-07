@@ -26,7 +26,7 @@ async def start(_, message):
            await add_user(info.id)
            user_count = len(await get_users())                                                                                     
            await message.reply_photo(photo=random.choice(media.TRUNKS), caption=strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
-           await bot.send_photo(config.GROUP_ID,photo=random.choice(media.TRUNKS),caption=text.NEW_USERS.format(info.id, info.mention, user_count))
+           await bot.send_photo(config.GROUP_ID,photo=random.choice(media.TRUNKS),caption=strings.NEW_USERS.format(info.id, info.mention, user_count))
        elif message.chat.type == ChatType.PRIVATE and await is_user(info.id):  
             return await message.reply_photo(photo=random.choice(media.TRUNKS), caption=strings.PM_START_TEXT.format(info.mention),reply_markup=InlineKeyboardMarkup(BUTTONS))                                         
        elif not message.chat.type == ChatType.PRIVATE:                                           
