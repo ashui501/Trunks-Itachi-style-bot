@@ -1,7 +1,7 @@
 import config
 
 from pyrogram import filters , Client
-from pymongo import MongoClient
+from motor.motor_asyncio import AsyncIOMotorClient as MongoClient
 from aiohttp import ClientSession
 import logging
 import time
