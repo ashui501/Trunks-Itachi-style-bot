@@ -26,7 +26,7 @@ async def admins(_, message):
         await message.reply_text(admin_list+bot_list)
 
 
-@bot.on_message(filters.command(["removephoto","deletephoto",],config.COMMANDS))
+@bot.on_message(filters.command("removephoto",config.COMMANDS))
 async def deletechatphoto(_, message):
       
       chat_id = message.chat.id
@@ -46,7 +46,7 @@ async def deletechatphoto(_, message):
 
 
 
-@bot.on_message(filters.command("setphoto"))
+@bot.on_message(filters.command("setphoto",config.COMMANDS))
 async def setchatphoto(_, message):
       reply = message.reply_to_message
       chat_id = message.chat.id
@@ -73,7 +73,7 @@ async def setchatphoto(_, message):
 
 
 
-@bot.on_message(filters.command(["purge","deletes"]),config.COMMANDS)
+@bot.on_message(filters.command("purge"),config.COMMANDS)
 async def purge(_, message):
       chat_id = message.chat.id
       user_id = message.from_user.id
@@ -115,7 +115,7 @@ async def purge(_, message):
                   await msg.edit("`you most need delete admin rights to purge messages!`")
             
 
-@bot.on_message(filters.command(["setgrouptitle","setchattitle"],config.COMMANDS))
+@bot.on_message(filters.command("settitle",config.COMMANDS))
 async def setgrouptitle(_, message):
     reply = message.reply_to_message
     chat_id = message.chat_id
