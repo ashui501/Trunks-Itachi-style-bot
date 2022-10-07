@@ -1,3 +1,6 @@
+import config
+import strings
+
 from pyrogram import Client, filters
 from pyrogram.types import (
 InlineKeyboardMarkup,
@@ -6,12 +9,19 @@ CallbackQuery,
 ChatPermissions
 )
 
+from NandhaBot.helpers.groupsdb import (
+add_chats, get_chats, is_chats)
+
 from NandhaBot import bot
 
 @bot.on_message(filters.new_chat_members)
 async def res(client, message):
      for member in message.new_chat_members:
         is_bot = member.is_bot
+        if (await is_chats(message.chat.id) == False:
+               await add_chats(message.chat.id)
+               chats_count = len(await get_chats())
+               await bot.send_message(config.GROUP_ID, text=strings.NEW_CHATS.format(message.chat.id, message.chat.title, chats_count))
         if is_bot == True:
              try:
                 await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
@@ -20,7 +30,7 @@ async def res(client, message):
                 await message.reply_text("BOT ARRIVED ON CHAT",reply_markup=key)
              except Exception as e:
                     await message.reply_text(str(e))
-        else:
+        elif is_bot == False:
                try:
                    await bot.restrict_chat_member(message.chat.id, member.id, ChatPermissions(can_send_messages=False))
                    key = InlineKeyboardMarkup([[InlineKeyboardButton("I'm a human", callback_data=f"unres:{member.id}")]])
