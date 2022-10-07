@@ -118,9 +118,11 @@ async def purge(_, message):
 @bot.on_message(filters.command("settitle",config.COMMANDS))
 async def setgrouptitle(_, message):
     reply = message.reply_to_message
-    chat_id = message.chat_id
+    chat_id = message.chat.id
     user_id = message.from_user.id
     msg = await message.reply_text("processing...")
+    if message.chat.type == enums.ChatType.PRIVATE:
+          await msg.edit("This command work on groups!")
     try:
          title = message.text.split(None, 1)[1]
          admin_check = await bot.get_chat_member(chat_id, user_id)
