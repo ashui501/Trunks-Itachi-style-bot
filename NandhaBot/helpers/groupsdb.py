@@ -1,13 +1,13 @@
 from NandhaBot import pymongodb
 
-chatsdb = pymongodb.GROUPSDB
+chatsdb = pymongodb.CHATSDB
 
 
 
 
 async def get_chats():
     chats_list = []
-    for chats in groupsdb.find():
+    for chats in chatsdb.find():
         chats_list.append(chats["chat_id"])
     return chats_list
 
