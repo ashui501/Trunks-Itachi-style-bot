@@ -1,6 +1,6 @@
 from NandhaBot import mongodb
 
-chatsdb = mongodb.groupsdb
+chatsdb = mongodb.GROUPSDB
 
 async def is_chats(chat_id: int) -> bool:
     chat = await chatsdb.find_one({"chat_id": chat_id})
