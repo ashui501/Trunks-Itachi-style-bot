@@ -13,5 +13,5 @@ async def add_scan_user_details(user_id, reason, proof):
 async def get_scan_user_details(user_id):
          user_details = []
          scan_user = scandb.find_one()
-              user_details.append(scan_user[str(user_id)])
+         user_details.append(scan_user[str(user_id)])
          return user_details
