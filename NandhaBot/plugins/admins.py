@@ -73,7 +73,7 @@ async def setchatphoto(_, message):
 
 
 
-@bot.on_message(filters.command("purge"),config.COMMANDS))
+@bot.on_message(filters.command("purge",config.COMMANDS))
 async def purge(_, message):
       chat_id = message.chat.id
       user_id = message.from_user.id
@@ -81,7 +81,7 @@ async def purge(_, message):
       
       msg = await message.reply_text("purge processing....")
       if not reply:
-             await msg.edit("reply to message")
+             await msg.edit("reply to message.")
       elif message.chat.type == enums.ChatType.PRIVATE:
          try:
             reply_message_id = reply.id
