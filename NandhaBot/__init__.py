@@ -1,7 +1,7 @@
 import config
 
 from pyrogram import filters , Client
-from pymongo MongoClient
+from pymongo import MongoClient
 from aiohttp import ClientSession
 import logging
 import time
