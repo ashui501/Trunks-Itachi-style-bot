@@ -73,7 +73,7 @@ async def setchatphoto(_, message):
 
 
 
-@bot.on_message(filters.command("purge"),config.COMMANDS)
+@bot.on_message(filters.command("purge"),config.COMMANDS))
 async def purge(_, message):
       chat_id = message.chat.id
       user_id = message.from_user.id
