@@ -10,7 +10,7 @@ async def is_chats(chat_id: int) -> bool:
 
 async def get_chats() -> list:
     chats_list = []
-    async for chat in chatssdb.find({"chat_id": {"$gt": 0}}):
+    async for chat in chatsdb.find({"chat_id": {"$gt": 0}}):
         chats_list.append(chat)
     return chats_list
 
