@@ -123,7 +123,15 @@ async def setgrouptitle(_, message):
     msg = await message.reply_text("processing...")
     if message.chat.type == enums.ChatType.PRIVATE:
           await msg.edit("This command work on groups!")
-    elif len(message.command) >2:
+    elif reply:
+          try:
+            title = message.reply_to_message.text
+            if admin_check.privileges.can_change_info:
+               await message.chat.set_title(title)
+               await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
+          except Exception as e:
+                await msg.edit("`The user most need group change admin rights to change group title.`")   
+    elif len(message.command) >1:
          try:
             title = message.text.split(None, 1)[1]
             admin_check = await bot.get_chat_member(chat_id, user_id)
@@ -132,14 +140,4 @@ async def setgrouptitle(_, message):
                await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
          except Exception as e:
                await msg.edit("`The user most need group change admin rights to change group title.`")
-    else:
-          try:
-            title = message.reply_to_message.text
-            if admin_check.privileges.can_change_info:
-               await message.chat.set_title(title)
-               await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
-          except Exception as e:
-                await msg.edit("`The user most need group change admin rights to change group title.`")
-
-
-    
+          
