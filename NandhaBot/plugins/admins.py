@@ -139,7 +139,7 @@ async def setgrouptitle(_, message):
             if admin_check.privileges.can_change_info:
                await message.chat.set_title(title)
                await msg.edit("Successfully New Group name insert! By {}".format(message.from_user.mention))
-         except AttributeError:
+        except AttributeError:
                await msg.edit("`The user most need group change admin rights to change group title.`")
           
 
