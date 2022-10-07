@@ -22,12 +22,12 @@ UNAME: {}
 TOTAl USERS: {} </b>
 """
 
-NEW_CHATS = """ <b> NEW CHAT ARRIVED!
+NEW_CHATS = """ <b> 𝗡𝗘𝗪 𝗖𝗛𝗔𝗧 𝗔𝗥𝗥𝗜𝗩𝗘𝗗!
 
-ID: {}
-NAME: {}
+𝗜𝗗: `{}`
+𝗡𝗔𝗠𝗘: {}
 
-TOTAl CHATS: {} </b>
+𝗧𝗢𝗧𝗔𝗹 𝗖𝗛𝗔𝗧𝗦:`{}` </b>
 """
 
 ##help_commands##
