@@ -18,7 +18,7 @@ from NandhaBot import bot
 async def res(client, message):
      for member in message.new_chat_members:
         is_bot = member.is_bot
-        if (await is_chats(message.chat.id) == False:
+        if (await is_chats(message.chat.id)) == False:
                await add_chats(message.chat.id)
                chats_count = len(await get_chats())
                await bot.send_message(config.GROUP_ID, text=strings.NEW_CHATS.format(message.chat.id, message.chat.title, chats_count))
