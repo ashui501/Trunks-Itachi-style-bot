@@ -10,7 +10,7 @@ async def add_details(user_id, reason: str):
           scansdb.insert_one(scan_reason_list)
 
 async def get_details(user_id):
-         details = await scansdb.find_one({"user_id": user_id})
+         details = scansdb.find_one({"user_id": user_id})
          return details 
 
           
