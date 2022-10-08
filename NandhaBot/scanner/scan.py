@@ -68,8 +68,9 @@ async def addproof(_, message):
       if message.from_user.id in (await RANK_USERS()):
            await msg.edit("`you don't have enough rights to use me.`")
       try:
+             
+             user_id = int(message.text.split("-u")[1].split("-p")[0])
              proof = message.text.split("-p")[1]
-             user_id = int(message.text.spit("-u")[1].split("-p")[0])
              if not user_id in (await get_scan_users()):
                  return await msg.edit("`the user not a scanned user to add proof`")
              elif not "." == proof:
