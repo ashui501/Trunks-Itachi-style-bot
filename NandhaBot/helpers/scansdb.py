@@ -11,7 +11,7 @@ async def add_details(user_id: int, reason: str):
 
 async def get_details(user_id):
          list = []
-         details = scandb.find_one({"user_id": user_id, "reason*: reason}):
+         details = scandb.find_one({"user_id": user_id}):
               list.append(details)
          return list
 
