@@ -12,6 +12,13 @@ async def get_scan_user(user_id: int):
          details = scansdb.find_one({"_id": user_id})
          return details
 
+
+async def update_scan_proof(user_id: int, proof: str):
+       scansdb.update_one({"user_id": user_id}, {"$set":{"proof":proof}})
+
+async def update_scan_reason(user_id: int, reason: str):
+       scansdb.update_one({"user_id": user_id}, {"$set":{"reason": reason}})
+
 async def get_scan_users():
       list = []
       for user_ids in scansdb.find():
