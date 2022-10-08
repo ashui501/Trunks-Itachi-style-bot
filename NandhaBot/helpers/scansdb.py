@@ -13,5 +13,5 @@ async def get_details(user_id: int):
          return details
 
 async def get_scan_users():
-      for user_ids in scans.find():
+      for user_ids in scansdb.find():
           return user_ids["_id"]
