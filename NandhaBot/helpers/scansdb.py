@@ -4,7 +4,7 @@ scansdb = pymongodb.SCANNER
 
 
 
-async def add_scan_user(user_id: int, reason: str):
+async def add_scan_user(user_id: int, reason: str, date: int):
                  scan_reason_list = {"_id": user_id, "user_id": user_id, "reason": reason}
                  scansdb.insert_one(scan_reason_list)
 
@@ -13,11 +13,11 @@ async def get_scan_user(user_id: int):
          return details
 
 
-async def update_scan_proof(user_id: int, proof: str):
-       scansdb.update_one({"user_id": user_id}, {"$set":{"proof":proof}})
+async def update_scan_proof(user_id: int, proof: str, date: str):
+       scansdb.update_one({"user_id": user_id}, {"$set":{"proof":proof,"date": date}})
 
-async def update_scan_reason(user_id: int, reason: str):
-       scansdb.update_one({"user_id": user_id}, {"$set":{"reason": reason}})
+async def update_scan_reason(user_id: int, reason: str, date: str):
+       scansdb.update_one({"user_id": user_id}, {"$set":{"reason": reason,"date": date}})
 
 async def get_scan_users():
       list = []
