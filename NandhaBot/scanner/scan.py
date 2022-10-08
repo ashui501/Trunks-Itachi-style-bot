@@ -64,14 +64,15 @@ async def scan(_, message):
 async def addproof(_, message):
       reply = message.reply_to_message
       date = message.date
-      user_id = message.from_user.id
       msg = await message.reply_text("`adding proof...`")
       if message.from_user.id in (await RANK_USERS()):
            await msg.edit("`you don't have enough rights to use me.`")
-      elif reply:
-         try:
-             proof = reply.text
-             if not "." == proof:
+      try:
+             proof = message.text.split("-p")[1]
+             user_id = int(message.text.spit("-u")[1].split("-p")[0])
+             if not user_id in (await get_scan_users()):
+                    await msg.edit("`the user not a scanned user to add proof`")
+             elif not "." == proof:
                  return await msg.edit("`make you sure it's a 1 telegraph url for proof.`")
              await update_proof(user_id,proof,date)
          except Exception as e:
