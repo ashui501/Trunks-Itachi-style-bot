@@ -35,7 +35,7 @@ async def scan(_, message):
             user_id = int(reply.from_user.id)
             reason = message.text.split("-r")[1].split("-p")[0]
             proof = message.text.split("-p")[1]
-            if user_id in (await is_scan_user(user_id)) == True:
+            if (await is_scan_user(user_id)) == True:
                  return await msg.edit("`your trying to scan someone but that user already scanned.`")
             else:
                 await add_scan_user(user_id,reason,proof)
