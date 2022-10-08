@@ -1,19 +1,17 @@
 from NandhaBot import pymongodb
 
-scandb = pymongodb.SCANSDBS
+scansdb = pymongodb.SCANSDBS
 
 
 
 
-async def add_details(user_id: int, reason: str):
+async def add_details(user_id, reason: str):
           scan_reason_list = {"user_id": user_id, "reason": reason}
-          scandb.insert_one(scan_reason_list)
+          scansdb.insert_one(scan_reason_list)
 
 async def get_details(user_id):
-         list = []
-         details = scandb.find_one({"user_id": user_id}):
-              list.append(details)
-         return list
+         details = await scansdb.find_one({"user_id": user_id})
+         return details 
 
           
         
