@@ -15,7 +15,7 @@ async def get_scan_user(user_id: int):
 async def get_scan_users():
       list = []
       for user_ids in scansdb.find():
-          list.append["_id"]
+          list.append(user_ids["_id"])
       return list
 
 async def is_scan_user(user_id: int):
