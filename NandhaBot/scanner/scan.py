@@ -72,7 +72,9 @@ async def addproof(_, message):
              user_id = int(message.text.split("-u")[1].split("-p")[0])
              proof = message.text.split("-p")[1]
              if not user_id in (await get_scan_users()):
-                 return await msg.edit("`the user not a scanned user to add proof`")
+                 return await msg.edit("`this user not a scanned user to add proof.`")
+             elif not "http" == proof:
+                  return await msg.edit("`make you sure proof as a telegraph.`")
              await update_scan_proof(user_id,proof,date)
              await msg.edit("`Successfully proof added!`")   
           except Exception as e:
