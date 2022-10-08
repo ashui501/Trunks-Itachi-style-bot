@@ -37,11 +37,9 @@ async def scan(_, message):
             user_id = int(reply.from_user.id)
             reason = message.text.split("-r")[1]
             mention = f"[{user_id}](tg://user?id={user_id})"
-            
-            
-                await add_scan_user(user_id,reason)
-                await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
-                await msg.edit("`the user successfully scanned!`")
+            await add_scan_user(user_id,reason)
+            await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
+            await msg.edit("`the user successfully scanned!`")
          except Exception as e:
              await msg.edit(str(e))
       
