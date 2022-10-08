@@ -40,10 +40,10 @@ async def scan(_, message):
             if (await is_scan_user(user_id)) == True:
                   await remove_scan_user(user_id)
                   await add_scan_user(user_id, reason)
-                  await bot.send_message(config.CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason))
+                  await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason))
                   await msg.edit("`the user already scanned I have updated the details!`")
             else:
-                await add_scan_user(user_id,reason)
+                await add_scan_user(user_id, reason)
                 await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason))
                 await msg.edit("`the user successfully scanned!`")
          except Exception as e:
