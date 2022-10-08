@@ -10,7 +10,7 @@ async def add_details(user_id: int, reason: str, proof: str):
 
 async def get_details(user_id: int):
          details = scansdb.find_one({"_id": user_id})
-         return details 
+         return details["_id"]
 
           
         
