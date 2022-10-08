@@ -99,7 +99,7 @@ async def check(_, message):
             return await message.reply_text("`use a correct format for check user.`")
        else:
          try:
-             user_id = int(message.text.split("-u")
+             user_id = int(message.text.split("-u"))
              if (await is_scan_user(user_id)) == False:
                   return await message.reply_text("`This user not scanned.`")
              else:
