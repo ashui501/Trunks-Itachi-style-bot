@@ -4,7 +4,7 @@ scansdb = pymongodb.SCANSDBS
 
 
 
-aync def add_details(user_id: int, reason: str):
+async def add_details(user_id: int, reason: str):
                  scan_reason_list = {"_id": user_id, "user_id": user_id, "reason": reason}
                  scansdb.insert_one(scan_reason_list)
 
