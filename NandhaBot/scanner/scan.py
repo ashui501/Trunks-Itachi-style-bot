@@ -93,15 +93,16 @@ async def addproof(_, message):
 @bot.on_message(filters.command("check",config.COMMANDS))
 async def check(_, message):
        reply = message.reply_to_message
+       msg = await message.reply_text("`checking...`")
        if not message.from_user.id in (await RANK_USERS()):
-            return await message.reply_text("`your don't have enough rights to use me.`")
+            return await msg.edit_text("`your don't have enough rights to use me.`")
        elif len(message.command) <2:
-            return await message.reply_text("`use a correct format for check user.`")
+            return await msg.edit_text("`use a correct format for check user.`")
        else:
          try:
-             user_id = int(message.text.split("-u"))
+             user_id = int(message.text.split("-u")[1])
              if (await is_scan_user(user_id)) == False:
-                  return await message.reply_text("`This user not scanned.`")
+                  return await msg.edit_text("`This user not scanned.`")
              else:
                  details = await get_scan_user(user_id)
                  user_id = details["user_id"]
@@ -113,4 +114,4 @@ async def check(_, message):
                       caption=CHECK_TEXT.format(user_id,reason,date))
               
          except Exception as e:
-             await message.reply_text(str(e))
+             await msg.edit_text(str(e))
