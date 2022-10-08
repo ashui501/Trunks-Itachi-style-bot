@@ -90,7 +90,7 @@ async def addproof(_, message):
           except Exception as e:
               await msg.edit(str(e))
 
-@bot.on_message(filters.commamd("check",config.COMMANDS))
+@bot.on_message(filters.command("check",config.COMMANDS))
 async def check(_, message):
        reply = message.reply_to_message
        if not message.from_user.id in (await RANK_USERS()):
