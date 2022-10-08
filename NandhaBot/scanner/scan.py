@@ -37,7 +37,10 @@ async def scan(_, message):
             proof = message.text.split("-p")[1]
             mention = f"[{user_id}](tg://user?id={user_id})"
             if (await is_scan_user(user_id)) == True:
-                 return await msg.edit("`your trying to scan someone but that user already scanned.`")
+                  await remove_scan_user(user_id)
+                  await add_scan_user(user_id,reason,proof)
+                  await msg.edit("`the user already scanned I have updated the details!`")
+                  await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
             else:
                 await add_scan_user(user_id,reason,proof)
                 await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
@@ -51,7 +54,10 @@ async def scan(_, message):
                proof = message.text.split("-p")[1]
                mention = f"[{user_id}](tg://user?id={user_id})"
                if (await is_scan_user(user_id)) == True:
-                    return await msg.edit("`your trying to scan someone but that user already scanned.`")
+                  await remove_scan_user(user_id)
+                  await add_scan_user(user_id,reason,proof)
+                  await msg.edit("`the user already scanned I have updated the details!`")
+                  await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
                else:
                   await add_scan_user(user_id,reason,proof)
                   await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
