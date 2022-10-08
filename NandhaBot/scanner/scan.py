@@ -5,7 +5,7 @@ from pyrogram import filters
 from NandhaBot import bot
 from NandhaBot.helpers.scansdb import (
 get_scan_users, add_scan_user, get_scan_user,
- is_scan_user, remove_scan_user, update_scan_reason
+ is_scan_user, remove_scan_user, update_scan_reason, update_scan_proof
 )
 
 from NandhaBot.rank import RANK_USERS
@@ -73,7 +73,7 @@ async def addproof(_, message):
              proof = message.text.split("-p")[1]
              if not user_id in (await get_scan_users()):
                  return await msg.edit("`the user not a scanned user to add proof`")
-             await update_proof(user_id,proof,date)
+             await update_scan_proof(user_id,proof,date)
              await msg.edit("`Successfully proof added!`")   
           except Exception as e:
               await msg.edit(str(e))
