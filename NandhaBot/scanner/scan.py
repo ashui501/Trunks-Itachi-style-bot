@@ -102,7 +102,7 @@ async def check(_, message):
             if (await is_scan_user(user_id)) == False:
                   return await message.reply_text("`This user not scanned.`")
             else:
-                details = awist get_scan_user(user_id)
+                details = await get_scan_user(user_id)
                 user_id = details["user_id"]
                 reason = details["reason"]
                 date = details["date"]
