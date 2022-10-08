@@ -41,6 +41,8 @@ async def scan(_, message):
                 await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
                 await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(reply.from_user.mention, reason, proof))
 
+         except Exception as e:
+             await msg.edit(str(e))
 
 
 
