@@ -75,7 +75,7 @@ async def addproof(_, message):
              elif not "." == proof:
                  return await msg.edit("`make you sure it's a 1 telegraph url for proof.`")
              await update_proof(user_id,proof,date)
+             await msg.edit("`Successfully proof added!`")
          except Exception as e:
-              await msg.edit("`Successfully proof added!`")
-         
-         
+              await msg.edit(str(e))
+              
