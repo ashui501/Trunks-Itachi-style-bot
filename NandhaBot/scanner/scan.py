@@ -37,7 +37,7 @@ async def scan(_, message):
                   await remove_scan_user(user_id)
                   await add_scan_user(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
-                  await msg.edit("`the user already scanned.`\n`I have updated the details!`")
+                  await msg.edit("`the user already scanned.\nI have updated the details!`")
             else:
                   await add_scan_user(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
@@ -53,7 +53,7 @@ async def scan(_, message):
                   await remove_scan_user(user_id)
                   await add_scan_user(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
-                  await msg.edit("`the user already scanned.`\n`I have updated the details!`")
+                  await msg.edit("`the user already scanned.\nI have updated the details!`")
                else:
                   await add_scan_user(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))  
