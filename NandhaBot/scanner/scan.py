@@ -35,16 +35,30 @@ async def scan(_, message):
             user_id = int(reply.from_user.id)
             reason = message.text.split("-r")[1].split("-p")[0]
             proof = message.text.split("-p")[1]
+            mention = f"[{user_id}](tg://user?id={user_id})"
             if (await is_scan_user(user_id)) == True:
                  return await msg.edit("`your trying to scan someone but that user already scanned.`")
             else:
                 await add_scan_user(user_id,reason,proof)
                 await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
-                await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(reply.from_user.mention, reason, proof))
+                await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
 
          except Exception as e:
              await msg.edit(str(e))
+      elif not reply:
+            try:
+               user_id = int(message.text.split("-u")[1].split("-r")[0])
+               reason = message.text.split("-r")[1].split("-p")[0]
+               proof = message.text.split("-p")[1]
+               mention = f"[{user_id}](tg://user?id={user_id})"
+               if (await is_scan_user(user_id)) == True:
+                    return await msg.edit("`your trying to scan someone but that user already scanned.`")
+               else:
+                  await add_scan_user(user_id,reason,proof)
+                  await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
+                  await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
 
+               
 
 
          
