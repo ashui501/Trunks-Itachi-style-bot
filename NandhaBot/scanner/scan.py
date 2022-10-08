@@ -10,15 +10,16 @@ get_scan_users, add_scan_user, get_scan_user,
 
 from NandhaBot.rank import RANK_USERS
 
+
 SCAN_TEXT = """
-the user: {}
+which date this 
+scan process: {}
 
-details:
+scanned user: {}
+reason: {}
 
-the reason why were scan: 
-{}
-
-the proof for screenshots:
+some telegraph 
+links for proof:
 {}
 """
 
@@ -43,8 +44,8 @@ async def scan(_, message):
                   await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
             else:
                 await add_scan_user(user_id,reason,proof)
-                await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
-                await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
+                await msg.edit("`the user successfully scanned!`")
+                await bot.send_message(config.LOG_GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
          except Exception as e:
              await msg.edit(str(e))
       elif not reply:
@@ -60,8 +61,8 @@ async def scan(_, message):
                   await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
                else:
                   await add_scan_user(user_id,reason,proof)
-                  await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
-                  await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))              
+                  await msg.edit("`the user successfully scanned!`")
+                  await bot.send_message(config.LOG_GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))              
             except Exception as e:
                await msg.edit(str(e))
 
