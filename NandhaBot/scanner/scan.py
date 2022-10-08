@@ -42,7 +42,6 @@ async def scan(_, message):
                 await add_scan_user(user_id,reason,proof)
                 await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
                 await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
-
          except Exception as e:
              await msg.edit(str(e))
       elif not reply:
@@ -56,9 +55,9 @@ async def scan(_, message):
                else:
                   await add_scan_user(user_id,reason,proof)
                   await msg.edit("the user successfully 𝗦𝗖𝗔𝗡𝗡𝗘𝗗!")
-                  await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))
-
-               
+                  await bot.send_message(config.GROUP_ID, text=SCAN_TEXT.format(mention, reason, proof))              
+            except Exception as e:
+               await msg.edit(str(e))
 
 
          
