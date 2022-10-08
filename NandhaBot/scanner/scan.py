@@ -28,8 +28,8 @@ async def scan(_, message):
       msg = await message.reply_text("`scanning....`")
       if not message.from_user.id in (await RANK_USERS()):
           return await msg.edit("`you don't enough rights to use me.`")
-      elif reply or not reply and len(message.command) <2:
-          return await msg.edit("`you need to use correct /formatting scanning someone else.`")
+      elif len(message.command) <2:
+          return await msg.edit("`you need to use correct `/formatting` for scanning someone else.`")
       elif reply and len(message.command) >2:
          try:
             user_id = reply.from_user.id
