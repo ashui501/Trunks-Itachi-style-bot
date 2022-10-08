@@ -33,18 +33,17 @@ async def scan(_, message):
           return await msg.edit("`you need to use correct `/formatting` for scanning someone else.`")
       elif reply:
          try:
-            user_id = int(reply.from_user.id)
-            reason = message.text.split("-r")[1].split("-p")[0]
-            proof = message.text.split("-p")[1]
+            user_id = int(message.text.split("-u")[1].split("-r")[0])
+            reason = message.text.split("-r")[1]
             mention = f"[{user_id}](tg://user?id={user_id})"
             date = message.date
             if (await is_scan_user(user_id)) == True:
                   await remove_scan_user(user_id)
-                  await add_scan_user(user_id, reason, proof)
+                  await add_scan_user(user_id, reason)
                   await bot.send_message(config.CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason, proof))
                   await msg.edit("`the user already scanned I have updated the details!`")
             else:
-                await add_scan_user(user_id,reason,proof)
+                await add_scan_user(user_id,reason)
                 await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason, proof))
                 await msg.edit("`the user successfully scanned!`")
          except Exception as e:
@@ -52,17 +51,16 @@ async def scan(_, message):
       elif not reply:
             try:
                user_id = int(message.text.split("-u")[1].split("-r")[0])
-               reason = message.text.split("-r")[1].split("-p")[0]
-               proof = message.text.split("-p")[1]
+               reason = message.text.split("-r")[1]
                mention = f"[{user_id}](tg://user?id={user_id})"
                date = message.date
                if (await is_scan_user(user_id)) == True:
                   await remove_scan_user(user_id)
-                  await add_scan_user(user_id, reason, proof)
+                  await add_scan_user(user_id, reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason, proof))
                   await msg.edit("`the user already scanned I have updated the details!`")
                else:
-                  await add_scan_user(user_id,reason,proof)
+                  await add_scan_user(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date, mention, reason, proof))  
                   await msg.edit("`the user successfully scanned!`")            
             except Exception as e:
