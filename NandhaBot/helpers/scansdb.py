@@ -5,7 +5,7 @@ scansdb = pymongodb.SCANNER
 
 
 async def add_scan_user(user_id: int, reason: str):
-                 scan_reason_list = {"_id": user_id, "user_id": user_id, "reason": reason, "proof: "something"}
+                 scan_reason_list = {"_id": user_id, "user_id": user_id, "reason": reason, "proof": "something"}
                  scansdb.insert_one(scan_reason_list)
 
 async def get_scan_user(user_id: int):
