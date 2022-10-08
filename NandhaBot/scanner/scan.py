@@ -49,22 +49,7 @@ async def scan(_, message):
                 await msg.edit("`the user successfully scanned!`")
          except Exception as e:
              await msg.edit(str(e))
-      elif not reply:
-            try:
-               user_id = int(message.text.split("-u")[1].split("-r")[0])
-               reason = message.text.split("-r")[1]
-               mention = f"[{user_id}](tg://user?id={user_id})"
-               if (await is_scan_user(user_id)) == True:
-                  await remove_scan_user(user_id)
-                  await add_scan_user(user_id,reason)
-                  await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
-                  await msg.edit("`the user already scanned.`\n`I have updated the details!`")
-               else:
-                  await add_scan_user(user_id,reason)
-                  await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))  
-                  await msg.edit("`the user successfully scanned!`")            
-            except Exception as e:
-               await msg.edit(str(e))
+      
 
 
          
