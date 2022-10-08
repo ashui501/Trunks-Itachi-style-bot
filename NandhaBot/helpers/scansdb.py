@@ -25,5 +25,5 @@ async def is_scan_user(user_id: int):
       return True
 
 async def remove_scan_user(user_id: int):
-   scan_user = scansdb.find_one({"_id": message.from_user.id})
+   scan_user = scansdb.find_one({"_id": user_id})
    scansdb.delete_one(scan_user)
