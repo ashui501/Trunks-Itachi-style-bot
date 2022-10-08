@@ -26,6 +26,9 @@ scanned id: {}
 the reason for scan: 
 {}
 
+some proofs:
+{}
+
 scanned date: {}
 """
 @bot.on_message(filters.command("scan",config.COMMANDS))
@@ -109,9 +112,8 @@ async def check(_, message):
                  reason = details["reason"]
                  date = details["date"]
                  proof = details["proof"]
-                 await bot.send_document(message.chat.id, 
-                      document=proof,
-                      caption=CHECK_TEXT.format(user_id,reason,date))
+                 await bot.send_message(message.chat.id, 
+                 text=CHECK_TEXT.format(user_id,reason,proof,date),disable_web_page_preview=True)
               
          except Exception as e:
              await msg.edit_text(str(e))
