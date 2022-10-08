@@ -13,8 +13,8 @@ async def get_details(user_id: int):
          return details
          
 
-async def update_details(user_id: int, reason: str, proof: str):
+async def update_reason(user_id: int, reason: str):
         details = await get_details(user_id)
-        scan_reason_list = {"_id": user_id, "user_id": user_id, "reason": reason, "proof": proof}
-        details = scansdb.update_one(details, scan_reason_list)
-        return "`Successfully Updated Reasons.`"
+        new_reason = {"reason": reason}
+        details = scansdb.update_one(details, new_reason)
+        return "`Successfully Updated Reason.`"
