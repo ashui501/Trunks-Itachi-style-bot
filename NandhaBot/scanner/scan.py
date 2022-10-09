@@ -82,14 +82,15 @@ async def addproof(_, message):
            return await msg.edit("`you don't have enough rights to use me.`")
       elif len(message.command) <2:
            return await msg.edit("`use a correct format for add proof.`")
-      else:  
+      elif not reply.media:  
+            return await msg.edit("`reply to media for save proofs.`")
+      else:
           try:           
-             user_id = int(message.text.split("-u")[1].split("-p")[0])
-             proof = message.text.split("-p")[1]
+             user_id = int(message.text.split("-u")[1]
              if not user_id in (await get_scan_users()):
                  return await msg.edit("`this user not a scanned user to add proof.`")
 
-             await update_scan_proof(user_id,proof,date)
+             await update_scan_proof(user_id, message)
              await msg.edit("`Successfully proof added!`")   
           except Exception as e:
               await msg.edit(str(e))
