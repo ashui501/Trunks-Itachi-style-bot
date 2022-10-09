@@ -27,9 +27,6 @@ CHECK_TEXT = """
 **REASON**: 
 `{}`
 
-**PROOFS**:
-`{}`
-
 **SCAN DATE**: `{}`
 """
 @bot.on_message(filters.command("scan",config.COMMANDS))
@@ -115,8 +112,8 @@ async def check(_, message):
                  date = details["date"]
                  proof = details["proof"]
                  await bot.send_message(message.chat.id, 
-                 text=CHECK_TEXT.format(user_id,reason,proof,date),
-                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝗚𝗘𝗧 𝗣𝗥𝗢𝗢𝗙",callback_data=f"getproof:{user_id}"]]),disable_web_page_preview=True)
+                 text=CHECK_TEXT.format(user_id,reason,date),
+                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝗚𝗘𝗧 𝗣𝗥𝗢𝗢𝗙",callback_data=f"getproof:{user_id}"),]]),disable_web_page_preview=True)
                  await msg.delete()
          except Exception as e:
              await msg.edit_text(str(e))
