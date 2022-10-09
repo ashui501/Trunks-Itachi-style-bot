@@ -13,15 +13,12 @@ async def get_scan_user(user_id: int):
          details = scansdb.find_one({"_id": user_id})
          return details
 
-async def addproof(user_id: int, message):
+async def update_scan_proof(user_id: int, message):
         path = await message.reply_to_message.download()
         telegraph = upload_file(path)
         for file_id in telegraph:
            url = "https://telegra.ph" + file_id
         scansdb.update_one({"user_id": user_id}, {"$set":{"proof":url}})
-
-async def update_scan_proof(user_id: int, proof: str, date: str):
-       scansdb.update_one({"user_id": user_id}, {"$set":{"proof":proof,"date": date}})
 
 async def update_scan_reason(user_id: int, reason: str, date: str):
        scansdb.update_one({"user_id": user_id}, {"$set":{"reason": reason,"date": date}})
