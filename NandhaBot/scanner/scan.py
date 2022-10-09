@@ -86,7 +86,7 @@ async def addproof(_, message):
             return await msg.edit("`reply to media for save proofs.`")
       else:
           try:           
-             user_id = int(message.text.split("-u")[1]
+             user_id = int(message.text.split("-u")[1])
              if not user_id in (await get_scan_users()):
                  return await msg.edit("`this user not a scanned user to add proof.`")
 
