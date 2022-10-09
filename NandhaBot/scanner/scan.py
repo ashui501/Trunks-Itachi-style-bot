@@ -47,7 +47,7 @@ async def scan(_, message):
             reason = message.text.split("-r")[1]
             mention = f"[{user_id}](tg://user?id={user_id})"
             if (await is_scan_user(user_id)) == True:
-                  await update_scan_reason(user_id,reason,date)
+                  await update_scan_reason(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
                   await msg.edit("`the user already scanned.\nI have updated the details!`")
             else:
@@ -62,7 +62,7 @@ async def scan(_, message):
                reason = message.text.split("-r")[1]
                mention = f"[{user_id}](tg://user?id={user_id})"
                if (await is_scan_user(user_id)) == True:
-                  await update_scan_reason(user_id,reason,date)
+                  await update_scan_reason(user_id,reason)
                   await bot.send_message(config.LOG_CHANNEL_ID, text=SCAN_TEXT.format(date,mention,reason))
                   await msg.edit("`the user already scanned.\nI have updated the details!`")
                else:
