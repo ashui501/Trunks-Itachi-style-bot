@@ -115,7 +115,31 @@ async def check(_, message):
                  date = details["date"]
                  proof = details["proof"]
                  await bot.send_message(message.chat.id, 
-                 text=CHECK_TEXT.format(user_id,reason,proof,date),disable_web_page_preview=True)
+                 text=CHECK_TEXT.format(user_id,reason,proof,date),
+                 reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("𝗚𝗘𝗧 𝗣𝗥𝗢𝗢𝗙",callback_data=f"getproof:{user_id}"]]),disable_web_page_preview=True)
                  await msg.delete()
          except Exception as e:
              await msg.edit_text(str(e))
+
+
+@bot.on_callback_query(filters.regex("getproof"))
+async def getproof(_, query):
+     user_id = int(query.data.split(":")[1])
+     if not query.from_user.id in (await RANK_USERS()):
+         await query.answer("you don't have enough rights to use me.", show_alert=True)
+     else:
+        try:
+           details = await get_scan_user(user_id)
+           proof = details["proof"]
+           await query.message.reply_document(query.message.chat.id, document=proof, caption=f"userID: `{user_id}`")
+        except Exception as e:
+               await query.message.reply_text(str(e))
+            
+
+
+
+
+
+
+
+
