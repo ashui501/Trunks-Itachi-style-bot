@@ -129,7 +129,8 @@ async def getproof(_, query):
         try:
            details = await get_scan_user(user_id)
            proof = details["proof"]
-           await query.message.reply_document(document=proof, caption=f"userID: `{user_id}`")
+           await query.message.reply_document(document=proof, caption=f"date: `{user_id}`")
+           await query.message.edit_reply_markup(reply_markup=None)
         except Exception as e:
                await query.message.reply_text(str(e))
             
