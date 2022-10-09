@@ -2,6 +2,7 @@ import config
 
 
 from pyrogram import filters
+from pyrogram.types import *
 from NandhaBot import bot
 from NandhaBot.helpers.scansdb import (
 get_scan_users, add_scan_user, get_scan_user,
