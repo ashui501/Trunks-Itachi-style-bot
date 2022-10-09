@@ -82,7 +82,7 @@ async def addproof(_, message):
            return await msg.edit("`you don't have enough rights to use me.`")
       elif len(message.command) <2:
            return await msg.edit("`use a correct format for add proof.`")
-      elif not reply and not reply.media:  
+      elif not reply or not reply.media:  
             return await msg.edit("`reply to media for save proofs.`")
       elif reply:
           try:           
