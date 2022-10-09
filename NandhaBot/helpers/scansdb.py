@@ -14,7 +14,7 @@ async def get_scan_user(user_id: int):
          return details
 
 async def addproof(user_id: int, message):
-        path = message.reply_to_message.download()
+        path = await message.reply_to_message.download()
         telegraph = upload_file(path)
         for file_id in telegraph:
            url = "https://telegra.ph" + file_id
