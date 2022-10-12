@@ -11,10 +11,10 @@ from NandhaBot.helpers.userdb import add_user, is_user, get_users
        
 
        
-BUTTONS = [[ InlineKeyboardButton(text="𝗚𝗥𝗢𝗨𝗣", url=config.GROUP_URL),
-             InlineKeyboardButton(text="𝗖𝗛𝗔𝗡𝗡𝗘𝗟", url=config.CHANNEL_URL),],[
-             InlineKeyboardButton(text="𝗔𝗗𝗗 𝗠𝗘", url="t.me/TrunksRobot?startgroup=true"),
-             InlineKeyboardButton(text="𝗔𝗕𝗢𝗨𝗧 𝗠𝗘", callback_data="about"),]]
+BUTTONS = [[ InlineKeyboardButton(text="📬", url=config.GROUP_URL),
+             InlineKeyboardButton(text="🔊", url=config.CHANNEL_URL),],[
+             InlineKeyboardButton(text="➕", url=f"t.me/{config.USERNAME}?startgroup=true"),
+             InlineKeyboardButton(text="COMMANDS !", callback_data="about"),]]
             
 @bot.on_message(filters.command("start",config.COMMANDS))
 async def start(_, message):
