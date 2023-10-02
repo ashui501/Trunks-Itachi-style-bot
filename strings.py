@@ -1,4 +1,4 @@
-PM_START_TEXT = """Happy to See you {}
+PM_START_TEXT = """Happy to See you buddy {}
 
 • Read the help menu for about my futures /help.
 """
